@@ -14,7 +14,6 @@
 <script>
   const requireIcon = require.context("simple-icons/icons/", false, /(instagram|github|twitter|keybase)\.js/);
 
-  console.log(requireIcon.keys());
   export default {
     name: "SocialIcon",
     props: {
