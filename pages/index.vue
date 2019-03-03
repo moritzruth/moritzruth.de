@@ -23,12 +23,12 @@
           </div>
           <div class="projects">
             <div class="horizontally-centered">
-              <h2>pzl</h2>
-              <p>
-                <a href="https://github.com/ctexxx/pzl" rel="noopener">GitHub</a>
-                 |
-                <a href="https://www.npmjs.com/package/@ctexxx/pzl" rel="noopener">NPM</a></p>
-              A pretty zero-configuration console logger
+              <Project
+                title="pzl"
+                :links="{GitHub: 'https://github.com/ctexxx/pzl', NPM: 'https://www.npmjs.com/package/@ctexxx/pzl'}"
+              >
+                A pretty zero-configuration console logger
+              </Project>
             </div>
           </div>
         </div>
@@ -41,10 +41,11 @@
   import Logo from "@/components/Logo";
   import SocialIcon from "@/components/SocialIcon";
   import ScrollDownArrow from "@/components/ScrollDownArrow";
+  import Project from "@/components/Project";
 
   export default {
     name: "index",
-    components: { ScrollDownArrow, SocialIcon, Logo }
+    components: { Project, ScrollDownArrow, SocialIcon, Logo }
   };
 </script>
 
@@ -81,16 +82,6 @@
       }
     }
 
-    h2 {
-      font-size: 35px;
-
-      @include mq($from: tablet) {
-        font-size: 50px;
-      }
-
-      margin-bottom: 10px;
-    }
-
     p {
       font-size: 18px;
 
@@ -102,10 +93,6 @@
     .projects {
       text-align: center;
       margin-top: 100px;
-
-      .horizontally-centered {
-        width: 75%;
-      }
     }
   }
 </style>

@@ -17,6 +17,14 @@ module.exports = {
     ]
   },
 
+  manifest: {
+    name: "ctexxx",
+    author: "Moritz Ruth",
+    mobileAppIOS: false,
+    nativeUI: true,
+    "short_name": "ctexxx"
+  },
+
   /*
   ** Customize the progress-bar color
   */
