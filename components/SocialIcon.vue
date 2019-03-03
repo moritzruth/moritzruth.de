@@ -12,6 +12,9 @@
 </template>
 
 <script>
+  const requireIcon = require.context("simple-icons/icons/", false, /(instagram|github|twitter|keybase)\.js/);
+
+  console.log(requireIcon.keys());
   export default {
     name: "SocialIcon",
     props: {
@@ -25,7 +28,7 @@
     },
     data() {
       return {
-        simpleIcon: require(`simple-icons/icons/${this.icon}`)
+        simpleIcon: requireIcon(`./${this.icon}.js`)
       }
     }
   };
