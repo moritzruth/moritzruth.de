@@ -1,5 +1,5 @@
 <template>
-  <a id="root" rel="noopener" :href="to" target="_blank"
+  <a id="root" rel="noopener" :href="`https://go.ctexxx.dev/${name}`" target="_blank"
      @mouseenter="$store.commit('setLogoText', username)"
      @mouseleave="$store.commit('resetLogoText', username)"
   >
@@ -18,7 +18,7 @@
   export default {
     name: "SocialIcon",
     props: {
-      icon: String,
+      name: String,
       to: String,
       username: String,
       invert: {
@@ -28,7 +28,7 @@
     },
     data() {
       return {
-        simpleIcon: requireIcon(`./${this.icon}.js`)
+        simpleIcon: requireIcon(`./${this.name}.js`)
       }
     }
   };

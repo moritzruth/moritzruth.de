@@ -4,10 +4,10 @@
       <div class="vertically-centered">
         <Logo/>
         <div class="horizontally-centered">
-          <SocialIcon icon="github" to="https://github.com/ctexxx" username="ctexxx" invert/>
-          <SocialIcon icon="twitter" to="https://twitter.com/cte3x" username="cte3x" invert/>
-          <SocialIcon icon="instagram" to="https://instagram.com/cte3x" username="cte3x" invert/>
-          <SocialIcon icon="keybase" to="https://keybase.io/ctexxx" username="cte3x"/>
+          <SocialIcon name="github" username="ctexxx" invert/>
+          <SocialIcon name="twitter" username="cte3x" invert/>
+          <SocialIcon name="instagram" username="cte3x" invert/>
+          <SocialIcon name="keybase" username="ctexxx"/>
         </div>
       </div>
       <ScrollDownArrow to=".section-1" container="#index"/>
