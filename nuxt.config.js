@@ -38,7 +38,8 @@ module.exports = {
   /*
   ** Nuxt.js modules
   */
-  modules: [,
+  modules: [
+    "@nuxtjs/axios",
     '@nuxtjs/pwa'
   ],
 
@@ -54,7 +55,7 @@ module.exports = {
     },
     postcss: [
       require("autoprefixer")({
-        browsers: ["> 5%"]
+        browsers: ["last 5 versions"]
       })
     ]
   }

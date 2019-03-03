@@ -2,8 +2,21 @@ html, body, .full-width, #__nuxt, #__layout {
   width: 100%;
 }
 
+.full-vp-width {
+  width: 100vw;
+}
+
 html, body, .full-height, #__nuxt, #__layout {
   height: 100%;
+}
+
+.full-vp-height {
+  height: 100vh;
+}
+
+div, section {
+  width: inherit;
+  height: inherit;
 }
 
 body {
@@ -21,4 +34,26 @@ body {
 *:after {
   box-sizing: border-box;
   margin: 0;
+}
+
+.vertically-centered-container {
+  display: table;
+}
+
+.vertically-centered {
+  display: table-cell;
+  vertical-align: middle;
+
+  height: fit-content;
+}
+
+.horizontally-centered {
+  margin: 0 auto;
+
+  width: fit-content;
+}
+
+a {
+  color: #25acd7;
+  text-decoration: none;
 }
