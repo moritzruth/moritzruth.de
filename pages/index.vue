@@ -1,5 +1,5 @@
 <template>
-  <div id="index">
+  <main>
     <CtexxxLogo :text="logoText"/>
     <div class="horizontally-centered">
       <SocialIcon
@@ -11,7 +11,7 @@
     <div class="link-section">
       <nuxt-link class="button" to="/projects">My Projects</nuxt-link>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -53,7 +53,7 @@
 <style scoped lang="scss">
   @import "~@/assets/_responsive.scss";
 
-  #index {
+  main {
     height: 100%;
 
     display: flex;

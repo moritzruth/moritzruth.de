@@ -12,6 +12,7 @@ body {
   font-size: 16px;
 
   background-color: $c-background;
+  color: $c-text
 }
 
 *,
@@ -28,6 +29,7 @@ a {
 }
 
 .button {
+  display: inline-block;
   border: 2px solid white;
   width: fit-content;
   padding: 10px;
