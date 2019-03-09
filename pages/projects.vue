@@ -17,7 +17,7 @@
           <a href="https://graph.cool">graph.cool</a>.
         </p>
         <p>
-          Powering <a href="https://go.ctexxx.dev">go.ctexxx.dev</a>
+          Powering <a href="https://go.ctexxx.dev">go.ctexxx.dev</a>.
         </p>
       </CodingProject>
     </div>
