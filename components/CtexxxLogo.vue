@@ -1,5 +1,5 @@
 <template>
-  <div class="full-width">
+  <div>
     <transition name="slide-vertical" mode="out-in">
       <div class="logo" :key="debouncedLogoText">
         <span class="text">{{ debouncedLogoText }}</span>
@@ -14,7 +14,7 @@
 
   const debounceLogoText = _debounce((self, newValue) => {
     self.debouncedLogoText = newValue;
-  }, 200);
+  }, 100);
 
   export default {
     name: "CtexxxLogo",
@@ -39,27 +39,21 @@
 
 <style scoped lang="scss">
   @import "~@/assets/_responsive";
+  @import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates');
 
   .slide-vertical-enter-active {
-    transition: all 0.5s ease-out;
+    transition: all 0.3s ease-out;
   }
 
   .slide-vertical-leave-active {
-    transition: all 0.5s ease-in;
+    transition: all 0.3s ease-in;
   }
 
   .slide-vertical-enter-to {
-    transform: translateY(0);
     opacity: 1;
   }
 
-  .slide-vertical-enter {
-    transform: translateY(-100px);
-    opacity: 0;
-  }
-
-  .slide-vertical-leave-to {
-    transform: translateY(100px);
+  .slide-vertical-enter, .slide-vertical-leave-to {
     opacity: 0;
   }
 

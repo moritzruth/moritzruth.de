@@ -13,7 +13,6 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Montserrat+Alternates|Raleway'}
     ]
   },
 
@@ -22,7 +21,9 @@ module.exports = {
     author: "Moritz Ruth",
     mobileAppIOS: false,
     nativeUI: true,
-    "short_name": "ctexxx"
+    "short_name": "ctexxx",
+    "background_color": "#212121",
+    "theme_color": "#212121"
   },
 
   /*

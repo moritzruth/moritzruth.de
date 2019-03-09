@@ -53,7 +53,6 @@
       width: 100%;
 
       transition: 0.5s ease-out;
-      transform: scale(1);
 
       .icon {
         height: 100%;
@@ -85,10 +84,6 @@
     }
 
     &:hover {
-      .box {
-        transform: scale(1.1);
-      }
-
       .title {
         opacity: 1;
       }

@@ -8,6 +8,9 @@
         @mouseover.native="logoText = account.username" @mouseleave.native="logoText = null"
       />
     </div>
+    <div class="link-section">
+      <nuxt-link class="button" to="/projects">My Projects</nuxt-link>
+    </div>
   </div>
 </template>
 
@@ -58,5 +61,29 @@
     flex-direction: column;
     justify-content: center;
     align-content: center;
+
+    .link-section {
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+      right: 0;
+
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+
+      .button {
+        margin: 10px;
+
+        &::before {
+          content: "→";
+          transform: translateY(-4px) scale(1.7);
+          display: inline-block;
+          margin-right: 5px;
+        }
+      }
+    }
   }
 </style>
