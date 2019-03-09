@@ -15,13 +15,22 @@
 
 <style scoped lang="scss">
   @import "~@/assets/_responsive";
+  @import "~@/assets/_colors";
+  @import "~@/assets/_mixins";
 
   #layout {
     .button {
       &::before {
-        content: "←";
-        transform: scale(2.4) translateY(-2px);
+        content: "";
         display: inline-block;
+        margin-right: -5px;
+        @include arrow(12px, -90deg, white);
+      }
+
+      &:hover {
+        &::before {
+          border-color: $c-background;
+        }
       }
 
       position: fixed;

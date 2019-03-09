@@ -1,0 +1,9 @@
+@mixin arrow($length, $angle, $color) {
+  border-color: $color;
+  border-bottom: solid;
+  border-right: solid;
+  border-width: 2px;
+  width: $length;
+  height: $length;
+  transform: rotate($angle + -135deg);
+}

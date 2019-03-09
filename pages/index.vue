@@ -51,7 +51,8 @@
 </script>
 
 <style scoped lang="scss">
-  @import "~@/assets/_responsive.scss";
+  @import "~@/assets/_responsive";
+  @import "~@/assets/_mixins";
 
   main {
     height: 100%;
@@ -78,10 +79,11 @@
         margin: 10px;
 
         &::before {
-          content: "→";
-          transform: translateY(-4px) scale(1.7);
+          content: "";
           display: inline-block;
-          margin-right: 5px;
+          margin-right: 10px;
+          margin-left: -5px;
+          @include arrow(12px, 90deg, white);
         }
       }
     }
