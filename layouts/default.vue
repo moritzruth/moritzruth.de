@@ -1,7 +1,5 @@
 <template>
-  <div class="full-height full-width">
-    <nuxt/>
-  </div>
+  <nuxt/>
 </template>
 
 <style lang="scss">

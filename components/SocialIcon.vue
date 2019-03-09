@@ -1,8 +1,5 @@
 <template>
-  <a id="root" rel="noopener" :href="`https://go.ctexxx.dev/${name}`" target="_blank"
-     @mouseenter="$store.commit('setLogoText', username)"
-     @mouseleave="$store.commit('resetLogoText', username)"
-  >
+  <a id="root" rel="noopener" :href="`https://go.ctexxx.dev/${name}`" target="_blank">
     <div class="box" :style="{'background-color': '#' + simpleIcon.hex}">
       <div class="icon" v-html="simpleIcon.svg" :class="{inverted: invert}">
       </div>
@@ -34,7 +31,7 @@
 </script>
 
 <style scoped lang="scss">
-  @import "~@/assets/_mq";
+  @import "~@/assets/_responsive";
 
   #root {
     display: inline-block;
@@ -44,7 +41,7 @@
     height: 50px;
     width: 50px;
 
-    @include mq($from: tablet) {
+    @include desktop {
       height: 70px;
       width: 70px;
     }

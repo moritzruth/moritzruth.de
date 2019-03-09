@@ -10,36 +10,35 @@
 </template>
 
 <script>
-  import { mapState } from "vuex";
   import _debounce from "lodash.debounce";
 
   const debounceLogoText = _debounce((self, newValue) => {
     self.debouncedLogoText = newValue;
-  }, 100);
+  }, 200);
 
   export default {
-    name: "Logo",
+    name: "CtexxxLogo",
     created() {
-      this.debouncedLogoText = this.$store.state.logoText;
+      this.debouncedLogoText = this.text || "ctexxx";
+    },
+    props: {
+      text: String
     },
     data() {
       return {
         debouncedLogoText: ""
       }
     },
-    computed: {
-      ...mapState(["logoText"])
-    },
     watch: {
-      logoText(newValue) {
-        debounceLogoText(this, newValue);
+      text(newValue) {
+        debounceLogoText(this, newValue || "ctexxx");
       }
     }
   };
 </script>
 
 <style scoped lang="scss">
-  @import "~@/assets/_mq.scss";
+  @import "~@/assets/_responsive";
 
   .slide-vertical-enter-active {
     transition: all 0.5s ease-out;
@@ -65,6 +64,8 @@
   }
 
   .logo {
+    user-select: none;
+
     margin: 0 auto;
     width: fit-content;
 
@@ -76,14 +77,12 @@
       color: #c34545;
       text-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
 
-      @include mq($from: tablet) {
+      @include desktop {
         font-size: 12em;
       }
     }
 
     & > .underline {
-      transition: width 1s ease-in-out;
-
       transform: translateY(-0.7em);
 
       height: 3px;
@@ -91,11 +90,13 @@
       background: white;
       box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.75);
 
-      @include mq($from: tablet) {
+      @include desktop {
         transform: translateY(-2em);
 
         height: 5px;
       }
+
+      margin: 0 auto;
     }
   }
 </style>
