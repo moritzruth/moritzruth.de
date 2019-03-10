@@ -1,10 +1,10 @@
 <template>
-    <div id="layout">
-      <nuxt-link class="button" to="/"></nuxt-link>
-      <div class="content">
-        <nuxt/>
-      </div>
+  <div id="layout">
+    <nuxt-link class="button" to="/"></nuxt-link>
+    <div class="content">
+      <nuxt/>
     </div>
+  </div>
 </template>
 
 <script>
