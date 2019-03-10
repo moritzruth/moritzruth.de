@@ -1,21 +1,24 @@
 <template>
   <div class="project">
-    <span class="title">{{ title }}</span>
-    <div class="links">
-      <div v-for="(link, index) in links" :key="link.name" class="link">
-        <a
-          :href="link.to"
-          rel="noopener"
-          target="_blank"
-        >
-          {{ link.name }}
-        </a>
-        <div v-if="index + 1 < links.length" class="space"></div>
+    <span class="type">{{ type }}</span>
+    <div class="padded">
+      <span class="title">{{ title }}</span>
+      <div class="links">
+        <div v-for="(link, index) in links" :key="link.name" class="link">
+          <a
+            :href="link.to"
+            rel="noopener"
+            target="_blank"
+          >
+            {{ link.name }}
+          </a>
+          <div v-if="index + 1 < links.length" class="space"></div>
+        </div>
       </div>
+      <p class="description">
+        <slot></slot>
+      </p>
     </div>
-    <p class="description">
-      <slot></slot>
-    </p>
   </div>
 </template>
 
@@ -28,7 +31,8 @@
         required: true
       },
       npm: String,
-      github: String
+      github: String,
+      type: String
     },
     computed: {
       links() {
@@ -56,19 +60,37 @@
 
 <style scoped lang="scss">
   @import "~@/assets/_colors";
+  @import "~@/assets/_responsive";
 
   .project {
     margin: 20px;
     height: fit-content;
     text-align: center;
-    padding: 20px;
     border: 1px solid darken($c-background, 2);
     border-radius: 5px;
     width: 400px;
 
+    .type {
+      margin: 20px 0 5px;
+      display: inline-block;
+      font-size: 14px;
+      font-family: monospace;
+      width: 100%;
+      text-align: center;
+      background-color: darken($c-background, 2);
+    }
+
+    .padded {
+      padding: 0 20px 20px 20px;
+    }
+
     .title {
       display: block;
-      font-size: 60px;
+      font-size: 30px;
+
+      @include desktop {
+        font-size: 40px;
+      }
     }
 
     .links {
@@ -97,6 +119,11 @@
 
     .description {
       font-size: 18px;
+    }
+
+    transition: box-shadow 0.3s ease;
+    &:hover {
+      box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2);
     }
   }
 </style>
