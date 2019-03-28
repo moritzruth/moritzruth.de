@@ -21,9 +21,15 @@ module.exports = {
     author: "Moritz Ruth",
     mobileAppIOS: false,
     nativeUI: true,
-    "short_name": "ctexxx",
-    "background_color": "#212121",
-    "theme_color": "#212121"
+    shortName: "ctexxx",
+    backgroundColor: "#212121",
+    themeColor: "#212121"
+  },
+
+  workbox: {
+    importScripts: [
+      "fontSW.js"
+    ]
   },
 
   /*

@@ -46,6 +46,8 @@
           display: inline-block;
           margin-right: 5px;
           @include arrow(12px, -90deg, white);
+
+          transition: border-color 400ms;
         }
 
         &:hover {
