@@ -30,6 +30,14 @@
       >
         Allow only one instance of your script at a time.
       </CodingProject>
+      <CodingProject
+        title="schweredruck-simulation"
+        github="ctexxx/schweredruck-simulation"
+        type="Application (german)"
+        liveURL="https://ctexxx.dev/schweredruck-simulation/"
+      >
+        Simulate and compute the weight pressure in different fluids.
+      </CodingProject>
     </div>
   </main>
 </template>

@@ -15,9 +15,12 @@
           <div v-if="index + 1 < links.length" class="space"></div>
         </div>
       </div>
-      <p class="description">
+      <div class="description">
         <slot></slot>
-      </p>
+      </div>
+      <div class="footer">
+        <a v-if="liveURL" :href="liveURL" id="try-it-out" target="_blank"><span class="arrow">→</span> Try it out</a>
+      </div>
     </div>
   </div>
 </template>
@@ -32,7 +35,11 @@
       },
       npm: String,
       github: String,
-      type: String
+      type: {
+        type: String,
+        required: true
+      },
+      liveURL: String
     },
     computed: {
       links() {
@@ -121,9 +128,32 @@
       font-size: 18px;
     }
 
-    transition: box-shadow 0.3s ease;
+    .footer {
+      text-align: right;
+      width: 100%;
+
+      #try-it-out {
+        font-size: 18px;
+
+        .arrow {
+          display: inline-block;
+          font-size: 30px;
+          transition: 800ms transform ease;
+          transform: translateX(0);
+        }
+
+        &:hover {
+          .arrow {
+            transform: translateX(4px);
+          }
+        }
+      }
+    }
+
+    transition: box-shadow 0.3s ease-out;
+
     &:hover {
-      box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2);
+      box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
     }
   }
 </style>
