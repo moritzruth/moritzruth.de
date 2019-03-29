@@ -5,9 +5,7 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "deploy": "push-dir --dir=dist --branch=master --cleanup"
+    "start": "nuxt start"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
@@ -24,7 +22,6 @@
     "node-sass": "^4.11.0",
     "nodemon": "^1.18.9",
     "postcss": "^7.0.14",
-    "push-dir": "^0.4.1",
     "sass-loader": "^7.1.0"
   }
 }
