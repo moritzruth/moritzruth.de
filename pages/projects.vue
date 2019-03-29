@@ -34,7 +34,7 @@
         title="schweredruck-simulation"
         github="ctexxx/schweredruck-simulation"
         type="Application (german)"
-        liveURL="https://ctexxx.dev/schweredruck-simulation/"
+        liveURL="https://app.ctexxx.dev/schweredruck-simulation/"
       >
         Simulate and compute the weight pressure in different fluids.
       </CodingProject>
