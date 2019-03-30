@@ -31,7 +31,7 @@
 </script>
 
 <style scoped lang="scss">
-  @import "~@/assets/_responsive";
+  @import "~@/assets/css/_responsive";
 
   #root {
     display: inline-block;

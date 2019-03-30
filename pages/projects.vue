@@ -1,5 +1,6 @@
 <template>
   <main>
+    <h1 class="title">My Projects</h1>
     <div class="projects">
       <CodingProject
         title="pzl"

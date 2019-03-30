@@ -10,6 +10,7 @@
     </div>
     <div class="link-section">
       <nuxt-link class="button" to="/projects">My Projects</nuxt-link>
+      <nuxt-link class="button" to="/uses">What I’m using</nuxt-link>
     </div>
   </main>
 </template>
@@ -51,8 +52,8 @@
 </script>
 
 <style scoped lang="scss">
-  @import "~@/assets/_responsive";
-  @import "~@/assets/_mixins";
+  @import "~@/assets/css/_responsive";
+  @import "~@/assets/css/_mixins";
 
   main {
     height: 100%;

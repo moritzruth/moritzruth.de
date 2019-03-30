@@ -38,7 +38,7 @@
 </script>
 
 <style scoped lang="scss">
-  @import "~@/assets/_responsive";
+  @import "~@/assets/css/_responsive";
   @import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates');
 
   .slide-vertical-enter-active {

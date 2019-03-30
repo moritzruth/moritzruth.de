@@ -7,3 +7,12 @@
   height: $length;
   transform: rotate($angle + -135deg);
 }
+
+@mixin hoverShadow {
+  box-shadow: none;
+  transition: box-shadow 0.3s ease-out;
+
+  &:hover {
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+  }
+}

@@ -16,9 +16,9 @@
 </script>
 
 <style scoped lang="scss">
-  @import "~@/assets/_responsive";
-  @import "~@/assets/_colors";
-  @import "~@/assets/_mixins";
+  @import "~@/assets/css/_responsive";
+  @import "~@/assets/css/_colors";
+  @import "~@/assets/css/_mixins";
 
   #layout {
     .top-bar {
@@ -59,6 +59,7 @@
     }
 
     .content {
+      margin-top: 10px;
       width: 100%;
       padding: 0 10px;
 

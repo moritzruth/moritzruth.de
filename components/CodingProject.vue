@@ -66,14 +66,17 @@
 </script>
 
 <style scoped lang="scss">
-  @import "~@/assets/_colors";
-  @import "~@/assets/_responsive";
+  @import "~@/assets/css/_mixins";
+  @import "~@/assets/css/_colors";
+  @import "~@/assets/css/_responsive";
 
   .project {
+    @include hoverShadow;
+
     margin: 20px;
     height: fit-content;
     text-align: center;
-    border: 1px solid darken($c-background, 2);
+    border: 1px solid $c-background-darker;
     border-radius: 5px;
     width: 400px;
 
@@ -84,7 +87,7 @@
       font-family: monospace;
       width: 100%;
       text-align: center;
-      background-color: darken($c-background, 2);
+      background-color: $c-background-darker;
     }
 
     .padded {
@@ -148,12 +151,6 @@
           }
         }
       }
-    }
-
-    transition: box-shadow 0.3s ease-out;
-
-    &:hover {
-      box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
     }
   }
 </style>
