@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="fade-in">
     <transition name="slide-vertical" mode="out-in">
       <div class="logo" :key="debouncedLogoText">
         <span class="text">{{ debouncedLogoText }}</span>
@@ -55,6 +55,19 @@
 
   .slide-vertical-enter, .slide-vertical-leave-to {
     opacity: 0;
+  }
+
+  .fade-in {
+    animation: fadeIn 4s ease-out;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 
   .logo {
