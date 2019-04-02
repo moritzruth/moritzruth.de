@@ -41,12 +41,18 @@ a {
 
   color: white;
 
-  transition: 400ms;
+  transition-duration: 400ms;
+  transition-property: background-color, color, font-weight;
 
-  &:hover {
+  &:hover, &:focus {
     background-color: white;
     color: $c-background;
     font-weight: 400;
+  }
+
+  &:focus {
+    outline-style: dashed;
+    outline-width: 2px;
   }
 }
 

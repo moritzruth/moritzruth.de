@@ -41,6 +41,11 @@
     height: 50px;
     width: 50px;
 
+    &:focus {
+      outline-style: dashed;
+      outline-width: 2px;
+    }
+
     @include desktop {
       height: 70px;
       width: 70px;
@@ -83,7 +88,7 @@
       left: -50%;
     }
 
-    &:hover {
+    &:hover, &:focus {
       .title {
         opacity: 1;
       }
