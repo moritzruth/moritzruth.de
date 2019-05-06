@@ -3,12 +3,14 @@
     <h1 class="title">My Projects</h1>
     <div class="projects">
       <CodingProject
-        title="pzl"
-        npm="@ctexxx/pzl"
-        github="ctexxx/pzl"
-        type="Node.js library"
+        title="OW Workshop Search"
+        github="ctexxx/ow-workshop"
+        type="Website"
+        liveURL="https://ow-workshop.ctexxx.dev"
       >
-        Pretty zero-configuration console logger.
+        <p>
+          Find cool workshop codes for Overwatch.
+        </p>
       </CodingProject>
       <CodingProject
         title="shxrt"
@@ -22,6 +24,14 @@
         <p>
           Powering <a href="https://go.ctexxx.dev">go.ctexxx.dev</a>.
         </p>
+      </CodingProject>
+      <CodingProject
+        title="pzl"
+        npm="@ctexxx/pzl"
+        github="ctexxx/pzl"
+        type="Node.js library"
+      >
+        Pretty zero-configuration console logger.
       </CodingProject>
       <CodingProject
         title="singleinstancelock"
