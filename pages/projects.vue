@@ -4,7 +4,7 @@
     <div class="projects">
       <CodingProject
         title="OW Workshop Search"
-        github="ctexxx/ow-workshop"
+        github="moritzruth/ow-workshop"
         type="Website"
         liveURL="https://ow-workshop.ctexxx.dev"
       >
@@ -14,7 +14,7 @@
       </CodingProject>
       <CodingProject
         title="shxrt"
-        github="ctexxx/shxrt"
+        github="moritzruth/shxrt"
         type="Node.js script"
       >
         <p>
@@ -26,24 +26,8 @@
         </p>
       </CodingProject>
       <CodingProject
-        title="pzl"
-        npm="@ctexxx/pzl"
-        github="ctexxx/pzl"
-        type="Node.js library"
-      >
-        Pretty zero-configuration console logger.
-      </CodingProject>
-      <CodingProject
-        title="singleinstancelock"
-        npm="singleinstancelock"
-        github="ctexxx/singleinstancelock"
-        type="Node.js library"
-      >
-        Allow only one instance of your script at a time.
-      </CodingProject>
-      <CodingProject
         title="schweredruck-simulation"
-        github="ctexxx/schweredruck-simulation"
+        github="moritzruth/schweredruck-simulation"
         type="Application (german)"
         liveURL="https://app.ctexxx.dev/schweredruck-simulation/"
       >
