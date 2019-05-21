@@ -1,11 +1,11 @@
 <template>
   <main>
-    <CtexxxLogo :text="logoText"/>
+    <MyLogo :name="name || 'Moritz Ruth'"/>
     <div class="horizontally-centered">
       <SocialIcon
-        v-for="account in socialMedia" :key="account.name"
+        v-for="account in $options.socialMedia" :key="account.name"
         :name="account.name" :username="account.username" :invert="!!account.invertLogoColor"
-        @mouseover.native="logoText = account.username" @mouseleave.native="logoText = null"
+        @mouseover.native="name = account.username" @mouseleave.native="name = null"
       />
     </div>
     <div class="link-section">
@@ -16,38 +16,43 @@
 </template>
 
 <script>
-  import CtexxxLogo from "@/components/CtexxxLogo";
   import SocialIcon from "@/components/SocialIcon";
+  import MyLogo from "@/components/MyLogo";
 
   const socialMedia = [
     {
       name: "github",
-      username: "ctexxx",
+      username: "moritzruth",
       invertLogoColor: true
     },
     {
       name: "twitter",
-      username: "cte3x",
+      username: "moritzruth_dev",
       invertLogoColor: true
     },
     {
       name: "instagram",
-      username: "cte3x",
+      username: "moritzruth_dev",
       invertLogoColor: true
     },
     {
       name: "keybase",
-      username: "ctexxx"
+      username: "moritzruth"
+    },
+    {
+      name: "npm",
+      username: "moritzruth",
+      invertLogoColor: true
     }
   ];
 
   export default {
     name: "index",
-    components: { SocialIcon, CtexxxLogo },
+    components: { MyLogo, SocialIcon },
     data: () => ({
-      logoText: "ctexxx",
-      socialMedia
-    })
+      name: null,
+    }),
+    socialMedia
   };
 </script>
 
@@ -63,6 +68,8 @@
     flex-direction: column;
     justify-content: center;
     align-content: center;
+
+    background: linear-gradient(135deg, rgba(31,244,255,1) 0%, rgba(91,100,166,1) 100%);
 
     .link-section {
       position: absolute;

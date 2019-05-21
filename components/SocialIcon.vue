@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  const requireIcon = require.context("simple-icons/icons/", false, /(instagram|github|twitter|keybase)\.js/);
+  const requireIcon = require.context("simple-icons/icons/", false, /(instagram|github|twitter|keybase|npm)\.js/);
 
   export default {
     name: "SocialIcon",
@@ -42,8 +42,7 @@
     width: 50px;
 
     &:focus {
-      outline-style: dashed;
-      outline-width: 2px;
+      outline: rgb(255, 169, 8) dashed 2px;
     }
 
     @include desktop {
@@ -57,7 +56,8 @@
       height: 100%;
       width: 100%;
 
-      transition: 0.5s ease-out;
+      transition: box-shadow 0.2s linear;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
 
       .icon {
         height: 100%;
@@ -91,6 +91,10 @@
     &:hover, &:focus {
       .title {
         opacity: 1;
+      }
+
+      .box {
+        box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.5);
       }
     }
   }

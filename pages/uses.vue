@@ -19,10 +19,9 @@
         Originally bought for gaming, I now only use it for coding.
       </ImageCard>
       <ImageCard
-        title="Ubuntu 18.04"
+        title="Ubuntu 19.04"
         image="https://assets.ubuntu.com/v1/29985a98-ubuntu-logo32.png"
         type="OS"
-        link="https://www.ubuntu.com/download/desktop"
       >
         It just works.
       </ImageCard>
