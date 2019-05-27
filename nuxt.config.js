@@ -5,11 +5,11 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: "ctexxx",
+    title: "Moritz Ruth",
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: "ctexxx" }
+      { hid: 'description', name: 'description', content: "Moritz Ruth." }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -17,11 +17,11 @@ module.exports = {
   },
 
   manifest: {
-    name: "ctexxx",
+    name: "Moritz Ruth",
     author: "Moritz Ruth",
     mobileAppIOS: false,
     nativeUI: true,
-    shortName: "ctexxx",
+    shortName: "Moritz Ruth",
     backgroundColor: "#212121",
     themeColor: "#212121"
   },
@@ -68,7 +68,7 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-      
+
     },
     postcss: [
       require("autoprefixer")({

@@ -3,9 +3,19 @@
     <h1 class="title">My Projects</h1>
     <div class="projects">
       <CodingProject
+        type="Node.js library"
+        title="Log Groups"
+        github="moritzruth/log-groups"
+        npm="log-groups"
+      >
+        <p>
+          Find cool workshop codes for Overwatch.
+        </p>
+      </CodingProject>
+      <CodingProject
+        type="Website"
         title="OW Workshop Search"
         github="moritzruth/ow-workshop"
-        type="Website"
         liveURL="https://ow-workshop.ctexxx.dev"
       >
         <p>
@@ -13,9 +23,9 @@
         </p>
       </CodingProject>
       <CodingProject
+        type="Node.js script"
         title="shxrt"
         github="moritzruth/shxrt"
-        type="Node.js script"
       >
         <p>
           URL shortener service intended to be used with <a href="https://now.sh">now</a> and
@@ -26,9 +36,9 @@
         </p>
       </CodingProject>
       <CodingProject
+        type="Application (german)"
         title="schweredruck-simulation"
         github="moritzruth/schweredruck-simulation"
-        type="Application (german)"
         liveURL="https://app.ctexxx.dev/schweredruck-simulation/"
       >
         Simulate and compute the weight pressure in different fluids.
