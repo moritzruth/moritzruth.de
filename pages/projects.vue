@@ -9,7 +9,7 @@
         npm="log-groups"
       >
         <p>
-          Find cool workshop codes for Overwatch.
+          Log messages ... in groups.
         </p>
       </CodingProject>
       <CodingProject
