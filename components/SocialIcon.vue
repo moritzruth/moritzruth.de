@@ -1,5 +1,5 @@
 <template>
-  <a id="root" rel="noopener" :href="`https://go.ctexxx.dev/${name}`" target="_blank">
+  <a id="root" rel="noopener" :href="`https://go.ctexxx.dev/${name}`" target="_blank" @touchstart="onTouch">
     <div class="box" :style="{'background-color': '#' + simpleIcon.hex}">
       <div class="icon" v-html="simpleIcon.svg" :class="{inverted: invert}">
       </div>
@@ -26,6 +26,14 @@
       return {
         simpleIcon: requireIcon(`./${this.name}.js`)
       }
+    },
+    methods: {
+      onTouch(e) {
+        if (document.activeElement !== this.$el) {
+          e.preventDefault();
+          this.$el.focus();
+        }
+      }
     }
   };
 </script>
@@ -40,10 +48,6 @@
     text-decoration: none;
     height: 50px;
     width: 50px;
-
-    &:focus {
-      outline: rgb(255, 169, 8) dashed 2px;
-    }
 
     @include desktop {
       height: 70px;
