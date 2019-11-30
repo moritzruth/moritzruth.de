@@ -12,6 +12,16 @@
     >
       A timer which reminds you to relax your eyes every 20 minutes.
     </GProject>
+    <GProject
+      type="Website"
+      title="cryptic-game.net"
+      link="https://test.cryptic-game.net"
+      github="cryptic-game/website/tree/vueWebsite"
+    >
+      I am responsible for the new (not yet released) website of the
+      <a class="link" href="https://github.com/cryptic-game">Cryptic game</a>.
+      (Just the website, not the game itself)
+    </GProject>
   </div>
 </template>
 
