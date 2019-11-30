@@ -77,7 +77,7 @@
 </style>
 
 <script>
-  import MyLogo from "./MyLogo";
+  import MyLogo from "@/assets/media/MyLogo.svg";
 
   export default {
     name: "AnimatedLogo",

@@ -41,6 +41,7 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    "svg-to-vue-component/nuxt"
   ],
   /*
   ** Build configuration
