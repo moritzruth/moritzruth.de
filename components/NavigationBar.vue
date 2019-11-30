@@ -167,6 +167,7 @@
     }
 
     .navigation-bar__container-2 {
+      pointer-events: none;
       background-color: white;
 
       position: fixed;
@@ -222,6 +223,7 @@
       }
 
       .navigation-bar__container-2 {
+        pointer-events: auto;
         opacity: 1;
       }
 
