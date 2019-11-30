@@ -1,11 +1,13 @@
 <template>
   <main class="index-page">
-    <AnimatedLogo/>
+    <div class="index-page__hero">
+      <AnimatedLogo/>
+    </div>
   </main>
 </template>
 
 <style>
-  .index-page {
+  .index-page__hero {
     display: flex;
     justify-content: center;
     align-items: center;

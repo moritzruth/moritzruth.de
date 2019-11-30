@@ -27,7 +27,7 @@
     }
 
     to {
-      width: 400px;
+      width: 300px;
     }
   }
 
@@ -37,7 +37,7 @@
     }
 
     to {
-      height: 250px;
+      height: 230px;
     }
   }
 
@@ -49,7 +49,7 @@
     right: 0;
     height: 6px;
 
-    animation: fadeOut 600ms 3s ease-in both;
+    animation: fadeOut 600ms 2.8s ease-in both;
   }
 
   .animated-logo__bar-1 {
@@ -71,7 +71,7 @@
   }
 
   .animated-logo__logo {
-    width: 400px;
+    width: 300px;
     flex-shrink: 0;
   }
 </style>
