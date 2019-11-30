@@ -1,3 +1,5 @@
+@import "elements/_all";
+
 @import "mobile";
 
 :root {
@@ -14,12 +16,15 @@
   padding: 0;
 }
 
-html, body {
-  min-height: 100vh;
-  overflow-x: hidden;
-
+body {
   font-family: "Alata", sans-serif;
   font-size: 16px;
+}
+
+html, body, #__nuxt, #__layout, .fill-screen {
+  max-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 ::selection {

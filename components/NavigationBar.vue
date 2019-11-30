@@ -1,41 +1,43 @@
 <template>
-  <nav class="layout-navigation" :class="{ 'show-background': showBackground, open }">
-    <div class="layout-navigation__toggle" @click="open = !open">
+  <nav class="navigation-bar" :class="{ 'show-background': showBackground, open, scrolled }">
+    <div class="navigation-bar__toggle" @click="open = !open">
       <span></span>
       <span></span>
       <span></span>
     </div>
-    <div class="layout-navigation__container">
-      <div class="layout-navigation__links">
-        <template v-for="item in $options.navigationItems">
-          <nuxt-link
-            v-if="item.to"
-            :key="item.to"
-            :class="{ 'require-exact-active': item.requireExactActive }"
-            :to="item.to"
-            @click.native.passive="open = false"
-          >
-            {{ item.label }}
-          </nuxt-link>
-          <a
-            v-else
-            :key="item.to"
-            rel="noopener"
-            :href="item.href"
-            @click.native.passive="open = false"
-          >
-            {{ item.label }}
-          </a>
-        </template>
+    <div class="navigation-bar__container-1">
+      <span class="navigation-bar__title">{{ title }}</span>
+      <div class="navigation-bar__container-2">
+        <div class="navigation-bar__links">
+          <template v-for="item in $options.navigationItems">
+            <nuxt-link
+              v-if="item.to"
+              :key="item.to"
+              :to="item.to"
+              @click.native.passive="open = false"
+            >
+              {{ item.label }}
+            </nuxt-link>
+            <a
+              v-else
+              :key="item.to"
+              rel="noopener"
+              :href="item.href"
+              @click.native.passive="open = false"
+            >
+              {{ item.label }}
+            </a>
+          </template>
+        </div>
       </div>
     </div>
   </nav>
 </template>
 
 <style scoped lang="scss">
-  @import "~@/assets/css/_mobile";
+  @import "~@/assets/css/mobile";
 
-  .layout-navigation {
+  .navigation-bar {
     height: var(--navbar-height);
 
     position: fixed;
@@ -44,36 +46,67 @@
     right: 0;
     z-index: 2;
 
-    font-size: 1.1rem;
-    text-transform: uppercase;
-
     display: flex;
     align-items: center;
+    justify-content: space-between;
+
+    font-size: 1.1rem;
+    text-transform: uppercase;
 
     background-color: transparent;
 
     &.show-background {
-      backdrop-filter: blur(5px);
-      background-color: rgba(255, 255, 255, 0.7);
+      background-color: white;
+    }
+
+    &.scrolled {
+      .navigation-bar__title {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   }
 
-  .layout-navigation__toggle {
+  .navigation-bar__toggle {
     display: none;
   }
 
-  .layout-navigation__container {
+  .navigation-bar__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    transition: 200ms ease;
+    transition-property: opacity, transform;
+
+    opacity: 0;
+    transform: translateY(10px);
+
+    @include notMobile {
+      font-size: 2rem;
+    }
+  }
+
+  .navigation-bar__container-1 {
     margin: 0 auto;
     max-width: 100%;
     width: 1000px;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
-  .layout-navigation__links {
+  .navigation-bar__container-2 {
+    width: 100%;
+  }
+
+  .navigation-bar__links {
     float: right;
 
     a {
       display: inline-block;
-      margin-right: 40px;
+      margin-left: 40px;
       position: relative;
 
       text-decoration: none;
@@ -92,7 +125,7 @@
         transition: 200ms linear opacity;
       }
 
-      &:hover, &.nuxt-link-active:not(.require-exact-active), &.require-exact-active.nuxt-link-exact-active {
+      &:hover {
         &::after {
           opacity: 1;
         }
@@ -101,7 +134,7 @@
   }
 
   @include mobile {
-    .layout-navigation__toggle {
+    .navigation-bar__toggle {
       display: block;
 
       position: relative;
@@ -129,29 +162,31 @@
       }
     }
 
-    .layout-navigation__container {
-      pointer-events: none;
+    .navigation-bar__container-1 {
+      margin-left: 50px;
+    }
 
+    .navigation-bar__container-2 {
       background-color: white;
+
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
       width: 100%;
+      height: 100vh;
 
       display: flex;
       align-items: center;
       justify-content: center;
-
-      margin: 0;
       padding-top: var(--navbar-height);
 
       opacity: 0;
       transition: 200ms ease-out opacity;
     }
 
-    .layout-navigation__links {
+    .navigation-bar__links {
       float: none;
 
       & > a {
@@ -171,8 +206,8 @@
       }
     }
 
-    .layout-navigation.open {
-      .layout-navigation__toggle > span {
+    .navigation-bar.open {
+      .navigation-bar__toggle > span {
         &:nth-child(1) {
           transform: translateY(10px) rotate(45deg);
         }
@@ -186,13 +221,11 @@
         }
       }
 
-      .layout-navigation__container {
-        pointer-events: auto;
-
+      .navigation-bar__container-2 {
         opacity: 1;
       }
 
-      .layout-navigation__links > a {
+      .navigation-bar__links > a {
         transform: translateX(0);
         opacity: 1;
       }
@@ -204,8 +237,7 @@
   const NAVIGATION_ITEMS = [
     {
       label: "Home",
-      to: "/",
-      requireExactActive: true
+      to: "/"
     },
     {
       label: "Projects",
@@ -220,10 +252,31 @@
       showBackground: {
         type: Boolean,
         default: false
+      },
+      title: {
+        type: String,
+        default: ""
       }
     },
     data: () => ({
-      open: false
-    })
+      open: false,
+      scrollPosition: 0
+    }),
+    computed: {
+      scrolled: vm => vm.scrollPosition > 80
+    },
+    mounted() {
+      const scrollListener = () => {
+        this.scrollPosition = window.scrollY;
+      };
+
+      window.addEventListener("scroll", scrollListener, { passive: true });
+
+      this.$on("hook:beforeDestroy", () => {
+        window.removeEventListener("scroll", scrollListener);
+      });
+
+      scrollListener();
+    }
   };
 </script>
