@@ -1,65 +1,47 @@
-module.exports = {
-  mode: 'spa',
-
+export default {
+  mode: "spa",
   /*
   ** Headers of the page
   */
   head: {
-    title: "Moritz Ruth",
+    title: process.env.npm_package_name || "",
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: "Moritz Ruth." }
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { hid: "description", name: "description", content: process.env.npm_package_description || "" }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css?family=Alata&display=swap" }
     ]
   },
-
-  manifest: {
-    name: "Moritz Ruth",
-    author: "Moritz Ruth",
-    mobileAppIOS: false,
-    nativeUI: true,
-    shortName: "Moritz Ruth",
-    backgroundColor: "#212121",
-    themeColor: "#212121"
-  },
-
-  workbox: {
-    importScripts: [
-      "fontSW.js"
-    ]
-  },
-
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#c34545' },
-  transition: "page",
-  layoutTransition: "page",
-
+  loading: { color: "#000000" },
   /*
   ** Global CSS
   */
   css: [
-    '@/assets/css/global.scss'
+    "@/assets/css/global.scss"
   ],
-
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
   ],
-
+  /*
+  ** Nuxt.js dev-modules
+  */
+  buildModules: [
+    // Doc: https://github.com/nuxt-community/eslint-module
+    "@nuxtjs/eslint-module"
+  ],
   /*
   ** Nuxt.js modules
   */
   modules: [
-    "@nuxtjs/axios",
-    '@nuxtjs/pwa'
   ],
-
   /*
   ** Build configuration
   */
@@ -68,12 +50,6 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-
-    },
-    postcss: [
-      require("autoprefixer")({
-        browsers: ["last 5 versions"]
-      })
-    ]
+    }
   }
 };
