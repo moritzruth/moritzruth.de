@@ -9,6 +9,7 @@
 <style>
   .default-layout__content {
     margin-top: var(--navbar-height);
+    margin-bottom: 50px;
   }
 </style>
 

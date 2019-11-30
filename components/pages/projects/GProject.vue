@@ -21,6 +21,12 @@
           <GitHubIcon/>
         </template>
       </GButton>
+      <GButton v-if="npm" class="project__button" :href="`https://www.npmjs.com/package/${npm}`">
+        NPM
+        <template v-slot:prefix>
+          <NPMIcon style="width: 30px; top: 4px"/>
+        </template>
+      </GButton>
     </div>
   </div>
 </template>
@@ -29,7 +35,7 @@
   @import "~@/assets/css/variables";
 
   .project__type {
-    margin-top: -1.2rem;
+    margin-top: -1rem;
     margin-bottom: 1rem;
     display: block;
   }
@@ -50,7 +56,6 @@
 
   .project__buttons {
     display: flex;
-    align-items: center;
   }
 
   .project__button {
@@ -68,11 +73,12 @@
 <script>
   import ArrowRightIcon from "@/assets/icons/arrow_right.svg";
   import GitHubIcon from "@/assets/icons/github.svg";
+  import NPMIcon from "@/assets/icons/npm.svg";
   import GButton from "@/components/GButton";
 
   export default {
     name: "GProject",
-    components: { GButton, ArrowRightIcon, GitHubIcon },
+    components: { GButton, ArrowRightIcon, GitHubIcon, NPMIcon },
     props: {
       title: {
         type: String,
@@ -87,6 +93,10 @@
         default: null
       },
       github: {
+        type: String,
+        default: null
+      },
+      npm: {
         type: String,
         default: null
       }

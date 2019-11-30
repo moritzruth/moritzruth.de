@@ -6,8 +6,10 @@
     justify-content: center;
     align-items: center;
 
-    padding: 10px 20px;
+    padding: 8px 15px;
     border-radius: 4px;
+
+    height: 42px;
 
     text-decoration: none;
     color: $blue;
@@ -24,24 +26,18 @@
     font-size: 1.2rem;
   }
 
-  .button__prefix {
+  .button__prefix > * {
     position: relative;
     top: 2px;
-
-    & > *:last-child {
-      margin-right: 6px;
-      width: 20px;
-    }
+    margin-right: 6px;
+    width: 20px;
   }
 
-  .button__suffix {
+  .button__suffix > * {
     position: relative;
     top: 2px;
-
-    & > *:first-child {
-      margin-left: 6px;
-      width: 20px;
-    }
+    margin-left: 6px;
+    width: 20px;
   }
 </style>
 

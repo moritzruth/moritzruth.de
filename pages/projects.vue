@@ -22,6 +22,14 @@
       <a class="link" href="https://github.com/cryptic-game">Cryptic game</a>.
       (Just the website, not the game itself)
     </GProject>
+    <GProject
+      type="Node.js Library"
+      title="log-groups"
+      github="moritzruth/log-groups"
+      npm="log-groups"
+    >
+      A pretty console logging library for printing grouped messages with Node.js.
+    </GProject>
   </div>
 </template>
 
