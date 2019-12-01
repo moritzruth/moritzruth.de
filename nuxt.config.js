@@ -4,15 +4,6 @@ export default {
   ** Headers of the page
   */
   head: {
-    htmlAttrs: {
-      lang: "en"
-    },
-    title: "Moritz Ruth",
-    meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "The official website of Moritz Ruth" }
-    ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css?family=Alata&display=swap" }
@@ -45,8 +36,39 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    "svg-to-vue-component/nuxt"
+    "svg-to-vue-component/nuxt",
+    "@nuxtjs/pwa"
   ],
+
+  // https://pwa.nuxtjs.org/modules/workbox.html
+  workbox: {
+    workboxExtensions: [
+      "@/assets/js/fontSW.js"
+    ]
+  },
+
+  pwa: {
+    // https://pwa.nuxtjs.org/modules/meta.html
+    meta: {
+      viewport: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0",
+      mobileApp: false,
+      name: "Moritz Ruth",
+      author: "Moritz Ruth",
+      description: "The official website of Moritz Ruth",
+      lang: "en",
+      themeColor: "#ffffff"
+    },
+    // https://developer.mozilla.org/en-US/docs/Web/Manifest
+    manifest: {
+      name: "Moritz Ruth",
+      short_name: "Moritz Ruth",
+      start_url: ".",
+      background_color: "#ffffff",
+      display: "browser",
+      description: "The official website of Moritz Ruth",
+    }
+  },
+
   /*
   ** Build configuration
   */
