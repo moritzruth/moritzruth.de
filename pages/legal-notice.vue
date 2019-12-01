@@ -73,6 +73,11 @@
 
   export default {
     name: "LegalNoticePage",
-    components: { NavigationBar }
+    components: { NavigationBar },
+    head: {
+      htmlAttrs: {
+        lang: "de"
+      }
+    }
   };
 </script>
