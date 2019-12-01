@@ -35,7 +35,7 @@
   }
 
   .index-page__name {
-    animation: appear 400ms 3.8s ease both;
+    animation: appear 800ms 3.5s ease both;
 
     font-size: 2rem;
   }
@@ -62,6 +62,8 @@
   }
 
   .index-page__social-link {
+    color: black;
+
     &:not(:last-child) {
       margin-right: 15px;
     }

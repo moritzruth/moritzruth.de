@@ -74,6 +74,11 @@
   .navigation-bar__title {
     font-size: 1.5rem;
     font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    flex-shrink: 0;
+    max-width: calc(100% - 50px);
 
     transition: 200ms ease;
     transition-property: opacity, transform;

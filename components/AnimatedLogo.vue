@@ -8,7 +8,7 @@
 
 <style scoped lang="scss">
   .animated-logo {
-    animation: logo-width 800ms 1s ease, logo-height 800ms 1900ms ease;
+    animation: logo-width 800ms 1s ease, logo-height 600ms 1.9s ease;
     animation-fill-mode: both;
 
     overflow: hidden;
@@ -49,7 +49,7 @@
     right: 0;
     height: 6px;
 
-    animation: fadeOut 600ms 2.8s ease-in both;
+    animation: fadeOut 400ms 2.8s ease-in both;
   }
 
   .animated-logo__bar-1 {

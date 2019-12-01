@@ -151,7 +151,7 @@ module.exports = {
     "vue/no-v-html": "off",
     "vue/html-self-closing": "off",
     "vue/singleline-html-element-content-newline": ["warn", {
-      ignores: ["pre", "textarea", "nuxt-link", ...INLINE_ELEMENTS]
+      ignores: ["pre", "textarea", "nuxt-link", "ExternalLink", ...INLINE_ELEMENTS]
     }]
   }
 };
