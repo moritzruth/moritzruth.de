@@ -5,7 +5,7 @@
       <span></span>
       <span></span>
     </div>
-    <div class="navigation-bar__container-1">
+    <div class="navigation-bar__container-1 content">
       <span class="navigation-bar__title">{{ title }}</span>
       <div class="navigation-bar__container-2">
         <div class="navigation-bar__links">
@@ -36,6 +36,7 @@
 
 <style scoped lang="scss">
   @import "~@/assets/css/mobile";
+  @import "~@/assets/css/variables";
 
   .navigation-bar {
     height: var(--navbar-height);
@@ -78,7 +79,7 @@
     overflow: hidden;
 
     flex-shrink: 0;
-    max-width: calc(100% - 50px);
+    max-width: calc(100% - 10px);
 
     transition: 200ms ease;
     transition-property: opacity, transform;
@@ -92,10 +93,10 @@
   }
 
   .navigation-bar__container-1 {
-    margin: 0 auto;
     max-width: 100%;
-    width: 1000px;
     height: 100%;
+
+    overflow: hidden;
 
     display: flex;
     align-items: center;
@@ -168,7 +169,7 @@
     }
 
     .navigation-bar__container-1 {
-      margin-left: 50px;
+      margin-left: 30px;
     }
 
     .navigation-bar__container-2 {
@@ -270,7 +271,7 @@
       scrollPosition: 0
     }),
     computed: {
-      scrolled: vm => vm.scrollPosition > 80
+      scrolled: vm => vm.scrollPosition > 50
     },
     mounted() {
       const scrollListener = () => {

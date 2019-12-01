@@ -1,8 +1,8 @@
 <template>
-  <main class="index-page">
+  <div class="index-page">
     <NavigationBar show-background/>
     <AnimatedLogo/>
-    <div class="index-page__content">
+    <main class="index-page__content">
       <div class="index-page__name">
         Moritz Ruth
       </div>
@@ -20,11 +20,24 @@
           <EmailIcon class="index-page__social-icon"/>
         </a>
       </div>
-    </div>
-  </main>
+    </main>
+    <footer class="index-page__footer">
+      <nuxt-link
+        v-for="link in $options.footer"
+        :key="link.to"
+        class="index-page__footer-link"
+        :to="link.to"
+      >
+        {{ link.label }}
+      </nuxt-link>
+    </footer>
+  </div>
 </template>
 
 <style scoped lang="scss">
+  @import "~@/assets/css/variables";
+  @import "~@/assets/css/mobile";
+
   .index-page {
     display: flex;
     justify-content: center;
@@ -77,6 +90,44 @@
       opacity: 0.8;
     }
   }
+
+  .index-page__footer {
+    position: absolute;
+    top: 100vh;
+    left: 0;
+    right: 0;
+
+    padding: 20px 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include notMobile {
+      top: unset;
+      bottom: 0;
+      right: 0;
+
+      width: fit-content;
+      padding: 20px;
+
+      flex-direction: row;
+    }
+  }
+
+  .index-page__footer-link {
+    color: #606060;
+    text-decoration: none;
+    flex-shrink: 0;
+
+    margin: 0 10px;
+
+    transition: 100ms linear color;
+    &:hover {
+      color: $blue;
+    }
+  }
 </style>
 
 <script>
@@ -86,10 +137,12 @@
   import InstagramIcon from "@/assets/icons/instagram.svg";
   import EmailIcon from "@/assets/icons/email.svg";
   import NavigationBar from "@/components/NavigationBar";
+  import { footer } from "@/assets/js/footer";
 
   export default {
     name: "IndexPage",
     layout: "none",
-    components: { NavigationBar, AnimatedLogo, GitHubIcon, TwitterIcon, InstagramIcon, EmailIcon }
+    components: { NavigationBar, AnimatedLogo, GitHubIcon, TwitterIcon, InstagramIcon, EmailIcon },
+    footer
   };
 </script>
