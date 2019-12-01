@@ -62,7 +62,6 @@ export default {
     manifest: {
       name: "Moritz Ruth",
       short_name: "Moritz Ruth",
-      start_url: ".",
       background_color: "#ffffff",
       display: "browser",
       description: "The official website of Moritz Ruth",
