@@ -17,7 +17,7 @@ export default {
   ** Global CSS
   */
   css: [
-    "@/assets/css/global.scss"
+    "@/assets/global.scss"
   ],
   /*
   ** Plugins to load before mounting the App
@@ -30,7 +30,8 @@ export default {
   */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    "@nuxtjs/eslint-module"
+    "@nuxtjs/eslint-module",
+    "kiste/nuxt"
   ],
   /*
   ** Nuxt.js modules
@@ -39,6 +40,32 @@ export default {
     "svg-to-vue-component/nuxt",
     "@nuxtjs/pwa"
   ],
+
+  kiste: {
+    theme: {
+      contentPadding: "10px"
+    },
+    navigationItems: [
+      {
+        label: "Home",
+        to: "/"
+      },
+      {
+        label: "Projects",
+        to: "/projects"
+      }
+    ],
+    footerItems: [
+      {
+        label: "Legal Notice",
+        to: "/legal-notice"
+      },
+      {
+        label: "Privacy Policy",
+        to: "/privacy-policy"
+      }
+    ]
+  },
 
   // https://pwa.nuxtjs.org/modules/workbox.html
   workbox: {

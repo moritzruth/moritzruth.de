@@ -7,6 +7,8 @@
 </template>
 
 <style scoped lang="scss">
+  $logo-width: 270px;
+
   .animated-logo {
     animation: logo-width 800ms 1s ease, logo-height 600ms 1.9s ease;
     animation-fill-mode: both;
@@ -27,7 +29,7 @@
     }
 
     to {
-      width: 300px;
+      width: $logo-width;
     }
   }
 
@@ -71,7 +73,7 @@
   }
 
   .animated-logo__logo {
-    width: 300px;
+    width: $logo-width;
     flex-shrink: 0;
   }
 </style>

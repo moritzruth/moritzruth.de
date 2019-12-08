@@ -1,6 +1,6 @@
 <template>
   <div class="index-page">
-    <NavigationBar show-background/>
+    <KNavigationBar/>
     <AnimatedLogo/>
     <main class="index-page__content">
       <div class="index-page__name">
@@ -21,22 +21,12 @@
         </a>
       </div>
     </main>
-    <footer class="index-page__footer">
-      <nuxt-link
-        v-for="link in $options.footer"
-        :key="link.to"
-        class="index-page__footer-link"
-        :to="link.to"
-      >
-        {{ link.label }}
-      </nuxt-link>
-    </footer>
+    <KFooter class="index-page__footer"/>
   </div>
 </template>
 
 <style scoped lang="scss">
-  @import "~@/assets/css/variables";
-  @import "~@/assets/css/mobile";
+  @use "~kiste/css/mixins/screenSize";
 
   .index-page {
     display: flex;
@@ -44,7 +34,7 @@
     align-items: center;
     flex-direction: column;
 
-    height: 100vh;
+    height: calc(100vh - var(--x-navbar-height));
   }
 
   .index-page__name {
@@ -93,56 +83,36 @@
 
   .index-page__footer {
     position: absolute;
-    top: 100vh;
-    left: 0;
-    right: 0;
-
     padding: 20px 0;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    margin-bottom: 10px;
 
-    @include notMobile {
+    @include screenSize.notMobile {
       top: unset;
       bottom: 0;
       right: 0;
 
       width: fit-content;
       padding: 20px;
+      margin: 0;
 
       flex-direction: row;
-    }
-  }
-
-  .index-page__footer-link {
-    color: #606060;
-    text-decoration: none;
-    flex-shrink: 0;
-
-    margin: 0 10px;
-
-    transition: 100ms linear color;
-    &:hover {
-      color: $blue;
     }
   }
 </style>
 
 <script>
+  import KNavigationBar from "kiste/components/KNavigationBar";
+  import KFooter from "kiste/components/KFooter";
   import AnimatedLogo from "../components/AnimatedLogo";
   import GitHubIcon from "@/assets/icons/github.svg";
   import TwitterIcon from "@/assets/icons/twitter.svg";
   import InstagramIcon from "@/assets/icons/instagram.svg";
   import EmailIcon from "@/assets/icons/email.svg";
-  import NavigationBar from "@/components/NavigationBar";
-  import { footer } from "@/assets/js/footer";
 
   export default {
     name: "IndexPage",
     layout: "none",
-    components: { NavigationBar, AnimatedLogo, GitHubIcon, TwitterIcon, InstagramIcon, EmailIcon },
-    footer
+    components: { AnimatedLogo, GitHubIcon, TwitterIcon, InstagramIcon, EmailIcon, KNavigationBar, KFooter }
   };
 </script>
