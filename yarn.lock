@@ -4654,10 +4654,10 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
   integrity sha512-s5kLOcnH0XqDO+FvuaLX8DDjZ18CGFk7VygH40QoKPUQhW4e2rvM0rwUq0t8IQDOwYSeLK01U90OjzBTme2QqA==
 
-kiste@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/kiste/-/kiste-1.2.0.tgz#d3c78fa9e3135d97e7a5fb760c8b491f08653efe"
-  integrity sha512-/K5hIpQaa9bOI6Z3oYxkBz1hJyjRn7Pv2j5BTE7gDYPnurCmskmceBPZTb/BvicnEWnwh0c07JPydAK+vJv+UQ==
+kiste@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/kiste/-/kiste-1.2.4.tgz#ae0f199307a9bd71129a0d1acb3e951c582cb308"
+  integrity sha512-ZS5QF7M7iHboGGj8561fFIJ2yXF9/NQL3TKRLY8AbgceFoyq7M4kKn6w/2dRqmCbfmwDus9Lj/uh44X0r4ahAQ==
   dependencies:
     chroma-js "^2.1.0"
     lodash.defaultsdeep "^4.6.1"

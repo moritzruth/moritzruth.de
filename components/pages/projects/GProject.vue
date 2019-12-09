@@ -8,7 +8,7 @@
       <slot/>
     </div>
     <hr class="project__divider"/>
-    <div class="project__buttons flex-with-gutter">
+    <div class="project__buttons">
       <KButton v-if="link" :href="link">
         Open
         <template v-slot:suffix>
@@ -53,6 +53,8 @@
   }
 
   .project__buttons {
+    display: flex;
+
     & > *:not(:last-child) {
       margin-right: 5px;
     }

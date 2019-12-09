@@ -32,15 +32,15 @@
         erstellt, dienen jedoch nur der Information und entfalten keine rechtlich bindende Wirkung, sofern es sich nicht
         um gesetzlich verpflichtende Informationen (z.B. das Impressum, die Datenschutzerklärung, AGB oder
         Widerrufsbelehrungen für Verbraucher) handelt. Wir behalten uns vor, die Inhalte vollständig oder teilweise zu
-        ändern oder zu löschen, soweit vertragliche Verpflichtungen unberührt bleiben. Alle Angebote sind freibleibend und
-        unverbindlich.
+        ändern oder zu löschen, soweit vertragliche Verpflichtungen unberührt bleiben. Alle Angebote sind freibleibend
+        und unverbindlich.
       </p>
       <p class="paragraph">
         <b>Links auf fremde Webseiten</b>:
         Inhalte fremder Webseiten, auf die wir direkt oder indirekt verweisen, liegen
-        außerhalb unseres Verantwortungsbereiches und machen wir uns nicht zu Eigen. Für alle Inhalte und insbesondere für
-        Schäden, die aus der Nutzung der in den verlinkten Webseiten aufrufbaren Informationen entstehen, haftet allein
-        der Anbieter der verlinkten Webseiten.
+        außerhalb unseres Verantwortungsbereiches und machen wir uns nicht zu Eigen. Für alle Inhalte und insbesondere
+        für Schäden, die aus der Nutzung der in den verlinkten Webseiten aufrufbaren Informationen entstehen, haftet
+        allein der Anbieter der verlinkten Webseiten.
       </p>
       <p class="paragraph">
         <b>Urheberrechte und Markenrechte</b>:
