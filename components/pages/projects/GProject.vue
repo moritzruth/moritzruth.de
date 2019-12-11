@@ -62,7 +62,7 @@
 </style>
 
 <script>
-  import KButton from "kiste/components/KButton";
+  import KButton from "kiste/components/KButton.vue";
   import ArrowRightIcon from "@/assets/icons/arrow_right.svg";
   import GitHubIcon from "@/assets/icons/github.svg";
   import NPMIcon from "@/assets/icons/npm.svg";

@@ -282,16 +282,12 @@
 </style>
 
 <script>
-  import KNavigationBar from "kiste/components/KNavigationBar";
-  import KExternalLink from "kiste/components/KExternalLink";
+  import KNavigationBar from "kiste/components/KNavigationBar.vue";
+  import KExternalLink from "kiste/components/KExternalLink.vue";
 
   export default {
     name: "PrivacyPolicyPage",
     components: { KNavigationBar, KExternalLink },
-    head: {
-      htmlAttrs: {
-        lang: "de"
-      }
-    }
+    head: { htmlAttrs: { lang: "de" } }
   };
 </script>

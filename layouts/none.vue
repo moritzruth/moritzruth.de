@@ -9,7 +9,7 @@
 </style>
 
 <script>
-  import KApp from "kiste/components/KApp";
+  import KApp from "kiste/components/KApp.vue";
 
   export default {
     name: "WithoutFooterLayout",

@@ -40,8 +40,8 @@
 </style>
 
 <script>
-  import KNavigationBar from "kiste/components/KNavigationBar";
-  import GProject from "@/components/pages/projects/GProject";
+  import KNavigationBar from "kiste/components/KNavigationBar.vue";
+  import GProject from "@/components/pages/projects/GProject.vue";
 
   export default {
     name: "ProjectsPage",

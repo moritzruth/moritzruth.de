@@ -12,8 +12,8 @@
 </style>
 
 <script>
-  import KApp from "kiste/components/KApp";
-  import KFooter from "kiste/components/KFooter";
+  import KApp from "kiste/components/KApp.vue";
+  import KFooter from "kiste/components/KFooter.vue";
 
   export default {
     name: "DefaultLayout",

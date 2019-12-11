@@ -102,9 +102,9 @@
 </style>
 
 <script>
-  import KNavigationBar from "kiste/components/KNavigationBar";
-  import KFooter from "kiste/components/KFooter";
-  import AnimatedLogo from "../components/AnimatedLogo";
+  import KNavigationBar from "kiste/components/KNavigationBar.vue";
+  import KFooter from "kiste/components/KFooter.vue";
+  import AnimatedLogo from "@/components/AnimatedLogo.vue";
   import GitHubIcon from "@/assets/icons/github.svg";
   import TwitterIcon from "@/assets/icons/twitter.svg";
   import InstagramIcon from "@/assets/icons/instagram.svg";

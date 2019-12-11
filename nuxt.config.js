@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+// eslint-disable-next-line import/no-default-export
 export default {
   mode: "spa",
   /*
@@ -16,15 +18,11 @@ export default {
   /*
   ** Global CSS
   */
-  css: [
-    "@/assets/global.scss"
-  ],
+  css: ["@/assets/global.scss"],
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
-    "@/plugins/vue-ripple-directive"
-  ],
+  plugins: ["@/plugins/vue-ripple-directive"],
   /*
   ** Nuxt.js dev-modules
   */
@@ -42,9 +40,7 @@ export default {
   ],
 
   kiste: {
-    theme: {
-      contentPadding: "10px"
-    },
+    theme: { contentPadding: "10px" },
     navigationItems: [
       {
         label: "Home",
@@ -68,11 +64,7 @@ export default {
   },
 
   // https://pwa.nuxtjs.org/modules/workbox.html
-  workbox: {
-    workboxExtensions: [
-      "@/assets/js/fontSW.js"
-    ]
-  },
+  workbox: { workboxExtensions: ["@/assets/js/font-sw.js"] },
 
   pwa: {
     // https://pwa.nuxtjs.org/modules/meta.html
@@ -91,7 +83,7 @@ export default {
       short_name: "Moritz Ruth",
       background_color: "#ffffff",
       display: "browser",
-      description: "The official website of Moritz Ruth",
+      description: "The official website of Moritz Ruth"
     }
   },
 
@@ -102,7 +94,8 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend(config, ctx) {
+    // eslint-disable-next-line no-unused-vars
+    extend (config, context) {
     }
   }
 };

@@ -67,15 +67,11 @@
 </template>
 
 <script>
-  import KNavigationBar from "kiste/components/KNavigationBar";
+  import KNavigationBar from "kiste/components/KNavigationBar.vue";
 
   export default {
     name: "LegalNoticePage",
     components: { KNavigationBar },
-    head: {
-      htmlAttrs: {
-        lang: "de"
-      }
-    }
+    head: { htmlAttrs: { lang: "de" } }
   };
 </script>
