@@ -3,9 +3,6 @@
     <KNavigationBar/>
     <AnimatedLogo/>
     <main class="index-page__content">
-      <div class="index-page__name">
-        Moritz Ruth
-      </div>
       <div class="index-page__socials">
         <a class="index-page__social-link" href="https://github.com/moritzruth" title="GitHub">
           <GitHubIcon class="index-page__social-icon"/>
@@ -35,12 +32,6 @@
     flex-direction: column;
 
     height: calc(100vh - var(--x-navbar-height));
-  }
-
-  .index-page__name {
-    animation: appear 800ms 3.5s ease both;
-
-    font-size: 2rem;
   }
 
   @keyframes appear {

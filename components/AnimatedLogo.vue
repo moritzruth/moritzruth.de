@@ -1,88 +1,101 @@
 <template>
   <div class="animated-logo">
-    <div class="animated-logo__bar-1"></div>
-    <div class="animated-logo__bar-2"></div>
-    <MyLogo class="animated-logo__logo"/>
+    <svg class="animated-logo__svg" xmlns="http://www.w3.org/2000/svg" viewBox="76.75 182.661 358.5 146.679" width="358.5pt" height="146.679pt">
+      <path class="animated-logo__m1" d=" M 121.75 182.749 L 166.75 329.339 L 76.75 329.339 L 121.75 182.749 Z " fill-rule="evenodd" fill="currentColor"/>
+      <path class="animated-logo__m2" d=" M 206.75 182.749 L 251.75 329.339 L 161.75 329.339 L 206.75 182.749 Z " fill-rule="evenodd" fill="currentColor"/>
+      <path class="animated-logo__r1" d=" M 327.25 182.705 L 372.25 329.295 L 282.25 329.295 L 327.25 182.705 Z " fill-rule="evenodd" fill="currentColor"/>
+      <path class="animated-logo__r2" d=" M 390.537 329.339 L 345.25 182.837 L 435.25 182.661 L 390.537 329.339 Z " fill-rule="evenodd" fill="currentColor"/>
+    </svg>
+    <div class="animated-logo__name">
+      Moritz Ruth
+    </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-  $logo-width: 270px;
+  $scale-up-duration: 800ms;
+  $slide-duration: 1000ms;
+  $slide-delay: $scale-up-duration / 2;
+  $fade-duration: 400ms;
+  $fade-delay: $slide-delay + 300ms;
+  $slide-length: 37.5%;
 
   .animated-logo {
-    animation: logo-width 800ms 1s ease, logo-height 600ms 1.9s ease;
-    animation-fill-mode: both;
+    width: 350px;
 
-    overflow: hidden;
-    position: relative;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    color: black;
+    animation: scaleUp $scale-up-duration ease-out both;
   }
 
-  @keyframes logo-width {
+  .animated-logo__svg {
+    width: 100%;
+  }
+
+  .animated-logo__name {
+    font-size: 2rem;
+    animation: fadeIn $slide-duration $slide-delay ease both;
+    text-align: center;
+  }
+
+  .animated-logo__m1, .animated-logo__r2 {
+    animation: slideFromRight $slide-duration $slide-delay ease both;
+  }
+
+  .animated-logo__r2 {
+    animation-name: slideFromLeft;
+  }
+
+  .animated-logo__m2, .animated-logo__r1 {
+    animation: fadeIn $fade-duration $fade-delay ease both;
+  }
+
+  .animated-logo__m2 {
+    animation-delay: $fade-delay + 100ms;
+  }
+
+  @keyframes scaleUp {
     from {
-      width: 0;
+      transform: scale(0);
     }
 
     to {
-      width: $logo-width;
+      transform: scale(1);
     }
   }
 
-  @keyframes logo-height {
+  @keyframes slideFromRight {
     from {
-      height: 10px;
+      transform: translateX(#{$slide-length});
     }
 
     to {
-      height: 230px;
+      transform: translateX(0);
     }
   }
 
-  .animated-logo__bar-1, .animated-logo__bar-2 {
-    background-color: currentColor;
-    position: absolute;
-
-    left: 0;
-    right: 0;
-    height: 6px;
-
-    animation: fadeOut 400ms 2.8s ease-in both;
-  }
-
-  .animated-logo__bar-1 {
-    top: 0;
-  }
-
-  .animated-logo__bar-2 {
-    bottom: 0;
-  }
-
-  @keyframes fadeOut {
+  @keyframes slideFromLeft {
     from {
-      opacity: 1;
+      transform: translateX(#{$slide-length * -1});
     }
 
     to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
       opacity: 0;
     }
-  }
 
-  .animated-logo__logo {
-    width: $logo-width;
-    flex-shrink: 0;
+    to {
+      opacity: 1;
+    }
   }
 </style>
 
 <script>
-  import MyLogo from "@/assets/media/MyLogo.svg";
-
   export default {
     name: "AnimatedLogo",
-    components: { MyLogo }
+    components: { }
   };
 </script>

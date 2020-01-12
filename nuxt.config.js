@@ -40,7 +40,9 @@ export default {
   ],
 
   kiste: {
-    theme: { contentPadding: "10px" },
+    theme: {
+      contentPadding: "10px"
+    },
     navigationItems: [
       {
         label: "Home",
