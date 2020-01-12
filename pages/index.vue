@@ -1,7 +1,8 @@
 <template>
   <div class="index-page">
-    <KNavigationBar/>
+    <KNavigationBar background-after-scroll/>
     <AnimatedLogo/>
+    <canvas class="index-page__background" ref="canvas"/>
     <main class="index-page__content">
       <div class="index-page__socials">
         <a class="index-page__social-link" href="https://github.com/moritzruth" title="GitHub">
@@ -34,14 +35,16 @@
     height: calc(100vh - var(--x-navbar-height));
   }
 
-  @keyframes appear {
-    from {
-      opacity: 0;
-    }
+  .index-page__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
 
-    to {
-      opacity: 1;
-    }
+    z-index: -1;
   }
 
   .index-page__socials {
@@ -100,10 +103,18 @@
   import TwitterIcon from "@/assets/icons/twitter.svg";
   import InstagramIcon from "@/assets/icons/instagram.svg";
   import EmailIcon from "@/assets/icons/email.svg";
+  import { BackgroundCanvas } from "@/assets/js/background-canvas";
 
   export default {
     name: "IndexPage",
     layout: "none",
-    components: { AnimatedLogo, GitHubIcon, TwitterIcon, InstagramIcon, EmailIcon, KNavigationBar, KFooter }
+    components: { AnimatedLogo, GitHubIcon, TwitterIcon, InstagramIcon, EmailIcon, KNavigationBar, KFooter },
+    mounted () {
+      const backgroundCanvas = new BackgroundCanvas(this.$refs.canvas);
+
+      this.$once("hook:beforeDestroy", () => {
+        backgroundCanvas.destroy();
+      });
+    }
   };
 </script>
