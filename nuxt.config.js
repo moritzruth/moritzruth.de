@@ -19,6 +19,8 @@ export default {
   ** Global CSS
   */
   css: ["@/assets/global.scss"],
+
+  layoutTransition: "page",
   /*
   ** Plugins to load before mounting the App
   */

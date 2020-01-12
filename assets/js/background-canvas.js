@@ -102,6 +102,8 @@ export class BackgroundCanvas {
     // eslint-disable-next-line unicorn/prevent-abbreviations
     const ctx = this._ctx;
 
+    if (ctx === null) return;
+
     ctx.clearRect(0, 0, this.width, this.height);
 
     for (const line of this._lines) {
