@@ -36,7 +36,7 @@
   }
 
   .index-page__background {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -45,6 +45,18 @@
     height: 100vh;
 
     z-index: -1;
+
+    animation: appear 2s 1.2s linear both;
+  }
+
+  @keyframes appear {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
   }
 
   .index-page__socials {

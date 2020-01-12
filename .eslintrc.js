@@ -13,6 +13,9 @@ module.exports = {
     "@moritzruth",
     "@moritzruth/eslint-config/vue"
   ],
+  rules: {
+    "no-unused-vars": "warn"
+  },
   "settings": {
     "import/resolver": {
       webpack: {

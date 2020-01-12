@@ -1,20 +1,17 @@
 /* eslint-disable no-extra-parens */
-const PROBABILITY = 1 / 10000;
-const MIN_RADIUS = 1;
-const MAX_RADIUS = 4;
-const FADE_DURATION = 5000;
-const FADE_PROBABILITY = 1 / 100;
-const THREESIXTY_DEGREES = Math.PI / 180 * 360;
+const PROBABILITY = 1 / 50000;
+const HEIGHT = 2;
+const MIN_LINE_LENGTH = 20;
+const MAX_LINE_LENGTH = 300;
+const SPEED = 0.4;
+const APPEAR_PROBABILITY = 1;
 
 const COLORS = [
-  "0,0,0",
-  "0,255,100",
-  "0,100,255"
+  "#000000",
+  "#00ff64",
+  "rgba(0,255,100,0.2)",
+  "#0064ff"
 ];
-
-function getStyleString (color, alpha) {
-  return `rgba(${color},${alpha})`;
-}
 
 function randomBetween (min, max) {
   return (Math.random() * (max - min)) + min;
@@ -26,11 +23,9 @@ export class BackgroundCanvas {
     this._ctx = element.getContext("2d");
     this._destroyed = false;
     this._animationFrameRequestID = null;
-    this._points = [];
-    this._transformation = [0, 0];
+    this._lines = null;
     this.width = null;
     this.height = null;
-    this._isTouch = false;
 
     this._windowListeners = {
       touchstart: () => {
@@ -39,12 +34,6 @@ export class BackgroundCanvas {
       resize: () => {
         this._points = [];
         this._init();
-      },
-      mousemove: event => {
-        if (this._isTouch) return;
-
-        const { clientX: x, clientY: y } = event;
-        this._transformation = [(this.width / 2) - x, (this.height / 2) - y];
       }
     };
 
@@ -83,19 +72,20 @@ export class BackgroundCanvas {
     this.width = this._element.clientWidth;
     this.height = this._element.clientHeight;
 
-    for (let x = 0; x < this.width; x += 1) {
-      for (let y = 0; y < this.height; y += 1) {
-        if (Math.random() < PROBABILITY) {
-          const radius = randomBetween(MIN_RADIUS, MAX_RADIUS);
-          const z = randomBetween(-0.2, 0.2);
-          const color = Math.round(Math.random() * (COLORS.length - 1));
+    while (this._lines === null || this._lines.length < 8) {
+      this._lines = [];
 
-          this._points.push([x, y, z, radius, color]);
+      for (let x = 0; x < this.width; x += 1) {
+        for (let y = 0; y < this.height; y += 1) {
+          if (Math.random() < PROBABILITY) {
+            const color = Math.round(Math.random() * (COLORS.length - 1));
+            const length = 0;
+
+            this._lines.push({ x, y, color, length });
+          }
         }
       }
     }
-
-    console.log("Count of points:", this._points.length);
   }
 
   _loop() {
@@ -111,40 +101,23 @@ export class BackgroundCanvas {
   _draw() {
     // eslint-disable-next-line unicorn/prevent-abbreviations
     const ctx = this._ctx;
-    const [transformX, transformY] = this._transformation;
 
     ctx.clearRect(0, 0, this.width, this.height);
 
-    let first = true;
-    for (const point of this._points) {
-      const [x, y, z, radius, color] = point;
-      let [,,,,, fadeStartTime] = point;
-
-      let fadeProgress = 0;
-
-      if (fadeStartTime === undefined) {
-        if (Math.random() < FADE_PROBABILITY) {
-          fadeStartTime = Date.now();
-          point[5] = fadeStartTime;
+    for (const line of this._lines) {
+      if (line.length === 0) {
+        if (Math.random() < APPEAR_PROBABILITY) {
+          line.length = randomBetween(MIN_LINE_LENGTH, MAX_LINE_LENGTH);
         }
-      } else {
-        fadeProgress = (Date.now() - fadeStartTime) / FADE_DURATION;
       }
 
-      ctx.fillStyle = getStyleString(COLORS[color], fadeProgress);
+      ctx.fillStyle = COLORS[line.color];
+      ctx.fillRect(line.x, line.y, line.length, HEIGHT);
 
-      ctx.beginPath();
-      ctx.arc(x + (transformX * z), y + (transformY * z), radius, 0, THREESIXTY_DEGREES);
-      ctx.fill();
+      line.x += SPEED;
 
-      point[0] = x + 0.5;
-
-      if (point[0] > this.width) {
-        point[0] = 0;
-      }
-
-      if (first) {
-        first = false;
+      if (line.x >= this.width) {
+        line.x = -line.length;
       }
     }
   }

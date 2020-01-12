@@ -1,6 +1,6 @@
 <template>
   <div class="animated-logo">
-    <svg class="animated-logo__svg" xmlns="http://www.w3.org/2000/svg" viewBox="76.75 182.661 358.5 146.679" width="358.5pt" height="146.679pt">
+    <svg class="animated-logo__svg" xmlns="http://www.w3.org/2000/svg" viewBox="76.75 182.661 358.5 146.679">
       <path class="animated-logo__m1" d=" M 121.75 182.749 L 166.75 329.339 L 76.75 329.339 L 121.75 182.749 Z " fill-rule="evenodd" fill="currentColor"/>
       <path class="animated-logo__m2" d=" M 206.75 182.749 L 251.75 329.339 L 161.75 329.339 L 206.75 182.749 Z " fill-rule="evenodd" fill="currentColor"/>
       <path class="animated-logo__r1" d=" M 327.25 182.705 L 372.25 329.295 L 282.25 329.295 L 327.25 182.705 Z " fill-rule="evenodd" fill="currentColor"/>
@@ -21,18 +21,21 @@
   $slide-length: 37.5%;
 
   .animated-logo {
-    width: 350px;
+    width: 250px;
+    max-width: 60vw;
 
     animation: scaleUp $scale-up-duration ease-out both;
   }
 
   .animated-logo__svg {
     width: 100%;
+
+    margin-bottom: 40px;
   }
 
   .animated-logo__name {
     font-size: 2rem;
-    animation: fadeIn $slide-duration $slide-delay ease both;
+    animation: fadeIn $slide-duration $scale-up-duration ease both;
     text-align: center;
   }
 
