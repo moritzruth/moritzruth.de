@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "@nuxtjs/pwa": "^3.0.0-beta.19",
+    "kiste": "^1.2.6",
     "nuxt": "^2.11.0",
     "vue": "^2.6.11",
-    "kiste": "^1.2.5",
     "vue-ripple-directive": "^2.0.1"
   },
   "devDependencies": {
