@@ -5025,10 +5025,10 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
   integrity sha512-s5kLOcnH0XqDO+FvuaLX8DDjZ18CGFk7VygH40QoKPUQhW4e2rvM0rwUq0t8IQDOwYSeLK01U90OjzBTme2QqA==
 
-kiste@^1.2.6:
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/kiste/-/kiste-1.2.6.tgz#4810d0aabb3fbe1a317079a71c854941cb504add"
-  integrity sha512-v8K2LGhUnMT4PRMTVLM2kTKxNm7ypU9aw/3fcrnU69JVtHwpLtRPRVdoFbG6D3kaJv1H51XFQ5uUg+rA9drXmg==
+kiste@^1.2.7:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/kiste/-/kiste-1.2.7.tgz#f861f4a50ee324fc96345eccfddfd20f62118a57"
+  integrity sha512-VJFQqNVmufyjXZt+rrjjfymYFkNzBOUrREibioIDjZHFN1Hy5Mb3AywzjpGW3FLpjPAHQNb7uxj8rY45ndI1uQ==
   dependencies:
     chroma-js "^2.1.0"
     lodash.defaultsdeep "^4.6.1"
@@ -5218,6 +5218,11 @@ lodash.templatesettings@^4.0.0:
   integrity sha512-stgLz+i3Aa9mZgnjr/O+v9ruKZsPsndy7qPZOchbqk2cnTU1ZaldKK+v7m54WoKIyxiuMZTKT2H81F8BeAc3ZQ==
   dependencies:
     lodash._reinterpolate "^3.0.0"
+
+lodash.throttle@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
+  integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
 
 lodash.topairs@^4.3.0:
   version "4.3.0"
@@ -7150,6 +7155,11 @@ querystring@0.2.0, querystring@^0.2.0:
   resolved "https://registry.yarnpkg.com/querystring/-/querystring-0.2.0.tgz#b209849203bb25df820da756e747005878521620"
   integrity sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=
 
+random-item@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/random-item/-/random-item-3.0.0.tgz#a94edca6845de662072e325c29eca8e85ef88ced"
+  integrity sha512-IpO3Jk9/Dt79R7iS/Fn2d2asGXahMNnXLNRsgSmjTTtiS0tZ972BWEEm9uUgm3YAon5YFUt8126FA9wJAjmeZw==
+
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/randombytes/-/randombytes-2.1.0.tgz#df6f84372f0270dc65cdf6291349ab7a473d4f2a"
@@ -7750,6 +7760,14 @@ shallow-clone@^3.0.0:
   integrity sha512-/6KqX+GVUdqPuPPd2LxDDxzX6CAbjJehAAOKlNpqqUpAqPM6HeL8f+o3a+JsyGjn2lv0WY8UsTgUJjU9Ok55NA==
   dependencies:
     kind-of "^6.0.2"
+
+shaped.js@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/shaped.js/-/shaped.js-1.0.2.tgz#bb53612cd2def9e5e05f99ff2b74c2a6f576031f"
+  integrity sha512-kSUdVpXNR1KDF5iknA6dwrkJ0rxgWOGmjmgCefoWTWPN2kon6QW972+K0L0rAEaxJYeWSgKcrKPEEuT3JGcccA==
+  dependencies:
+    lodash.throttle "^4.1.1"
+    random-item "^3.0.0"
 
 shebang-command@^1.2.0:
   version "1.2.0"

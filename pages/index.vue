@@ -110,19 +110,102 @@
 <script>
   import KNavigationBar from "kiste/components/KNavigationBar.vue";
   import KFooter from "kiste/components/KFooter.vue";
+  import { Canvas } from "shaped.js";
   import AnimatedLogo from "@/components/AnimatedLogo.vue";
   import GitHubIcon from "@/assets/icons/github.svg";
   import TwitterIcon from "@/assets/icons/twitter.svg";
   import InstagramIcon from "@/assets/icons/instagram.svg";
   import EmailIcon from "@/assets/icons/email.svg";
-  import { BackgroundCanvas } from "@/assets/js/background-canvas";
+
+  const COLORS = [
+    "rgba(0, 0, 0, 0.8)",
+    "rgba(0, 255, 150, 0.8)",
+    "rgba(0, 255, 150, 0.2)",
+    "rgba(0, 150, 255, 0.8)",
+    "rgba(0, 150, 255, 0.2)"
+  ];
+
+  const LINES = [
+    {
+      minCount: 8,
+      probability: 1 / 10000,
+      height: 2,
+      length: 100,
+      speed: [-0.2, 0.2],
+      colors: COLORS
+    },
+    {
+      minCount: 8,
+      probability: 1 / 50000,
+      height: 5,
+      length: [20, 200],
+      speed: [0.2, 0.3],
+      colors: COLORS,
+      randomizeYAfterLeave: true
+    },
+    {
+      probability: 1 / 50000,
+      height: 50,
+      length: 50,
+      speed: [0.2, 0.5],
+      colors: COLORS
+    },
+    {
+      probability: 1 / 5000,
+      height: 3,
+      length: 3,
+      speed: [-1, 1],
+      colors: COLORS
+    },
+    {
+      minCount: 8,
+      probability: 1 / 50000,
+      height: [20, 200],
+      length: [20, 200],
+      speed: [0.2, 0.3],
+      colors: COLORS,
+      randomizeYAfterLeave: true
+    },
+    {
+      probability: 1 / 5000,
+      height: [20, 200],
+      length: 2,
+      speed: [-0.2, 0.2],
+      colors: COLORS
+    }
+  ];
 
   export default {
     name: "IndexPage",
     layout: "none",
     components: { AnimatedLogo, GitHubIcon, TwitterIcon, InstagramIcon, EmailIcon, KNavigationBar, KFooter },
     mounted () {
-      const backgroundCanvas = new BackgroundCanvas(this.$refs.canvas);
+      let nextConfig = 0;
+
+      if (localStorage !== undefined) {
+        const rawValue = localStorage.getItem("nextBackground");
+
+        if (rawValue) {
+          try {
+            nextConfig = JSON.parse(rawValue);
+            // eslint-disable-next-line no-empty
+          } catch {}
+        }
+      }
+
+      if (nextConfig > LINES.length - 1) {
+        nextConfig = 0;
+      }
+
+      if (localStorage !== undefined) {
+        localStorage.setItem("nextBackground", nextConfig + 1);
+      }
+
+      const config = LINES[nextConfig];
+      const backgroundCanvas = new Canvas(this.$refs.canvas, {
+        lines: config,
+        fillWindowSize: true
+      });
 
       this.$once("hook:beforeDestroy", () => {
         backgroundCanvas.destroy();

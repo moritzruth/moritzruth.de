@@ -1,10 +1,20 @@
 <template>
   <div class="projects-page">
-    <KNavigationBar title="Projects"/>
+    <KNavigationBar title="Projects" background-after-scroll/>
     <div class="content">
       <h1 class="heading--1">
         Projects
       </h1>
+      <GProject
+        type="JavaScript library"
+        title="shaped.js"
+        github="moritzruth/shaped.js"
+        npm="shaped.js"
+      >
+        Generate beautiful moving shapes using a canvas element which can for example be used for backgrounds.
+        See it in action <nuxt-link class="link" to="/">on the home page</nuxt-link>.
+        Every time you reload the page, it shows another variation.
+      </GProject>
       <GProject
         type="App (english)"
         title="RelaxYourEyes"
