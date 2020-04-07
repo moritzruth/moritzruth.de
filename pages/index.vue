@@ -1,173 +1,109 @@
 <template>
   <div class="index-page">
-    <KNavigationBar background-after-scroll/>
-    <AnimatedLogo/>
+    <NavigationBar background-after-scroll title="Start"/>
     <canvas class="index-page__background" ref="canvas"/>
-    <main class="index-page__content">
-      <div class="index-page__socials">
-        <a class="index-page__social-link" href="https://github.com/moritzruth" title="GitHub">
-          <GitHubIcon class="index-page__social-icon"/>
-        </a>
-        <a class="index-page__social-link" href="https://twitter.com/moritzruth_dev" title="Twitter">
-          <TwitterIcon class="index-page__social-icon"/>
-        </a>
-        <a class="index-page__social-link" href="https://instagram.com/moritzruth_dev" title="Instagram">
-          <InstagramIcon class="index-page__social-icon"/>
-        </a>
-        <a class="index-page__social-link" href="mailto:dev@moritz-ruth.de" title="Email">
-          <EmailIcon class="index-page__social-icon"/>
-        </a>
-      </div>
-    </main>
-    <KFooter class="index-page__footer"/>
+    <div class="index-page__content">
+      <AnimatedLogo/>
+    </div>
+    <footer class="index-page__footer">
+      <nuxt-link
+        v-for="item in $options.footerItems"
+        class="index-page__footer-link"
+        :key="item.label"
+        :to="item.to"
+        @click.native.passive="open = false"
+      >
+        {{ item.label }}
+      </nuxt-link>
+    </footer>
   </div>
 </template>
 
-<style scoped lang="scss">
-  @use "~kiste/css/mixins/screenSize";
+<style lang="scss">
+  @use "~@/assets/styles/screenSize";
+  @use "~@/assets/styles/colors";
 
   .index-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    height: calc(100vh - var(--x-navbar-height));
+    background: black;
+    width: 100vw;
   }
 
   .index-page__background {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100vw;
-    height: 100vh;
-
-    z-index: -1;
-
-    animation: appear 2s 1.2s linear both;
   }
 
-  @keyframes appear {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-
-  .index-page__socials {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    right: 0;
-
+  .index-page__content {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
 
-  .index-page__social-link {
-    color: black;
-
-    &:not(:last-child) {
-      margin-right: 15px;
-    }
-  }
-
-  .index-page__social-icon {
-    width: 40px;
-
-    transition: 200ms linear opacity;
-    &:hover {
-      opacity: 0.8;
-    }
+    height: calc(100vh - var(--navigation-bar-height));
   }
 
   .index-page__footer {
-    position: absolute;
-    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
 
-    margin-bottom: 10px;
+    padding: 20px;
 
-    @include screenSize.notMobile {
-      top: unset;
-      bottom: 0;
-      right: 0;
+    opacity: 0.5;
+    transition: 200ms linear opacity;
 
-      width: fit-content;
-      padding: 20px;
-      margin: 0;
-
-      flex-direction: row;
+    &:hover {
+      opacity: 1;
     }
+
+    .index-page__footer-link {
+      text-decoration: none;
+      color: colors.$background-c;
+
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  @include screenSize.mobile {
+
   }
 </style>
 
 <script>
-  import KNavigationBar from "kiste/components/KNavigationBar.vue";
-  import KFooter from "kiste/components/KFooter.vue";
   import { Canvas } from "shaped.js";
-  import AnimatedLogo from "@/components/AnimatedLogo.vue";
-  import GitHubIcon from "@/assets/icons/github.svg";
-  import TwitterIcon from "@/assets/icons/twitter.svg";
-  import InstagramIcon from "@/assets/icons/instagram.svg";
-  import EmailIcon from "@/assets/icons/email.svg";
+  import AnimatedLogo from "@/components/AnimatedLogo";
+  import NavigationBar from "@/components/NavigationBar";
+  import { footerItems } from "@/assets/js/footerItems";
 
   const COLORS = [
-    "rgba(0, 0, 0, 0.8)",
-    "rgba(0, 255, 150, 0.8)",
-    "rgba(0, 255, 150, 0.2)",
-    "rgba(0, 150, 255, 0.8)",
-    "rgba(0, 150, 255, 0.2)"
+    "#BB2081",
+    "#14AAD8",
+    "#ffffff"
   ];
 
   const LINES = [
     {
       minCount: 8,
-      probability: 1 / 10000,
-      height: 2,
+      probability: 1 / 20000,
+      height: 1,
       length: 100,
-      speed: [-0.2, 0.2],
+      speed: [-0.1, 0.4],
       colors: COLORS
     },
     {
-      minCount: 8,
-      probability: 1 / 50000,
+      probability: 1 / 10000,
       height: 5,
-      length: [20, 200],
-      speed: [0.2, 0.3],
-      colors: COLORS,
-      randomizeYAfterLeave: true
-    },
-    {
-      probability: 1 / 50000,
-      height: 50,
-      length: 50,
-      speed: [0.2, 0.5],
+      length: 5,
+      speed: [-0.4, 0.4],
       colors: COLORS
     },
     {
-      probability: 1 / 5000,
-      height: 3,
-      length: 3,
-      speed: [-1, 1],
-      colors: COLORS
-    },
-    {
-      minCount: 8,
-      probability: 1 / 50000,
-      height: [20, 200],
-      length: [20, 200],
-      speed: [0.2, 0.3],
-      colors: COLORS,
-      randomizeYAfterLeave: true
-    },
-    {
-      probability: 1 / 5000,
+      probability: 1 / 10000,
       height: [20, 200],
       length: 2,
       speed: [-0.2, 0.2],
@@ -177,31 +113,32 @@
 
   export default {
     name: "IndexPage",
-    layout: "none",
-    components: { AnimatedLogo, GitHubIcon, TwitterIcon, InstagramIcon, EmailIcon, KNavigationBar, KFooter },
-    mounted () {
-      let nextConfig = 0;
+    layout: "empty",
+    components: { NavigationBar, AnimatedLogo },
+    mounted() {
+      let configIndex = 0;
 
       if (localStorage !== undefined) {
         const rawValue = localStorage.getItem("nextBackground");
 
         if (rawValue) {
           try {
-            nextConfig = JSON.parse(rawValue);
-            // eslint-disable-next-line no-empty
-          } catch {}
+            configIndex = JSON.parse(rawValue);
+          } catch {
+            // ignored
+          }
         }
       }
 
-      if (nextConfig > LINES.length - 1) {
-        nextConfig = 0;
+      if (configIndex > LINES.length - 1) {
+        configIndex = 0;
       }
 
       if (localStorage !== undefined) {
-        localStorage.setItem("nextBackground", nextConfig + 1);
+        localStorage.setItem("nextBackground", JSON.stringify(configIndex + 1));
       }
 
-      const config = LINES[nextConfig];
+      const config = LINES[configIndex];
       const backgroundCanvas = new Canvas(this.$refs.canvas, {
         lines: config,
         fillWindowSize: true
@@ -210,6 +147,7 @@
       this.$once("hook:beforeDestroy", () => {
         backgroundCanvas.destroy();
       });
-    }
+    },
+    footerItems
   };
 </script>

@@ -18,7 +18,7 @@ export default {
   /*
   ** Global CSS
   */
-  css: ["@/assets/global.scss"],
+  css: ["@/assets/styles/global.scss"],
 
   layoutTransition: "page",
   /*
@@ -30,8 +30,7 @@ export default {
   */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    "@nuxtjs/eslint-module",
-    "kiste/nuxt"
+    "@nuxtjs/eslint-module"
   ],
   /*
   ** Nuxt.js modules
@@ -40,32 +39,6 @@ export default {
     "svg-to-vue-component/nuxt",
     "@nuxtjs/pwa"
   ],
-
-  kiste: {
-    theme: {
-      contentPadding: "10px"
-    },
-    navigationItems: [
-      {
-        label: "Home",
-        to: "/"
-      },
-      {
-        label: "Projects",
-        to: "/projects"
-      }
-    ],
-    footerItems: [
-      {
-        label: "Legal Notice",
-        to: "/legal-notice"
-      },
-      {
-        label: "Privacy Policy",
-        to: "/privacy-policy"
-      }
-    ]
-  },
 
   // https://pwa.nuxtjs.org/modules/workbox.html
   workbox: { workboxExtensions: ["@/assets/js/font-sw.js"] },
@@ -77,17 +50,17 @@ export default {
       mobileApp: false,
       name: "Moritz Ruth",
       author: "Moritz Ruth",
-      description: "The official website of Moritz Ruth",
+      description: "Moritz Ruth is a web developer, photograph and digital creator.",
       lang: "en",
-      themeColor: "#ffffff"
+      themeColor: "#000000"
     },
     // https://developer.mozilla.org/en-US/docs/Web/Manifest
     manifest: {
       name: "Moritz Ruth",
       short_name: "Moritz Ruth",
-      background_color: "#ffffff",
+      background_color: "#000000",
       display: "browser",
-      description: "The official website of Moritz Ruth"
+      description: "Moritz Ruth is a web developer, photograph and digital creator."
     }
   },
 

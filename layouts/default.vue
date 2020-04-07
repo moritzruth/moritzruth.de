@@ -1,22 +1,23 @@
 <template>
-  <div class="default-layout fill-screen">
-    <KApp>
-      <nuxt/>
-      <KFooter/>
-    </KApp>
+  <div class="default-layout">
+    <nuxt/>
+    <MyFooter/>
   </div>
 </template>
 
 <style scoped lang="scss">
-
+  .default-layout {
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+  }
 </style>
 
 <script>
-  import KApp from "kiste/components/KApp.vue";
-  import KFooter from "kiste/components/KFooter.vue";
+  import MyFooter from "@/components/MyFooter";
 
   export default {
     name: "DefaultLayout",
-    components: { KApp, KFooter }
+    components: { MyFooter }
   };
 </script>

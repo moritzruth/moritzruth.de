@@ -1,0 +1,67 @@
+@use "./colors";
+@use "./content";
+@use "./formatted";
+
+// General
+
+html, body {
+  font-family: "Alata", sans-serif;
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+
+  width: 100vw;
+  overflow-x: hidden;
+  min-height: 100vh;
+
+  background: colors.$background;
+  color: colors.$background-c;
+}
+
+// Transitions
+
+.page-enter-active, .page-leave-active {
+  transition: 500ms ease opacity;
+}
+
+.page-enter, .page-leave-to {
+  opacity: 0;
+}
+
+.page-enter-to, .page-leave {
+  opacity: 1;
+}
+
+// Other
+
+.content {
+  @include content.content();
+}
+
+.link {
+  position: relative;
+
+  text-decoration: none;
+  color: colors.$background-c;
+  &:hover, &:focus {
+    outline: none;
+
+    &::after {
+      background-position: 0 0;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+
+    height: 2px;
+    top: 102%;
+    left: 0;
+    right: 0;
+
+    background: linear-gradient(90deg, colors.$pink 0%, colors.$blue 100%) 100% 0;
+    background-size: 260% 100%;
+    transition: 500ms ease background-position;
+  }
+}

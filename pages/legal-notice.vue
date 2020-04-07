@@ -1,6 +1,5 @@
 <template>
   <div class="legal-notice-page">
-    <KNavigationBar title="Legal Notice"/>
     <div class="content">
       <h1 class="heading--1">
         Legal Notice
@@ -59,7 +58,6 @@
         class="link"
         href="https://datenschutz-generator.de/?l=de"
         rel="noopener"
-        title="Rechtstext von Dr. Schwenke - für weitere Informationen bitte anklicken."
         target="_blank"
       >Erstellt mit kostenlosem Datenschutz-Generator.de von Dr. Thomas Schwenke</a>
     </div>
@@ -67,11 +65,8 @@
 </template>
 
 <script>
-  import KNavigationBar from "kiste/components/KNavigationBar.vue";
-
   export default {
     name: "LegalNoticePage",
-    components: { KNavigationBar },
-    head: { htmlAttrs: { lang: "de" } }
+    head: () => ({ htmlAttrs: { lang: "de" } })
   };
 </script>
