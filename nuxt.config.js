@@ -14,7 +14,7 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: "#000000" },
+  loading: { color: "#ffffff" },
   /*
   ** Global CSS
   */
@@ -72,7 +72,7 @@ export default {
     ** You can extend webpack config here
     */
     // eslint-disable-next-line no-unused-vars
-    extend (config, context) {
+    extend(config, context) {
     }
   }
 };

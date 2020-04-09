@@ -1,7 +1,6 @@
 {
   "name": "moritz-ruth.de",
-  "version": "1.0.0",
-  "description": "The official website of Moritz Ruth",
+  "description": "Moritz Ruth is a web developer, photograph and digital creator.",
   "author": "Moritz Ruth",
   "private": true,
   "scripts": {
