@@ -33,28 +33,34 @@
 </template>
 
 <style scoped lang="scss">
+  @use "~@/assets/styles/colors";
+
   $scale-up-duration: 800ms;
   $slide-duration: 1000ms;
   $slide-delay: $scale-up-duration / 2;
   $fade-duration: 400ms;
   $fade-delay: $slide-delay + 300ms;
   $slide-length: 37.5%;
+  $border-show-delay: $fade-delay + $fade-duration;
 
   .animated-logo {
     width: 300px;
     max-width: 60vw;
+    padding: 40px 40px 30px;
 
-    animation: scaleUp $scale-up-duration ease-out both;
+    background: transparentize(colors.$background, 0.5);
+    color: colors.$background-c;
   }
 
   .animated-logo__svg {
     width: 100%;
 
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    animation: scaleUp $scale-up-duration ease-out both;
   }
 
   .animated-logo__name {
-    font-size: 2.3rem;
+    font-size: 2rem;
     animation: fadeIn $slide-duration $scale-up-duration ease both;
     text-align: center;
   }

@@ -2,9 +2,35 @@
   <div class="index-page">
     <NavigationBar background-after-scroll title="Start"/>
     <canvas class="index-page__background" ref="canvas"/>
-    <div class="index-page__content">
+    <main class="index-page__content">
       <AnimatedLogo/>
-    </div>
+      <div class="index-page__socials">
+        <a
+          class="index-page__social"
+          href="https://instagram.com/moritzruth_dev"
+          title="Instagram"
+        ><InstagramIcon class="index-page__social-icon"/></a>
+        <a
+          class="index-page__social"
+          href="https://twitter.com/moritzruth_dev"
+          title="Twitter"
+        ><TwitterIcon class="index-page__social-icon"/></a>
+        <a
+          class="index-page__social"
+          href="https://npmjs.org/~moritzruth"
+          title="NPM"
+        ><NPMIcon class="index-page__social-icon"/></a>
+        <a
+          class="index-page__social"
+          href="https://github.com/moritzruth"
+          title="GitHub"
+        ><GitHubIcon class="index-page__social-icon"/></a>
+        <a
+          class="index-page__social"
+          href="mailto:dev@moritz-ruth.de"
+        ><EmailIcon class="index-page__social-icon"/></a>
+      </div>
+    </main>
     <footer class="index-page__footer">
       <nuxt-link
         v-for="item in $options.footerItems"
@@ -24,7 +50,8 @@
   @use "~@/assets/styles/colors";
 
   .index-page {
-    background: black;
+    background: colors.$background;
+    color: colors.$background-c;
     width: 100vw;
   }
 
@@ -40,8 +67,59 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    position: relative;
 
-    height: calc(100vh - var(--navigation-bar-height));
+    height: calc(90vh - var(--navigation-bar-height));
+  }
+
+  .index-page__socials {
+    margin-top: 20px;
+
+    padding: 20px;
+    background: transparentize(colors.$background, 0.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .index-page__social {
+    text-decoration: none;
+    position: relative;
+
+    &:not(:last-child) {
+      margin-right: 4px;
+    }
+
+    &:hover, &:focus-within {
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      background: linear-gradient(-135deg, colors.$blue, colors.$pink 80%);
+      pointer-events: none;
+      mix-blend-mode: multiply;
+
+      opacity: 0;
+      transition: 200ms opacity ease;
+    }
+  }
+
+  .index-page__social-icon {
+    color: colors.$background-c;
+    height: 40px;
+    margin-right: 10px;
   }
 
   .index-page__footer {
@@ -52,7 +130,7 @@
 
     padding: 20px;
 
-    opacity: 0.5;
+    opacity: 0.8;
     transition: 200ms linear opacity;
 
     &:hover {
@@ -70,7 +148,9 @@
   }
 
   @include screenSize.mobile {
-
+    .index-page__social-icon {
+      height: 30px;
+    }
   }
 </style>
 
@@ -79,6 +159,11 @@
   import AnimatedLogo from "@/components/AnimatedLogo";
   import NavigationBar from "@/components/NavigationBar";
   import { footerItems } from "@/assets/js/footerItems";
+  import InstagramIcon from "@/assets/icons/instagram.svg";
+  import TwitterIcon from "@/assets/icons/twitter.svg";
+  import NPMIcon from "@/assets/icons/npm.svg";
+  import GitHubIcon from "@/assets/icons/github.svg";
+  import EmailIcon from "@/assets/icons/email.svg";
 
   const COLORS = [
     "#BB2081",
@@ -114,7 +199,7 @@
   export default {
     name: "IndexPage",
     layout: "empty",
-    components: { NavigationBar, AnimatedLogo },
+    components: { NavigationBar, AnimatedLogo, InstagramIcon, TwitterIcon, NPMIcon, GitHubIcon, EmailIcon },
     mounted() {
       let configIndex = 0;
 

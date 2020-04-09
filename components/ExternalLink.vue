@@ -18,7 +18,7 @@
 <style scoped lang="scss">
   .external-link {
     padding-right: 2px;
-    overflow-wrap: break-word;
+    white-space: nowrap;
   }
 
   .external-link__icon {

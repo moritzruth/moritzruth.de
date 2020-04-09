@@ -14,7 +14,8 @@ module.exports = {
     "@moritzruth/eslint-config/vue"
   ],
   rules: {
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "vue/no-unused-components": "warn"
   },
   "settings": {
     "import/resolver": {

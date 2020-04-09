@@ -110,7 +110,9 @@
   }
 
   .navigation-bar__title {
-    font-size: 1.4rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
     display: block;
 
     opacity: 0;
@@ -190,7 +192,7 @@
     display: block;
     color: colors.$background-c;
     text-decoration: none;
-    font-size: 1.4rem;
+    font-size: 2rem;
 
     background: black;
     padding: 10px;
@@ -254,11 +256,17 @@
       pointer-events: auto;
 
       flex-direction: row;
+
+      background: transparent;
     }
 
     .navigation-bar__link-container:not(:last-child) {
       margin-bottom: 0;
       margin-right: 40px;
+    }
+
+    .navigation-bar__link {
+      font-size: 1.3rem;
     }
   }
 </style>

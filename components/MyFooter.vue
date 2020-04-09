@@ -2,7 +2,7 @@
   <footer class="my-footer">
     <nuxt-link
       v-for="item in $options.items"
-      class="my-footer__link link"
+      class="my-footer__link underlined-link"
       :key="item.label"
       :to="item.to"
       @click.native.passive="open = false"
@@ -30,9 +30,15 @@
   }
 
   @include screenSize.mobile {
+
+    .my-footer {
+      flex-direction: column;
+      margin-bottom: 10px;
+    }
+
     .my-footer__link:not(:last-child) {
       margin-right: 0;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
   }
 </style>
