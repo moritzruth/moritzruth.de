@@ -199,6 +199,7 @@
   export default {
     name: "IndexPage",
     layout: "empty",
+    head: () => ({ title: "Moritz Ruth", titleTemplate: "%s" }),
     components: { NavigationBar, AnimatedLogo, InstagramIcon, TwitterIcon, NPMIcon, GitHubIcon, EmailIcon },
     mounted() {
       let configIndex = 0;

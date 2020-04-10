@@ -290,6 +290,9 @@
   export default {
     name: "PrivacyPolicyPage",
     components: { NavigationBar, ExternalLink },
-    head: () => ({ htmlAttrs: { lang: "de" } })
+    head: () => ({
+      htmlAttrs: { lang: "de" },
+      title: "Privacy Policy"
+    })
   };
 </script>

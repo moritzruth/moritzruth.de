@@ -71,6 +71,7 @@
 
   export default {
     name: "ProjectsPage",
-    components: { MyProject, NavigationBar }
+    components: { MyProject, NavigationBar },
+    head: () => ({ title: "Projects" })
   };
 </script>

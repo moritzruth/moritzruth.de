@@ -1,8 +1,9 @@
 <template>
   <div class="legal-notice-page">
-    <div class="content">
+    <NavigationBar title="Impressum"/>
+    <main class="content">
       <h1 class="heading--1">
-        Legal Notice
+        Impressum
       </h1>
       <h2 class="heading--3">
         Diensteanbieter
@@ -60,13 +61,18 @@
         rel="noopener"
         target="_blank"
       >Erstellt mit kostenlosem Datenschutz-Generator.de von Dr. Thomas Schwenke</a>
-    </div>
+    </main>
   </div>
 </template>
 
 <script>
+  import NavigationBar from "../components/NavigationBar";
   export default {
     name: "LegalNoticePage",
-    head: () => ({ htmlAttrs: { lang: "de" } })
+    components: { NavigationBar },
+    head: () => ({
+      htmlAttrs: { lang: "de" },
+      title: "Legal notice"
+    })
   };
 </script>

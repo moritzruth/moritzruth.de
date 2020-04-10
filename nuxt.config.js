@@ -6,6 +6,7 @@ export default {
   ** Headers of the page
   */
   head: {
+    titleTemplate: "%s | Moritz Ruth",
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css?family=Alata&display=swap" }
