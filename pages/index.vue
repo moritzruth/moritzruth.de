@@ -12,7 +12,7 @@
         ><InstagramIcon class="index-page__social-icon"/></a>
         <a
           class="index-page__social"
-          href="https://twitter.com/moritzruth_dev"
+          href="https://twitter.com/moritz_ruth"
           title="Twitter"
         ><TwitterIcon class="index-page__social-icon"/></a>
         <a
@@ -27,7 +27,7 @@
         ><GitHubIcon class="index-page__social-icon"/></a>
         <a
           class="index-page__social"
-          href="mailto:dev@moritz-ruth.de"
+          href="mailto:dev@moritzruth.de"
         ><EmailIcon class="index-page__social-icon"/></a>
       </div>
     </main>
@@ -74,11 +74,7 @@
   }
 
   .index-page__socials {
-    margin-top: 20px;
-
     padding: 20px;
-    background: transparentize(colors.$background, 0.5);
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,6 +83,9 @@
   .index-page__social {
     text-decoration: none;
     position: relative;
+
+    display: flex;
+    align-items: center;
 
     &:not(:last-child) {
       margin-right: 4px;
@@ -109,7 +108,7 @@
 
       background: linear-gradient(-135deg, colors.$blue, colors.$pink 80%);
       pointer-events: none;
-      mix-blend-mode: multiply;
+      mix-blend-mode: lighten;
 
       opacity: 0;
       transition: 200ms opacity ease;
@@ -165,34 +164,17 @@
   import GitHubIcon from "@/assets/icons/github.svg";
   import EmailIcon from "@/assets/icons/email.svg";
 
-  const COLORS = [
-    "#BB2081",
-    "#14AAD8",
-    "#ffffff"
-  ];
-
   const LINES = [
     {
       minCount: 8,
-      probability: 1 / 20000,
+      probability: 1 / 30000,
       height: 1,
-      length: 100,
-      speed: [-0.1, 0.4],
-      colors: COLORS
-    },
-    {
-      probability: 1 / 10000,
-      height: 5,
-      length: 5,
-      speed: [-0.4, 0.4],
-      colors: COLORS
-    },
-    {
-      probability: 1 / 10000,
-      height: [20, 200],
-      length: 2,
-      speed: [-0.2, 0.2],
-      colors: COLORS
+      length: [80, 150],
+      speed: [0.2, 0.5],
+      colors: [
+        "#BB2081",
+        "#14AAD8"
+      ]
     }
   ];
 

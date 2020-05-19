@@ -21,8 +21,10 @@
 
     transition: 140ms ease background-color;
     &:hover, &:focus {
+      outline: none;
+
       &:not(.my-button--disabled) {
-        background: transparentize(colors.$blue, 0.85);
+        background: transparentize(colors.$background-c, 0.9);
       }
     }
 
@@ -195,7 +197,7 @@
               click: true,
               400: true
             },
-            value: "rgba(255, 255, 255, 0.2)"
+            value: "rgba(0, 0, 0, 0.5)"
           }
         ],
         attrs: {

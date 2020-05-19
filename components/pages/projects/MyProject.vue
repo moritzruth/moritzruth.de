@@ -1,43 +1,45 @@
 <template>
   <div class="my-project">
-    <h2 class="my-project__title">
-      {{ title }}
-    </h2>
-    <span class="my-project__kind">{{ kind }}</span>
-    <div class="my-project__description">
-      <slot/>
-    </div>
-    <div class="my-project__links" v-if="github || npm || url">
-      <MyButton
-        v-if="url !== ''"
-        class="my-project__link"
-        :href="url"
-      >
-        <template v-slot:prefix>
-          <PointerRightIcon class="my-project__link-icon"/>
-        </template>
-        Open
-      </MyButton>
-      <MyButton
-        v-if="github !== ''"
-        class="my-project__link"
-        :href="`https://github.com/${github}`"
-      >
-        <template v-slot:prefix>
-          <GitHubIcon class="my-project__link-icon"/>
-        </template>
-        GitHub
-      </MyButton>
-      <MyButton
-        v-if="npm !== ''"
-        class="my-project__link"
-        :href="`https://npmjs.com/${npm}`"
-      >
-        <template v-slot:prefix>
-          <NPMIcon class="my-project__link-icon"/>
-        </template>
-        NPM
-      </MyButton>
+    <div class="my-project__content">
+      <h2 class="my-project__title">
+        {{ title }}
+      </h2>
+      <span class="my-project__kind">{{ kind }}</span>
+      <div class="my-project__description">
+        <slot/>
+      </div>
+      <div class="my-project__links" v-if="github || npm || url">
+        <MyButton
+          v-if="url !== ''"
+          class="my-project__link"
+          :href="url"
+        >
+          <template v-slot:prefix>
+            <PointerRightIcon class="my-project__link-icon"/>
+          </template>
+          Open
+        </MyButton>
+        <MyButton
+          v-if="github !== ''"
+          class="my-project__link"
+          :href="`https://github.com/${github}`"
+        >
+          <template v-slot:prefix>
+            <GitHubIcon class="my-project__link-icon"/>
+          </template>
+          GitHub
+        </MyButton>
+        <MyButton
+          v-if="npm !== ''"
+          class="my-project__link"
+          :href="`https://npmjs.com/${npm}`"
+        >
+          <template v-slot:prefix>
+            <NPMIcon class="my-project__link-icon"/>
+          </template>
+          NPM
+        </MyButton>
+      </div>
     </div>
   </div>
 </template>
@@ -47,25 +49,18 @@
   @use "~@/assets/styles/screenSize";
 
   .my-project {
-    background: #090909;
-    border: 1px solid colors.$green;
+    background: linear-gradient(-135deg, colors.$blue, colors.$pink 80%);
+  }
+
+  .my-project__content {
+    margin: 2px;
     padding: 20px;
-    margin: 10px;
+    background: colors.$background;
     font-size: 1.1rem;
-    width: 400px;
-    flex-grow: 1;
 
     display: flex;
     align-items: stretch;
     flex-direction: column;
-
-    &:nth-child(3n+1) {
-      border-color: colors.$blue;
-    }
-
-    &:nth-child(3n+2) {
-      border-color: colors.$pink;
-    }
   }
 
   .my-project__title {
@@ -86,27 +81,28 @@
   .my-project__links {
     flex-grow: 1;
 
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-
     margin-top: 10px;
+
+    display: grid;
+    gap: 5px;
+    grid-auto-flow: column;
+    grid-auto-columns: min-content;
+    grid-auto-rows: min-content;
   }
 
   .my-project__link {
     height: 30px;
-    margin: 2px;
+    width: auto;
   }
 
   .my-project__link-icon {
     height: 25px!important;
   }
 
-  @include screenSize.mobile {
+  @media (max-width: 500px) {
     .my-project__links {
-      flex-direction: column;
-      justify-content: stretch;
-      align-items: stretch;
+      grid-template-columns: 1fr;
+      grid-auto-flow: row;
     }
   }
 </style>

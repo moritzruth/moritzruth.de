@@ -67,6 +67,7 @@
 
 <script>
   import NavigationBar from "../components/NavigationBar";
+
   export default {
     name: "LegalNoticePage",
     components: { NavigationBar },

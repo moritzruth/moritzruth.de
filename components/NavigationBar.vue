@@ -32,7 +32,6 @@
           <a
             v-else
             class="navigation-bar__link"
-            :key="item.label"
             rel="noopener"
             :href="item.href"
             @click.passive="open = false"
@@ -167,7 +166,7 @@
 
       background: linear-gradient(135deg, colors.$blue 25%, colors.$pink, colors.$blue 75%);
       background-size: 400% 400%;
-      animation: 1s infinite linear reverse navigation-bar__gradient;
+      animation: 2s infinite linear reverse navigation-bar__gradient;
 
       pointer-events: none;
       mix-blend-mode: multiply;
@@ -182,8 +181,10 @@
       }
 
       .navigation-bar__link {
+        $offset: -3px;
+
         outline: none;
-        transform: translate(-5px, -5px);
+        transform: translate($offset, $offset);
       }
     }
   }
@@ -194,10 +195,10 @@
     text-decoration: none;
     font-size: 2rem;
 
-    background: black;
+    background: colors.$background;
     padding: 10px;
 
-    transition: 200ms transform ease;
+    transition: 200ms transform cubic-bezier(.5,.06,.07,1.69);
   }
 
   @keyframes navigation-bar__gradient {

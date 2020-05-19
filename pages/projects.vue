@@ -19,7 +19,7 @@
           title="Schweredruck-Simulation"
           kind="Web App (german)"
           github="moritzruth/schweredruck-simulation"
-          url="https://app.moritz-ruth.de/schweredruck-simulation/"
+          url="https://app.moritzruth.de/schweredruck-simulation/"
         >
           Calculate and visualize the hydrostatic pressure in different liquids.
         </MyProject>
@@ -60,8 +60,9 @@
   }
 
   .projects-page__projects {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-auto-flow: row;
+    gap: 20px;
   }
 </style>
 
