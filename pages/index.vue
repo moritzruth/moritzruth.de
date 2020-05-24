@@ -7,7 +7,7 @@
       <div class="index-page__socials">
         <a
           class="index-page__social"
-          href="https://instagram.com/moritzruth_dev"
+          href="https://instagram.com/moritz_ruth"
           title="Instagram"
         ><InstagramIcon class="index-page__social-icon"/></a>
         <a
