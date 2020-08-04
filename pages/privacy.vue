@@ -284,8 +284,8 @@
 </style>
 
 <script>
-  import ExternalLink from "@/components/ExternalLink";
-  import NavigationBar from "@/components/NavigationBar";
+  import ExternalLink from "@/components/ExternalLink"
+  import NavigationBar from "@/components/NavigationBar"
 
   export default {
     name: "PrivacyPolicyPage",
@@ -294,5 +294,5 @@
       htmlAttrs: { lang: "de" },
       title: "Privacy Policy"
     })
-  };
+  }
 </script>

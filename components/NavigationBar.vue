@@ -3,12 +3,12 @@
     <div class="navigation-bar__placeholder"></div>
     <nav class="navigation-bar__content">
       <div class="navigation-bar__title-container">
-      <span
-        class="navigation-bar__title"
-        :class="{ 'navigation-bar__title--show': showTitle }"
-      >
-        {{ title }}
-      </span>
+        <span
+          class="navigation-bar__title"
+          :class="{ 'navigation-bar__title--show': showTitle }"
+        >
+          {{ title }}
+        </span>
       </div>
       <div class="navigation-bar__toggle" @click="open = !open">
         <span></span>
@@ -16,29 +16,22 @@
         <span></span>
       </div>
       <div class="navigation-bar__links">
-        <div
+        <nuxt-link
           v-for="item in $options.items"
-          class="navigation-bar__link-container"
           :key="item.label"
+          class="navigation-bar__link"
+          :exact="item.to === '/'"
+          :to="item.to"
+          @click.native="open = false"
+          @mouseenter.native="e => handleLinkEvent(e, true)"
+          @focus.native="e => handleLinkEvent(e, true)"
+          @mouseleave.native="e => handleLinkEvent(e, false)"
+          @blur.native="e => handleLinkEvent(e, false)"
         >
-          <nuxt-link
-            v-if="item.to"
-            class="navigation-bar__link"
-            :to="item.to"
-            @click.native.passive="open = false"
-          >
+          <span class="navigation-bar__link-text">
             {{ item.label }}
-          </nuxt-link>
-          <a
-            v-else
-            class="navigation-bar__link"
-            rel="noopener"
-            :href="item.href"
-            @click.passive="open = false"
-          >
-            {{ item.label }}
-          </a>
-        </div>
+          </span>
+        </nuxt-link>
       </div>
     </nav>
   </div>
@@ -147,9 +140,10 @@
     border: none;
   }
 
-  .navigation-bar__link-container {
+  .navigation-bar__link {
     position: relative;
     background: white;
+    text-decoration: none;
 
     &:not(:last-child) {
       margin-bottom: 10px;
@@ -175,24 +169,33 @@
       transition: 200ms opacity ease;
     }
 
-    &:hover, &:focus-within {
+    &:hover, &:focus, &.nuxt-link-active {
       &::before {
         opacity: 1;
       }
 
-      .navigation-bar__link {
+      .navigation-bar__link-text {
         $offset: -3px;
-
-        outline: none;
         transform: translate($offset, $offset);
       }
     }
   }
 
-  .navigation-bar__link {
+  .navigation-bar--hide-active-state {
+    .navigation-bar__link.nuxt-link-active {
+      &::before {
+        opacity: 0;
+      }
+
+      .navigation-bar__link-text {
+        transform: translate(0, 0);
+      }
+    }
+  }
+
+  .navigation-bar__link-text {
     display: block;
     color: colors.$background-c;
-    text-decoration: none;
     font-size: 2rem;
 
     background: colors.$background;
@@ -261,19 +264,19 @@
       background: transparent;
     }
 
-    .navigation-bar__link-container:not(:last-child) {
+    .navigation-bar__link:not(:last-child) {
       margin-bottom: 0;
       margin-right: 40px;
     }
 
-    .navigation-bar__link {
+    .navigation-bar__link-text {
       font-size: 1.3rem;
     }
   }
 </style>
 
 <script>
-  import { toModifierClasses } from "@/assets/js/toModifierClasses";
+  import { toModifierClasses } from "assets/js/to-modifier-classes"
 
   const ITEMS = [
     {
@@ -284,49 +287,50 @@
       label: "Projects",
       to: "/projects"
     }
-  ];
+  ]
 
   export default {
     name: "NavigationBar",
     props: {
-      backgroundAfterScroll: {
-        type: Boolean,
-        default: false
-      },
-      title: {
-        type: String,
-        default: ""
-      }
+      backgroundAfterScroll: { type: Boolean },
+      title: { type: String, default: "" }
     },
     data: () => ({
       open: false,
-      scrollPosition: 0
+      scrollPosition: 0,
+      hideActiveState: false
     }),
     computed: {
       showTitle: vm => vm.scrollPosition > 60,
       showBackground: vm => vm.backgroundAfterScroll ? vm.scrollPosition > 0 : true,
       classes() {
-        const { open, showBackground } = this;
+        const { open, showBackground, hideActiveState } = this
 
         return toModifierClasses("navigation-bar", {
           open,
-          showBackground
-        });
+          showBackground,
+          hideActiveState
+        })
       }
     },
     mounted() {
       const scrollListener = () => {
-        this.scrollPosition = window.scrollY;
-      };
+        this.scrollPosition = window.scrollY
+      }
 
-      window.addEventListener("scroll", scrollListener, { passive: true });
+      window.addEventListener("scroll", scrollListener, { passive: true })
 
       this.$on("hook:beforeDestroy", () => {
-        window.removeEventListener("scroll", scrollListener);
-      });
+        window.removeEventListener("scroll", scrollListener)
+      })
 
-      scrollListener();
+      scrollListener()
+    },
+    methods: {
+      handleLinkEvent(event, hideActiveStateNow) {
+        if (!event.target.classList.contains("nuxt-link-active")) this.hideActiveState = hideActiveStateNow
+      }
     },
     items: ITEMS
-  };
+  }
 </script>

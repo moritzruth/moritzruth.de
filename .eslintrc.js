@@ -1,27 +1,12 @@
 module.exports = {
-  "root": true,
-  "env": {
-    browser: true,
-    node: true,
-    es6: true
-  },
-  "parserOptions": {
-    "parser": "babel-eslint"
-  },
-  "extends": [
+  root: true,
+  extends: [
     "plugin:nuxt/recommended",
-    "@moritzruth",
-    "@moritzruth/eslint-config/vue"
+    "awzzm-vue/nuxt"
   ],
-  rules: {
-    "no-unused-vars": "warn",
-    "vue/no-unused-components": "warn"
-  },
-  "settings": {
-    "import/resolver": {
-      webpack: {
-        config: "webpack.resolve.js"
-      }
-    }
+  parserOptions: {
+    parser: "babel-eslint",
+    ecmaVersion: 11,
+    sourceType: "module"
   }
-};
+}

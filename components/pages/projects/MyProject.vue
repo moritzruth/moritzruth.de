@@ -8,7 +8,7 @@
       <div class="my-project__description">
         <slot/>
       </div>
-      <div class="my-project__links" v-if="github || npm || url">
+      <div v-if="github || npm || url" class="my-project__links">
         <MyButton
           v-if="url !== ''"
           class="my-project__link"
@@ -108,10 +108,10 @@
 </style>
 
 <script>
-  import MyButton from "@/components/MyButton";
-  import GitHubIcon from "@/assets/icons/github.svg";
-  import NPMIcon from "@/assets/icons/npm.svg";
-  import PointerRightIcon from "@/assets/icons/pointer-right.svg";
+  import MyButton from "@/components/MyButton"
+  import GitHubIcon from "@/assets/icons/github.svg"
+  import NPMIcon from "@/assets/icons/npm.svg"
+  import PointerRightIcon from "@/assets/icons/pointer-right.svg"
 
   export default {
     name: "MyProject",
@@ -138,5 +138,5 @@
         default: ""
       }
     }
-  };
+  }
 </script>

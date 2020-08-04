@@ -31,44 +31,32 @@
 </style>
 
 <script>
-  import ExternalIcon from "@/assets/icons/external.svg";
+  import ExternalIcon from "@/assets/icons/external.svg"
 
   export default {
     name: "ExternalLink",
     components: { ExternalIcon },
     props: {
-      href: {
-        type: String,
-        required: true
-      },
-      showProtocol: {
-        type: Boolean,
-        default: false
-      },
-      showQuery: {
-        type: Boolean,
-        default: false
-      }
+      href: { type: String, required: true },
+      showProtocol: { type: Boolean },
+      showQuery: { type: Boolean }
     },
     computed: {
       label() {
         // eslint-disable-next-line import/no-extraneous-dependencies
-        const url = new (process.server ? require("url").URL : window.URL)(this.href);
-        let label = "";
+        const url = new (process.server ? require("url").URL : window.URL)(this.href)
+        let label = ""
 
         if (this.showProtocol) {
-          label += url.protocol;
-          label += "//";
+          label += url.protocol
+          label += "//"
         }
 
-        label += url.host + url.pathname;
+        label += url.host + url.pathname
 
-        if (this.showQuery) {
-          label += url.search;
-        }
-
-        return label;
+        if (this.showQuery) label += url.search
+        return label
       }
     }
-  };
+  }
 </script>

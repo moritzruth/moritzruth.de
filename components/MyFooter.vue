@@ -2,8 +2,8 @@
   <footer class="my-footer">
     <nuxt-link
       v-for="item in $options.items"
-      class="my-footer__link"
       :key="item.label"
+      class="my-footer__link"
       :to="item.to"
       @click.native.passive="open = false"
     >
@@ -55,10 +55,10 @@
 </style>
 
 <script>
-  import { footerItems } from "@/assets/js/footerItems";
+  import { footerItems } from "assets/js/footer-items"
 
   export default {
     name: "MyFooter",
     items: footerItems
-  };
+  }
 </script>

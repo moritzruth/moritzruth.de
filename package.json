@@ -1,7 +1,7 @@
 {
   "name": "moritzruth.de",
-  "description": "Moritz Ruth is a web developer, photograph and digital creator.",
-  "author": "Moritz Ruth",
+  "description": "Ny personal website",
+  "author": "Moritz Ruth <dev@moritzruth.de>",
   "private": true,
   "scripts": {
     "dev": "HOST=0.0.0.0 nuxt",
@@ -12,22 +12,21 @@
   "dependencies": {
     "@nuxtjs/pwa": "^3.0.0-beta.20",
     "lodash.kebabcase": "^4.1.1",
-    "nuxt": "^2.12.2",
-    "shaped.js": "^1.0.3",
+    "nuxt": "^2.14.0",
+    "shaped.js": "^2.0.0",
     "vue": "^2.6.11",
     "vue-ripple-directive": "^2.0.1"
   },
   "devDependencies": {
-    "@moritzruth/eslint-config": "^2.0.5",
+    "@nuxt/types": "^2.14.1",
     "@nuxtjs/eslint-module": "^2.0.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.0.0",
-    "eslint-import-resolver-webpack": "^0.12.1",
+    "eslint": "^7.6.0",
+    "eslint-config-awzzm-vue": "^1.0.2",
     "eslint-plugin-nuxt": "^1.0.0",
     "fibers": "^5.0.0",
-    "sass": "^1.26.3",
-    "sass-loader": "^8.0.2",
-    "serve": "^11.3.0",
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.2",
     "svg-to-vue-component": "^0.3.8"
   }
 }

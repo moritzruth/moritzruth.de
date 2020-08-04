@@ -126,30 +126,12 @@
   export default {
     name: "MyButton",
     props: {
-      to: {
-        type: String,
-        default: ""
-      },
-      href: {
-        type: String,
-        default: ""
-      },
-      loading: {
-        type: Boolean,
-        default: false
-      },
-      disabled: {
-        type: Boolean,
-        default: false
-      },
-      isSubmit: {
-        type: Boolean,
-        default: false
-      },
-      center: {
-        type: Boolean,
-        default: false
-      }
+      to: { type: String, default: "" },
+      href: { type: String, default: "" },
+      loading: { type: Boolean },
+      disabled: { type: Boolean },
+      isSubmit: { type: Boolean },
+      center: { type: Boolean }
     },
     computed: {
       isExternalLink: vm => Boolean(vm.href),
@@ -157,28 +139,27 @@
     },
     methods: {
       onClick(event) {
-        if (!this.disabled && !this.loading) {
-          this.$emit("click", event);
-        }
+        if (!this.disabled && !this.loading)
+          this.$emit("click", event)
       }
     },
     render(h) {
-      const children = [];
+      const children = []
 
       if (this.$slots.prefix) {
         children.push(h("div", {
           class: "my-button__prefix"
-        }, this.$slots.prefix));
+        }, this.$slots.prefix))
       }
 
       children.push(h("div", {
         class: "my-button__text"
-      }, this.$slots.default));
+      }, this.$slots.default))
 
       if (this.$slots.suffix) {
         h("div", {
           class: "my-button__suffix"
-        }, this.$slots.suffix);
+        }, this.$slots.suffix)
       }
 
       const baseOptions = {
@@ -203,7 +184,7 @@
         attrs: {
           tabindex: this.disabled || this.loading ? "-1" : "0"
         }
-      };
+      }
 
       if (this.isInternalLink) {
         return h("nuxt-link", {
@@ -211,7 +192,7 @@
           props: {
             to: this.to
           }
-        }, children);
+        }, children)
       } else if (this.isExternalLink) {
         return h("a", {
           ...baseOptions,
@@ -220,7 +201,7 @@
             href: this.href,
             rel: "noopener"
           }
-        }, children);
+        }, children)
       }
 
       return h("button", {
@@ -230,7 +211,7 @@
           disabled: this.disabled,
           type: this.isSubmit ? "submit" : "button"
         }
-      }, children);
+      }, children)
     }
-  };
+  }
 </script>

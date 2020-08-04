@@ -1,7 +1,7 @@
 <template>
   <div class="index-page">
     <NavigationBar background-after-scroll title="Start"/>
-    <canvas class="index-page__background" ref="canvas"/>
+    <canvas ref="canvas" class="index-page__background"/>
     <main class="index-page__content">
       <AnimatedLogo/>
       <div class="index-page__socials">
@@ -12,7 +12,8 @@
         ><InstagramIcon class="index-page__social-icon"/></a>
         <a
           class="index-page__social"
-          href="https://twitter.com/moritz_ruth"
+          href="httpsU
+          ://twitter.com/moritz_ruth"
           title="Twitter"
         ><TwitterIcon class="index-page__social-icon"/></a>
         <a
@@ -34,10 +35,10 @@
     <footer class="index-page__footer">
       <nuxt-link
         v-for="item in $options.footerItems"
-        class="index-page__footer-link"
         :key="item.label"
+        class="index-page__footer-link"
         :to="item.to"
-        @click.native.passive="open = false"
+        @click.native.passive="() => { open = null }"
       >
         {{ item.label }}
       </nuxt-link>
@@ -154,68 +155,34 @@
 </style>
 
 <script>
-  import { Canvas } from "shaped.js";
-  import AnimatedLogo from "@/components/AnimatedLogo";
-  import NavigationBar from "@/components/NavigationBar";
-  import { footerItems } from "@/assets/js/footerItems";
-  import InstagramIcon from "@/assets/icons/instagram.svg";
-  import TwitterIcon from "@/assets/icons/twitter.svg";
-  import NPMIcon from "@/assets/icons/npm.svg";
-  import GitHubIcon from "@/assets/icons/github.svg";
-  import EmailIcon from "@/assets/icons/email.svg";
-
-  const LINES = [
-    {
-      minCount: 8,
-      probability: 1 / 30000,
-      height: 1,
-      length: [80, 150],
-      speed: [0.2, 0.5],
-      colors: [
-        "#BB2081",
-        "#14AAD8"
-      ]
-    }
-  ];
+  import { ShapedCanvas } from "shaped.js"
+  import AnimatedLogo from "@/components/AnimatedLogo"
+  import NavigationBar from "@/components/NavigationBar"
+  import { footerItems } from "assets/js/footer-items"
+  import InstagramIcon from "@/assets/icons/instagram.svg"
+  import TwitterIcon from "@/assets/icons/twitter.svg"
+  import NPMIcon from "@/assets/icons/npm.svg"
+  import GitHubIcon from "@/assets/icons/github.svg"
+  import EmailIcon from "@/assets/icons/email.svg"
 
   export default {
     name: "IndexPage",
     layout: "empty",
-    head: () => ({ title: "Moritz Ruth", titleTemplate: "%s" }),
     components: { NavigationBar, AnimatedLogo, InstagramIcon, TwitterIcon, NPMIcon, GitHubIcon, EmailIcon },
     mounted() {
-      let configIndex = 0;
+      const shaped = new ShapedCanvas(this.$refs.canvas, {
+        useWindowSize: true,
+        colors: ["#BB2081", "#14AAD8"],
+        minCount: 8,
+        probability: 1 / 30000,
+        height: 1,
+        length: [80, 150],
+        speed: [0.2, 0.5]
+      })
 
-      if (localStorage !== undefined) {
-        const rawValue = localStorage.getItem("nextBackground");
-
-        if (rawValue) {
-          try {
-            configIndex = JSON.parse(rawValue);
-          } catch {
-            // ignored
-          }
-        }
-      }
-
-      if (configIndex > LINES.length - 1) {
-        configIndex = 0;
-      }
-
-      if (localStorage !== undefined) {
-        localStorage.setItem("nextBackground", JSON.stringify(configIndex + 1));
-      }
-
-      const config = LINES[configIndex];
-      const backgroundCanvas = new Canvas(this.$refs.canvas, {
-        lines: config,
-        fillWindowSize: true
-      });
-
-      this.$once("hook:beforeDestroy", () => {
-        backgroundCanvas.destroy();
-      });
+      this.$once("hook:beforeDestroy", () => shaped.stop())
     },
+    head: () => ({ title: "Moritz Ruth creates things", titleTemplate: "%s" }),
     footerItems
-  };
+  }
 </script>

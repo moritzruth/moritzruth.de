@@ -14,10 +14,10 @@
 </style>
 
 <script>
-  import MyFooter from "@/components/MyFooter";
+  import MyFooter from "@/components/MyFooter"
 
   export default {
     name: "DefaultLayout",
     components: { MyFooter }
-  };
+  }
 </script>

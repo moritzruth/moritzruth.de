@@ -1,14 +1,15 @@
 /* eslint-disable no-undef */
+/* global workbox */
 
 // Cache the Google Fonts stylesheets with a stale-while-revalidate strategy.
 workbox.routing.registerRoute(
-  /^https:\/\/fonts\.googleapis\.com/,
+  /^https:\/\/fonts\.googleapis\.com/u,
   new workbox.strategies.StaleWhileRevalidate({ cacheName: "google-fonts-stylesheets" })
-);
+)
 
 // Cache the underlying font files with a cache-first strategy for 1 year.
 workbox.routing.registerRoute(
-  /^https:\/\/fonts\.gstatic\.com/,
+  /^https:\/\/fonts\.gstatic\.com/u,
   new workbox.strategies.CacheFirst({
     cacheName: "google-fonts-webfonts",
     plugins: [
@@ -19,4 +20,4 @@ workbox.routing.registerRoute(
       })
     ]
   })
-);
+)

@@ -4,7 +4,7 @@ export const footerItems = [
     to: "/legal-notice"
   },
   {
-    label: "Privacy Policy",
-    to: "/privacy-policy"
+    label: "Privacy",
+    to: "/privacy"
   }
-];
+]

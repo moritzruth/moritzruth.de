@@ -66,7 +66,7 @@
 </template>
 
 <script>
-  import NavigationBar from "../components/NavigationBar";
+  import NavigationBar from "../components/NavigationBar"
 
   export default {
     name: "LegalNoticePage",
@@ -75,5 +75,5 @@
       htmlAttrs: { lang: "de" },
       title: "Legal notice"
     })
-  };
+  }
 </script>

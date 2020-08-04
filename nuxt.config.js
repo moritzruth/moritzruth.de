@@ -1,4 +1,5 @@
-/* eslint-disable camelcase */
+import manifest from "./manifest.json"
+
 // eslint-disable-next-line import/no-default-export
 export default {
   mode: "spa",
@@ -6,7 +7,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    titleTemplate: "%s | Moritz Ruth",
+    titleTemplate: `%s | ${manifest.name}`,
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600&display=swap" }
@@ -49,31 +50,13 @@ export default {
     meta: {
       viewport: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0",
       mobileApp: false,
-      name: "Moritz Ruth",
+      name: manifest.name,
       author: "Moritz Ruth",
-      description: "Moritz Ruth is a web developer, photograph and digital creator.",
+      description: manifest.description,
       lang: "en",
       themeColor: "#000000"
     },
     // https://developer.mozilla.org/en-US/docs/Web/Manifest
-    manifest: {
-      name: "Moritz Ruth",
-      short_name: "Moritz Ruth",
-      background_color: "#000000",
-      display: "browser",
-      description: "Moritz Ruth is a web developer, photograph and digital creator."
-    }
-  },
-
-  /*
-  ** Build configuration
-  */
-  build: {
-    /*
-    ** You can extend webpack config here
-    */
-    // eslint-disable-next-line no-unused-vars
-    extend(config, context) {
-    }
+    manifest
   }
-};
+}

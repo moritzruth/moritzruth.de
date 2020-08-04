@@ -67,12 +67,12 @@
 </style>
 
 <script>
-  import NavigationBar from "@/components/NavigationBar";
-  import MyProject from "@/components/pages/projects/MyProject";
+  import NavigationBar from "@/components/NavigationBar"
+  import MyProject from "@/components/pages/projects/MyProject"
 
   export default {
     name: "ProjectsPage",
     components: { MyProject, NavigationBar },
     head: () => ({ title: "Projects" })
-  };
+  }
 </script>
