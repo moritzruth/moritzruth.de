@@ -88,9 +88,7 @@
     display: flex;
     align-items: center;
 
-    &:not(:last-child) {
-      margin-right: 4px;
-    }
+    margin: 0 8px;
 
     &:hover, &:focus-within {
       &::before {
@@ -119,7 +117,6 @@
   .index-page__social-icon {
     color: colors.$background-c;
     height: 40px;
-    margin-right: 10px;
   }
 
   .index-page__footer {
