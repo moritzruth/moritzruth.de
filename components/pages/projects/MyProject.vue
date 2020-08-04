@@ -2,17 +2,15 @@
   <div class="my-project">
     <div class="my-project__content">
       <h2 class="my-project__title">
-        {{ title }}
+        {{ project.emoji }} {{ project.title }}
       </h2>
-      <span class="my-project__kind">{{ kind }}</span>
-      <div class="my-project__description">
-        <slot/>
-      </div>
-      <div v-if="github || npm || url" class="my-project__links">
+      <span class="my-project__type">{{ project.type }}</span>
+      <div class="my-project__description" v-html="project.description"></div>
+      <div v-if="project.links" class="my-project__links">
         <MyButton
-          v-if="url !== ''"
+          v-if="project.links.open"
           class="my-project__link"
-          :href="url"
+          :href="project.links.open"
         >
           <template v-slot:prefix>
             <PointerRightIcon class="my-project__link-icon"/>
@@ -20,9 +18,9 @@
           Open
         </MyButton>
         <MyButton
-          v-if="github !== ''"
+          v-if="project.links.github"
           class="my-project__link"
-          :href="`https://github.com/${github}`"
+          :href="`https://github.com/${project.links.github}`"
         >
           <template v-slot:prefix>
             <GitHubIcon class="my-project__link-icon"/>
@@ -30,14 +28,14 @@
           GitHub
         </MyButton>
         <MyButton
-          v-if="npm !== ''"
+          v-if="project.links.npm"
           class="my-project__link"
-          :href="`https://npmjs.com/${npm}`"
+          :href="`https://npmjs.com/${project.links.npm}`"
         >
           <template v-slot:prefix>
-            <NPMIcon class="my-project__link-icon"/>
+            <NPMIcon class="my-project__link-icon my-project__link-icon--npm"/>
           </template>
-          NPM
+          npm
         </MyButton>
       </div>
     </div>
@@ -70,7 +68,7 @@
     font-size: 1.8rem;
   }
 
-  .my-project__kind {
+  .my-project__type {
     display: block;
     font-size: 1rem;
 
@@ -84,7 +82,7 @@
     margin-top: 10px;
 
     display: grid;
-    gap: 5px;
+    gap: 2px;
     grid-auto-flow: column;
     grid-auto-columns: min-content;
     grid-auto-rows: min-content;
@@ -97,6 +95,12 @@
 
   .my-project__link-icon {
     height: 25px!important;
+  }
+
+  .my-project__link-icon--npm {
+    height: 32px!important;
+    position: relative;
+    top: 1px;
   }
 
   @media (max-width: 500px) {
@@ -117,25 +121,9 @@
     name: "MyProject",
     components: { MyButton, GitHubIcon, NPMIcon, PointerRightIcon },
     props: {
-      title: {
-        type: String,
+      project: {
+        type: Object,
         required: true
-      },
-      kind: {
-        type: String,
-        required: true
-      },
-      npm: {
-        type: String,
-        default: ""
-      },
-      github: {
-        type: String,
-        default: ""
-      },
-      url: {
-        type: String,
-        default: ""
       }
     }
   }

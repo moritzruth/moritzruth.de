@@ -7,7 +7,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    titleTemplate: `%s | ${manifest.name}`,
+    titleTemplate: `%s — ${manifest.name}`,
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600&display=swap" }
@@ -26,7 +26,9 @@ export default {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ["@/plugins/vue-ripple-directive"],
+  plugins: [
+    "@/plugins/vue-ripple-directive"
+  ],
   /*
   ** Nuxt.js dev-modules
   */

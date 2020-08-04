@@ -3,12 +3,9 @@
     <div class="navigation-bar__placeholder"></div>
     <nav class="navigation-bar__content">
       <div class="navigation-bar__title-container">
-        <span
-          class="navigation-bar__title"
-          :class="{ 'navigation-bar__title--show': showTitle }"
-        >
-          {{ title }}
-        </span>
+        <transition mode="out-in" name="fade">
+          <span :key="title" class="navigation-bar__title">{{ title }}</span>
+        </transition>
       </div>
       <div class="navigation-bar__toggle" @click="open = !open">
         <span></span>
@@ -22,11 +19,12 @@
           class="navigation-bar__link"
           :exact="item.to === '/'"
           :to="item.to"
-          @click.native="open = false"
           @mouseenter.native="e => handleLinkEvent(e, true)"
           @focus.native="e => handleLinkEvent(e, true)"
           @mouseleave.native="e => handleLinkEvent(e, false)"
           @blur.native="e => handleLinkEvent(e, false)"
+          @keydown.enter.native="e => handleLinkEvent(e, false)"
+          @click.native="e => { open = false; handleLinkEvent(e, false) }"
         >
           <span class="navigation-bar__link-text">
             {{ item.label }}
@@ -47,6 +45,14 @@
     --navigation-bar-height: 80px;
   }
 
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 500ms;
+  }
+
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
+
   .navigation-bar__placeholder {
     height: var(--navigation-bar-height);
   }
@@ -63,11 +69,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 30px;
+    padding: 0 30px 0 20px;
 
-    .navigation-bar--show-background & {
-      background: colors.$background;
-    }
+    background: colors.$background;
   }
 
   .navigation-bar__toggle {
@@ -102,20 +106,10 @@
   }
 
   .navigation-bar__title {
-    font-size: 2rem;
+    font-size: 1.8rem;
     text-transform: uppercase;
     font-weight: bold;
     display: block;
-
-    opacity: 0;
-    transform: translateY(10px);
-    transition: 200ms ease;
-    transition-property: opacity, transform;
-
-    &.navigation-bar__title--show {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 
   .navigation-bar__links {
@@ -245,7 +239,7 @@
     }
 
     .navigation-bar__title {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
     }
 
     .navigation-bar__toggle {
@@ -291,40 +285,31 @@
 
   export default {
     name: "NavigationBar",
-    props: {
-      backgroundAfterScroll: { type: Boolean },
-      title: { type: String, default: "" }
-    },
     data: () => ({
       open: false,
-      scrollPosition: 0,
-      hideActiveState: false
+      hideActiveState: false,
+      title: ""
     }),
     computed: {
-      showTitle: vm => vm.scrollPosition > 60,
-      showBackground: vm => vm.backgroundAfterScroll ? vm.scrollPosition > 0 : true,
       classes() {
-        const { open, showBackground, hideActiveState } = this
+        const { open, hideActiveState } = this
 
         return toModifierClasses("navigation-bar", {
           open,
-          showBackground,
           hideActiveState
         })
       }
     },
-    mounted() {
-      const scrollListener = () => {
-        this.scrollPosition = window.scrollY
+    created() {
+      const handler = title => {
+        this.title = title
       }
 
-      window.addEventListener("scroll", scrollListener, { passive: true })
+      this.$root.$on("navbar-title", handler)
 
       this.$on("hook:beforeDestroy", () => {
-        window.removeEventListener("scroll", scrollListener)
+        this.$root.$off("navbar-title", handler)
       })
-
-      scrollListener()
     },
     methods: {
       handleLinkEvent(event, hideActiveStateNow) {

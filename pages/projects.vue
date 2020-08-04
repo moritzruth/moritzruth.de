@@ -1,52 +1,13 @@
 <template>
   <div class="projects-page">
-    <NavigationBar title="Projects"/>
+    <NavBarTitle>Projects</NavBarTitle>
     <main class="content">
-      <h1 class="heading--1 projects-page__heading">
-        Projects
-      </h1>
       <div class="projects-page__projects">
         <MyProject
-          title="shaped.js"
-          kind="JavaScript Library"
-          github="moritzruth/shaped.js"
-          npm="shaped.js"
-        >
-          Generate amazing animated backgrounds using only a canvas element.
-          <nuxt-link to="/" class="link">See it in action on the home page.</nuxt-link>
-        </MyProject>
-        <MyProject
-          title="Schweredruck-Simulation"
-          kind="Web App (german)"
-          github="moritzruth/schweredruck-simulation"
-          url="https://app.moritzruth.de/schweredruck-simulation/"
-        >
-          Calculate and visualize the hydrostatic pressure in different liquids.
-        </MyProject>
-        <MyProject
-          title="log-groups"
-          kind="Node.js Package"
-          github="moritzruth/log-groups"
-          npm="log-groups"
-        >
-          Print console log messages in groups.
-        </MyProject>
-        <MyProject
-          title="node-enttec-open-dmx-usb"
-          kind="Node.js Package"
-          github="moritzruth/node-enttec-open-dmx-usb"
-          npm="enttec-open-dmx-usb"
-        >
-          Use the Enttec Open DMX USB Interface with Node.js.
-        </MyProject>
-        <MyProject
-          title="eslint-config"
-          kind="ESLint Configuration"
-          github="moritzruth/eslint-config"
-          npm="@moritzruth/eslint-config"
-        >
-          My personal ESLint configuration.
-        </MyProject>
+          v-for="project in $options.projects"
+          :key="project.title"
+          :project="project"
+        />
       </div>
     </main>
   </div>
@@ -55,8 +16,9 @@
 <style lang="scss">
   @use "~@/assets/styles/colors";
 
-  .projects-page__heading {
-    margin-top: 0;
+  .projects-page {
+    padding-top: 20px;
+    padding-bottom: 50px;
   }
 
   .projects-page__projects {
@@ -67,12 +29,65 @@
 </style>
 
 <script>
-  import NavigationBar from "@/components/NavigationBar"
   import MyProject from "@/components/pages/projects/MyProject"
+  import NavBarTitle from "~/components/NavBarTitle"
+
+  const projects = [
+    {
+      title: "log-groups",
+      type: "Node.js package",
+      emoji: "🍱",
+      description: "Log messages ... in groups.",
+      links: {
+        github: "moritzruth/log-groups",
+        npm: "log-groups"
+      }
+    },
+    {
+      title: "shaped.js",
+      type: "JavaScript package",
+      emoji: "🍭",
+      description: "Generate cool moving shapes using a canvas element. You can see it in action on the home page.",
+      links: {
+        github: "moritzruth/shaped.js",
+        npm: "shaped.js"
+      }
+    },
+    {
+      title: "node-enttec-open-dmx-usb",
+      type: "Node.js package",
+      emoji: "🔌",
+      description: "A Node.js library for interacting with the Enttec Open DMX USB Interface.",
+      links: {
+        github: "moritzruth/node-enttec-open-dmx-usb",
+        npm: "enttec-open-dmx-usb"
+      }
+    },
+    {
+      title: "eslint-config-awzzm",
+      type: "ESLint configurations",
+      emoji: "⚙️",
+      description: "ESLint configurations for JavaScript, TypeScript, Node.js, Vue.js and Nuxt.js.",
+      links: {
+        github: "moritzruth/eslint-config-awzzm",
+        npm: "eslint-config-awzzm"
+      }
+    },
+    {
+      title: "spigot-ttt",
+      type: "Spigot plugin",
+      emoji: "🔫",
+      description: "Trouble in Terrorist Town, ported to Minecraft as a Spigot plugin. I'll provide downloads soon.",
+      links: {
+        github: "moritzruth/spigot-ttt"
+      }
+    }
+  ]
 
   export default {
     name: "ProjectsPage",
-    components: { MyProject, NavigationBar },
-    head: () => ({ title: "Projects" })
+    components: { NavBarTitle, MyProject },
+    head: () => ({ title: "Projects" }),
+    projects
   }
 </script>

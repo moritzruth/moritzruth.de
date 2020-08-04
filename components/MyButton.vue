@@ -7,7 +7,7 @@
     justify-content: flex-start;
     align-items: center;
 
-    padding: 8px 15px;
+    padding: 8px 12px 8px 20px;
     border-radius: 4px;
 
     height: 30px;
@@ -21,10 +21,8 @@
 
     transition: 140ms ease background-color;
     &:hover, &:focus {
-      outline: none;
-
       &:not(.my-button--disabled) {
-        background: transparentize(colors.$background-c, 0.9);
+        background: transparentize(colors.$background-c, 0.94);
       }
     }
 
@@ -96,6 +94,7 @@
     text-transform: uppercase;
     font-weight: bold;
     font-size: 1.2rem;
+    pointer-events: none;
   }
 
   .my-button__prefix {
@@ -178,7 +177,7 @@
               click: true,
               400: true
             },
-            value: "rgba(0, 0, 0, 0.5)"
+            value: "rgba(0, 0, 0, 0.2)"
           }
         ],
         attrs: {

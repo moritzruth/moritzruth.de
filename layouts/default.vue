@@ -1,7 +1,7 @@
 <template>
   <div class="default-layout">
+    <NavigationBar/>
     <nuxt/>
-    <MyFooter/>
   </div>
 </template>
 
@@ -14,10 +14,10 @@
 </style>
 
 <script>
-  import MyFooter from "@/components/MyFooter"
+  import NavigationBar from "@/components/NavigationBar"
 
   export default {
     name: "DefaultLayout",
-    components: { MyFooter }
+    components: { NavigationBar }
   }
 </script>
