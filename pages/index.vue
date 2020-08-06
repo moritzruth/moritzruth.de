@@ -1,8 +1,12 @@
 <template>
   <div class="index-page">
-    <canvas ref="canvas" class="index-page__background"/>
+    <div class="index-page__background">
+      <canvas ref="canvas"/>
+      <div class="index-page__background-vignette"></div>
+    </div>
     <main class="index-page__content">
-      <AnimatedLogo/>
+      <Logo class="index-page__logo"/>
+      <span class="index-page__name">Moritz Ruth</span>
       <div class="index-page__socials">
         <a
           class="index-page__social"
@@ -49,6 +53,17 @@
     left: 0;
     right: 0;
     bottom: 0;
+
+    overflow: hidden;
+  }
+
+  .index-page__background-vignette {
+    background: radial-gradient(transparent, colors.$background 80%);
+    position: absolute;
+    top: -100px;
+    left: 0;
+    right: 0;
+    bottom: -100px;
   }
 
   .index-page__content {
@@ -59,6 +74,22 @@
     position: relative;
 
     height: calc(90vh - var(--navigation-bar-height));
+  }
+
+  .index-page__logo {
+    height: 400px;
+    margin: -120px 0;
+    width: 100%;
+
+    position: relative;
+    left: 12px;
+    pointer-events: none;
+  }
+
+  .index-page__name {
+    font-size: 2.4rem;
+    margin-top: 10px;
+    margin-bottom: 20px;
   }
 
   .index-page__socials {
@@ -109,21 +140,21 @@
 
 <script>
   import { ShapedCanvas } from "shaped.js"
-  import AnimatedLogo from "@/components/AnimatedLogo"
   import { footerItems } from "assets/js/footer-items"
   import InstagramIcon from "@/assets/icons/instagram.svg"
   import TwitterIcon from "@/assets/icons/twitter.svg"
   import NPMIcon from "@/assets/icons/npm.svg"
   import GitHubIcon from "@/assets/icons/github.svg"
   import EmailIcon from "@/assets/icons/email.svg"
+  import Logo from "@/assets/icons/logo.svg"
 
   export default {
     name: "IndexPage",
-    components: { AnimatedLogo, InstagramIcon, TwitterIcon, NPMIcon, GitHubIcon, EmailIcon },
+    components: { Logo, InstagramIcon, TwitterIcon, NPMIcon, GitHubIcon, EmailIcon },
     mounted() {
       const shaped = new ShapedCanvas(this.$refs.canvas, {
         useWindowSize: true,
-        colors: ["#BB2081", "#14AAD8"],
+        colors: ["#d21b8d", "#14AAD8"],
         minCount: 8,
         probability: 1 / 30000,
         height: 1,

@@ -70,8 +70,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 30px 0 20px;
-
-    background: colors.$background;
   }
 
   .navigation-bar__toggle {
