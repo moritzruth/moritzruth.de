@@ -76,8 +76,7 @@
     background: transparent;
 
     .navigation-bar--show-background & {
-      background: transparentize(colors.$background, 0.8);
-      backdrop-filter: blur(10px);
+      background: transparentize(colors.$background, 0.05);
     }
   }
 

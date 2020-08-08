@@ -45,6 +45,18 @@
     background: colors.$background;
     color: colors.$background-c;
     width: 100vw;
+
+    animation: 4s ease both fade-in;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
   }
 
   .index-page__background {
