@@ -100,7 +100,7 @@
   .my-button__prefix {
     display: inline-flex;
     margin-right: 10px;
-    margin-left: -5px;
+    margin-left: -10px;
 
     justify-content: center;
 

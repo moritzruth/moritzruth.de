@@ -39,6 +39,7 @@
   @use "~@/assets/styles/screenSize";
   @use "~@/assets/styles/colors";
   @use "~@/assets/styles/content";
+  @use "~@/assets/styles/variables";
   @use "~@/assets/styles/z-indexes";
 
   body {
@@ -70,6 +71,14 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 30px 0 20px;
+
+    transition: variables.$page-transition-duration variables.$page-transition-easing background;
+    background: transparent;
+
+    .navigation-bar--show-background & {
+      background: transparentize(colors.$background, 0.8);
+      backdrop-filter: blur(10px);
+    }
   }
 
   .navigation-bar__toggle {
@@ -294,7 +303,8 @@
 
         return toModifierClasses("navigation-bar", {
           open,
-          hideActiveState
+          hideActiveState,
+          showBackground: this.$route.fullPath !== "/"
         })
       }
     },

@@ -52,7 +52,7 @@
 
   .my-project__content {
     margin: 2px;
-    padding: 20px;
+    padding: 30px;
     background: colors.$background;
     font-size: 1.1rem;
 
@@ -79,10 +79,10 @@
   .my-project__links {
     flex-grow: 1;
 
-    margin-top: 10px;
+    margin: 10px -5px -15px;
 
     display: grid;
-    gap: 2px;
+    gap: 4px;
     grid-auto-flow: column;
     grid-auto-columns: min-content;
     grid-auto-rows: min-content;
@@ -105,7 +105,7 @@
 
   @media (max-width: 500px) {
     .my-project__links {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
       grid-auto-flow: row;
     }
   }

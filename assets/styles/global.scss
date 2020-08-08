@@ -1,6 +1,7 @@
 @use "./colors";
 @use "./content";
 @use "./formatted";
+@use "./variables";
 
 // General
 html, body {
@@ -23,7 +24,7 @@ html, body {
 
 // Transitions
 .page-enter-active, .page-leave-active {
-  transition: 500ms ease opacity;
+  transition: variables.$page-transition-duration variables.$page-transition-easing opacity;
 }
 
 .page-enter, .page-leave-to {
