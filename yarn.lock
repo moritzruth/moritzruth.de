@@ -3900,10 +3900,10 @@ eslint-ast-utils@^1.1.0:
     lodash.get "^4.4.2"
     lodash.zip "^4.2.0"
 
-eslint-config-awzzm-vue@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/eslint-config-awzzm-vue/-/eslint-config-awzzm-vue-1.0.4.tgz#3e0870076aeb583ee7883f4b8012dc72aaf2e3a4"
-  integrity sha512-9vXGjyx07wiU6yCKzKF9023W80eXMvNmqNOSdkdAIAT3HcqLQ7AzIb64aXAJFGo7fYZwU50t83FuwrRByYQFTA==
+eslint-config-awzzm-vue@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/eslint-config-awzzm-vue/-/eslint-config-awzzm-vue-1.0.5.tgz#7fe11ac729e6bc24fefe63347e4ba86a4563c425"
+  integrity sha512-CdQ7WrvIGahCTIwoj+gG1tDYffJD0oaBfU40Dc48BXkHLS9VCurWVHPsjs7BrtF780DdIAmFWysA5e68RIdXxA==
   dependencies:
     eslint-config-awzzm "^1.0.3"
     eslint-plugin-vue "^6.2.2"

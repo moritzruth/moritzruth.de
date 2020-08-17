@@ -22,7 +22,7 @@
     "@nuxtjs/eslint-module": "^2.0.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.6.0",
-    "eslint-config-awzzm-vue": "^1.0.4",
+    "eslint-config-awzzm-vue": "^1.0.5",
     "eslint-plugin-nuxt": "^1.0.0",
     "fibers": "^5.0.0",
     "sass": "^1.26.10",
