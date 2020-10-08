@@ -25,7 +25,7 @@
     "eslint-config-awzzm-vue": "^1.0.5",
     "eslint-plugin-nuxt": "^1.0.0",
     "fibers": "^5.0.0",
-    "sass": "^1.26.12",
+    "sass": "^1.27.0",
     "sass-loader": "^10.0.2",
     "svg-to-vue-component": "^0.3.8"
   }
