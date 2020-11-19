@@ -3917,18 +3917,18 @@ eslint-ast-utils@^1.1.0:
     lodash.get "^4.4.2"
     lodash.zip "^4.2.0"
 
-eslint-config-awzzm-vue@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-awzzm-vue/-/eslint-config-awzzm-vue-1.2.1.tgz#624d203a01b3116c0b4eef0dc1bb4924f8fb9aa7"
-  integrity sha512-7CK4ifqhZbSwPYzdAVoinEbcxhmrXnnkFJlQHCUTPSh8JtCczth3o4L6JYO/PfA6ujd8y+NYz4hZR2gq9jr2SQ==
+eslint-config-awzzm-vue@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/eslint-config-awzzm-vue/-/eslint-config-awzzm-vue-1.3.2.tgz#6f469102bd8e824b8610a108a1e1601459c6f24b"
+  integrity sha512-JlKVcs9L5GTWT5fAudMYrGs9YOaAil3uxA3DuNE8kk909aZlcMmwZVkoW7/eHoHliQd3vrj5qwPwihBVeW+URQ==
   dependencies:
-    eslint-config-awzzm "^1.1.0"
+    eslint-config-awzzm "^1.3.0"
     eslint-plugin-vue "^7.1.0"
 
-eslint-config-awzzm@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-awzzm/-/eslint-config-awzzm-1.1.0.tgz#ab2513e04f792e3ad8b043e4b84fd84a4195f4e6"
-  integrity sha512-Ux1WhtYbGXK1ObvxHBCgwQlJdkwB3xsYsUX0I7QqO6DXgAOnTcVjZS0wMyDuBdjYSnXN+AbUze23Zq0BHYl1Ig==
+eslint-config-awzzm@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-awzzm/-/eslint-config-awzzm-1.3.0.tgz#a10a33b0e67557f6de8186ab7bdb31e8bd26aa2a"
+  integrity sha512-5EDD8sIVCfaaaA4W4NckrkyE7g/fyeFFKbwwT4TPVDZHX3OosekknBiFckr6vngm0xlGwV4Cohqw7ByW2hQ7eQ==
   dependencies:
     eslint-plugin-import "^2.22.0"
     eslint-plugin-unicorn "^21.0.0"
