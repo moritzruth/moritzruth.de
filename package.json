@@ -12,7 +12,7 @@
   "dependencies": {
     "@nuxtjs/pwa": "^3.3.2",
     "lodash.kebabcase": "^4.1.1",
-    "nuxt": "^2.14.11",
+    "nuxt": "^2.14.12",
     "shaped.js": "^2.0.0",
     "vue": "^2.6.12",
     "vue-ripple-directive": "^2.0.1"
