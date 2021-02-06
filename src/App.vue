@@ -15,9 +15,11 @@
       </div>
     </div>
     <div class="fixed flex bottom-8 space-x-5">
-      <a class="app__social-link" href="https://twitter.com/moritz_ruth"><TwitterIcon size="1x"/></a>
-      <a class="app__social-link" href="https://github.com/moritzruth"><GithubIcon size="1x"/></a>
-      <a class="app__social-link" href="mailto:hey@m0.is"><MailIcon size="1x"/></a>
+      <a class="app__social-link" href="https://twitter.com/moritz_ruth" aria-label="Twitter">
+        <TwitterIcon size="1x"/>
+      </a>
+      <a class="app__social-link" href="https://github.com/moritzruth" aria-label="GitHub"><GithubIcon size="1x"/></a>
+      <a class="app__social-link" href="mailto:hey@m0.is" aria-label="Email"><MailIcon size="1x"/></a>
     </div>
   </div>
 </template>
