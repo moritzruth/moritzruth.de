@@ -18,6 +18,6 @@
     "eslint-config-awzzm-vue": "^1.6.0",
     "vite": "^2.2.3",
     "vite-plugin-windicss": "^0.15.10",
-    "windicss": "^2.5.14"
+    "windicss": "^3.0.12"
   }
 }
