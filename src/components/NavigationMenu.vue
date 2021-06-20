@@ -1,24 +1,29 @@
 <template>
-  <div class="sm:hidden fixed z-101 bottom-3 right-3 rounded-full backdrop-filter backdrop-blur-20 bg-white bg-opacity-20 w-20 h-20 flex justify-center items-center shadow-lg">
-    <div role="button" class="flex flex-col justify-evenly items-center h-10" @click="active = !active">
+  <div class="sm:hidden fixed z-101 bottom-2 right-2 rounded-full backdrop-filter bg-white w-18 h-18 flex justify-center items-center shadow-lg _blur-backdrop-or-hide">
+    <div
+      role="button"
+      aria-label="Toggle navigation menu"
+      class="flex flex-col justify-evenly items-center h-10"
+      @click="active = !active"
+    >
       <div class="w-10 h-2px bg-black transition duration-200 transform" :style="`transform: ${active ? 'translateY(350%)' : ''} rotate(${active ? 45 : 0}deg)`"/>
       <div class="w-10 h-2px bg-black transition duration-200 transform" :style="`transform: ${active ? 'translateY(-350%)' : ''} rotate(${active ? -45 : 0}deg)`"/>
     </div>
   </div>
   <nav
-    class="fixed sm:sticky top-0 z-100 w-screen h-screen sm:h-20 backdrop-filter backdrop-blur-40 bg-white bg-opacity-40 transition duration-200"
+    class="fixed sm:sticky top-0 z-100 w-full h-screen sm:h-20 backdrop-filter bg-white transition duration-200 _blur-backdrop-or-hide"
     :class="[scrolled && 'shadow-lg', active ? 'opacity-100' : '-sm:opacity-0 -sm:pointer-events-none']"
   >
     <div class="flex items-center justify-between h-full max-w-1200px mx-auto flex-grow -sm:flex-col px-6 sm:px-10">
       <div class="fixed transition-all duration-500" :style="{ left: blobState.x + 'px', top: blobState.y + 'px', opacity: blobState.show ? 1 : 0 }">
         <BlurredBlobCanvas
-          :colors="['#eb34cf', '#79faff']"
+          :colors="['#eb34cf', '#818cff']"
           :opacity-variation="0"
           :minimum-opacity="0.9"
           :minimum-duration="1000"
           :duration-variation="500"
           :blur="10"
-          :size="100"
+          :size="80"
         />
       </div>
       <router-link class="uppercase font-special relative top-1 -sm:mt-20" to="/" @click="active = false">
@@ -33,27 +38,51 @@
           :to="item.to"
           @click="active = false"
         >
-          {{ item.label }}
+          {{ t(item.labelKey) }}
         </router-link>
       </div>
     </div>
   </nav>
 </template>
 
+<i18n lang="yaml">
+  en:
+    projects: Projects
+    contact: Contact
+
+  de:
+    projects: Projekte
+    contact: Kontakt
+</i18n>
+
+<style scoped>
+  ._blur-backdrop-or-hide {
+    @apply bg-opacity-90;
+    backdrop-filter: blur(20px);
+  }
+
+  @supports (backdrop-filter: blur(20px)) {
+    ._blur-backdrop-or-hide {
+      @apply bg-opacity-40;
+    }
+  }
+</style>
+
 <script>
   import { useWindowScroll, useWindowSize } from "@vueuse/core"
   import { computed, ref, watch, reactive } from "vue"
   import { useRoute } from "vue-router"
+  import { useI18n } from "vue-i18n"
   import { useWindowScrollLock } from "../utils/useWindowScrollLock.js"
   import BlurredBlobCanvas from "./BlurredBlobCanvas.vue"
 
   const ITEMS = [
+    // {
+    //   labelKey: "projects",
+    //   to: "/projects"
+    // },
     {
-      label: "Projects",
-      to: "/projects"
-    },
-    {
-      label: "Contact",
+      labelKey: "contact",
       to: "/contact"
     }
   ]
@@ -77,7 +106,7 @@
       const activeItem = computed(() => items.find(item => item.to === route.path) ?? null)
       const blobState = reactive({
         x: windowWidth / 2,
-        y: 20,
+        y: 10,
         show: false
       })
 
@@ -88,16 +117,19 @@
           const { x, width, y } = activeItem.value.element.value.$el.getBoundingClientRect()
 
           blobState.x = x + (width / 2) - 20
-          blobState.y = y - 20
+          blobState.y = y - 30
           blobState.show = true
         }
       }, { immediate: true })
+
+      const { t } = useI18n()
 
       return {
         scrolled: computed(() => windowScroll.value > 0),
         blobState,
         items,
-        active
+        active,
+        t
       }
     }
   }

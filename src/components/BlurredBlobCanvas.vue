@@ -1,5 +1,5 @@
 <template>
-  <svg :style="{ width: size, height: size, filter: `blur(${blur}px)` }">
+  <svg :style="{ width: size + 'px', height: size + 'px', filter: `blur(${blur}px)` }">
     <path
       v-for="(blob, index) in blobs"
       :key="index"
@@ -14,7 +14,7 @@
   import * as blobs2 from "blobs/v2"
   import KUTE from "kute.js"
   import { ref } from "vue"
-  import { getListOfIndexes } from "../getListOfIndexes.js"
+  import { getListOfIndexes } from "../utils/getListOfIndexes.js"
 
   const BLOB_OPTIONS = {
     extraPoints: 6,

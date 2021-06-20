@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "serve": "vite preview",
+    "start": "vite preview",
     "lint": "eslint . --fix"
   },
   "dependencies": {
@@ -14,9 +14,11 @@
     "blobs": "^2.2.1-beta.1",
     "kute.js": "^2.1.2",
     "vue": "^3.1.1",
+    "vue-i18n": "^9.1.6",
     "vue-router": "4"
   },
   "devDependencies": {
+    "@intlify/vite-plugin-vue-i18n": "^2.2.1",
     "@vitejs/plugin-vue": "^1.2.3",
     "@vue/compiler-sfc": "^3.1.1",
     "eslint": "^7.28.0",
