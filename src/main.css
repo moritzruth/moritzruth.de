@@ -1,7 +1,7 @@
 @layer base {
   .prose {
-    & > * {
-      @apply mt-6;
+    & > *, & section > * {
+      @apply mt-4;
     }
 
     h1 {
@@ -9,18 +9,14 @@
     }
 
     h2 {
-      @apply font-bold text-2xl sm:text-4xl text-blue-700;
-
-      h1 ~ & {
-        @apply mt-4;
-      }
-
-      p ~ & {
-        @apply mt-10;
-      }
+      @apply font-bold text-2xl sm:text-4xl text-blue-700 mt-8;
     }
 
-    address, p {
+    ol {
+      @apply list-decimal list-inside space-y-2;
+    }
+
+    address, p, ol {
       @apply not-italic text-lg max-w-240;
     }
   }

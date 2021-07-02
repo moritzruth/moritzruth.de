@@ -54,10 +54,10 @@
   import NavigationMenu from "./components/NavigationMenu.vue"
 
   const FOOTER_LINKS = [
-    // {
-    //   labelKey: "footer.tac",
-    //   to: "/terms-and-conditions"
-    // },
+    {
+      labelKey: "footer.tac",
+      to: "/terms-and-conditions"
+    },
     {
       labelKey: "footer.legal",
       to: "/legal-notice"

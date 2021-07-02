@@ -1,15 +1,15 @@
 <template>
   <main class="text-2xl sm:text-3xl pt-26">
     <h1 class="font-bold text-3xl sm:text-5xl text-gray-900 mb-10">{{ t("heading") }}</h1>
-    <p>
-      {{ t("you_want") }}
-    </p>
-    <ul class="asterisk-list mt-5">
-      <li>{{ t("develop_website") }}</li>
-      <li>{{ t("program_tool") }}</li>
-      <li>{{ t("design_print") }}</li>
-      <li>{{ t("help_server") }}</li>
-    </ul>
+<!--    <p>-->
+<!--      {{ t("you_want") }}-->
+<!--    </p>-->
+<!--    <ul class="asterisk-list mt-5">-->
+<!--      <li>{{ t("develop_website") }}</li>-->
+<!--      <li>{{ t("program_tool") }}</li>-->
+<!--      <li>{{ t("design_print") }}</li>-->
+<!--      <li>{{ t("help_server") }}</li>-->
+<!--    </ul>-->
     <p class="mt-10 mb-10">
       {{ t("twitter") }}
       <a
