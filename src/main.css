@@ -4,19 +4,23 @@
       @apply mt-4;
     }
 
-    h1 {
+    :where(h1) {
       @apply font-bold text-3xl sm:text-5xl text-gray-900;
     }
 
-    h2 {
-      @apply font-bold text-2xl sm:text-4xl text-gray-600 mt-8;
+    :where(h2) {
+      @apply font-bold text-2xl sm:text-4xl text-gray-700 mt-8;
     }
 
-    ol {
+    :where(ol) {
       @apply list-decimal list-inside space-y-2;
     }
 
-    :where(address, p, ol) {
+    :where(ul) {
+      @apply list-disc list-inside space-y-1;
+    }
+
+    :where(address, p, ol, ul) {
       @apply not-italic text-lg max-w-240;
     }
   }

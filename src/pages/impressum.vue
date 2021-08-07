@@ -5,7 +5,7 @@
       <i>As required by German law.</i>
     </p>
     <p>
-      Dieses Impressum gilt für diese Webseite (moritzruth.de) und alle Webseiten, welche unter Subdomains von moritzruth.de erreichbar sind.
+      Dieses Impressum gilt für diese Website (moritzruth.de) und alle Websites, welche unter Subdomains von moritzruth.de erreichbar sind.
     </p>
     <h2>Angaben gemäß § 5 TMG</h2>
     <address>
@@ -19,17 +19,27 @@
         hey@m0.is
       </a>
     </p>
-    <p class="text-sm mt-10">
+    <p class="text-sm">
       {{ t("phone") }}: +49 176 46146329<br>
       {{ t("phone-warning-1") }}<br>
       {{ t("phone-warning-2") }}<br>
-      <a
-        class="text-blue-700"
-        href="https://byrslf.co/why-i-don-t-answer-most-phone-calls-4a71e1418854"
-        target="_blank"
-        rel="noopener noreferrer"
-      >{{ t("phone-warning-link") }}</a>
+      <ExternalLink href="https://byrslf.co/why-i-don-t-answer-most-phone-calls-4a71e1418854">
+        {{ t("phone-warning-link") }}
+      </ExternalLink>
     </p>
+    <h2 class="text-2xl text-blue-500 mt-20">{{ t("typefaces-used") }}</h2>
+    <ul>
+      <li>
+        <ExternalLink href="https://gitlab.com/bonjour-monde/fonderie/syne-typeface">
+          Syne
+        </ExternalLink>
+      </li>
+      <li>
+        <ExternalLink href="https://tokotype.github.io/plusjakarta-sans/">
+          +Jakarta Sans
+        </ExternalLink>
+      </li>
+    </ul>
   </main>
 </template>
 
@@ -41,6 +51,7 @@
     phone-warning-2: The only reason I publish it is because the law may require doing so (noone knows).
     phone-warning-link: Why emails are better
     phone: Tel
+    typefaces-used: Typefaces used on this site
 
   de:
     heading: Impressum
@@ -49,14 +60,17 @@
     phone-warning-2: Der einzige Grund, warum ich sie hier veröffentliche, ist, dass es das Gesetz (vielleicht) verlangt (niemand weiß es so genau).
     phone-warning-link: Warum Emails besser sind (englisch)
     phone: Telefon
+    typefaces-used: Typefaces auf dieser Seite
 </i18n>
 
 <script>
   import { useI18n } from "vue-i18n"
   import { computed } from "vue"
+  import ExternalLink from "../components/ExternalLink.vue"
 
   export default {
     name: "LegalNoticePage",
+    components: { ExternalLink },
     setup() {
       const { locale, t } = useI18n()
 
