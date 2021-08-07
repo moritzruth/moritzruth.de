@@ -60,7 +60,7 @@
     // },
     {
       labelKey: "footer.legal",
-      to: "/legal-notice"
+      to: "/impressum"
     }
   ]
 

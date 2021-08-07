@@ -11,7 +11,7 @@
     </div>
   </div>
   <nav
-    class="fixed sm:sticky top-0 z-100 w-full h-screen sm:h-20 backdrop-filter bg-white transition duration-200 _blur-backdrop-or-hide"
+    class="fixed sm:sticky top-0 z-100 w-full h-screen sm:h-20 backdrop-filter bg-white transition duration-400 _blur-backdrop-or-hide"
     :class="[scrolled && 'shadow-lg', active ? 'opacity-100' : '-sm:opacity-0 -sm:pointer-events-none']"
   >
     <div class="flex items-center justify-between h-full max-w-1200px mx-auto flex-grow -sm:flex-col px-6 sm:px-10">
@@ -26,7 +26,7 @@
           :size="80"
         />
       </div>
-      <router-link class="uppercase font-special relative top-1 -sm:mt-20" to="/" @click="active = false">
+      <router-link class="uppercase font-special relative top-1 -sm:mt-20 transition duration-600 _home-link" to="/" @click="active = false">
         Moritz Ruth
       </router-link>
       <div class="flex -sm:flex-col -sm:mb-30vh justify-end items-center sm:space-x-20 -sm:space-y-10 relative">
@@ -58,12 +58,19 @@
 <style scoped>
   ._blur-backdrop-or-hide {
     @apply bg-opacity-90;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(5px);
   }
 
-  @supports (backdrop-filter: blur(20px)) {
+  @supports (backdrop-filter: blur(5px)) {
     ._blur-backdrop-or-hide {
-      @apply bg-opacity-40;
+      @apply bg-opacity-70;
+    }
+  }
+
+  @screen sm {
+    ._home-link.router-link-active {
+      opacity: 0;
+      pointer-events: none;
     }
   }
 </style>

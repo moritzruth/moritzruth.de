@@ -2,16 +2,12 @@
   <main class="flex -md:flex-col justify-between items-start md:items-center min-h-80vh">
     <div class="relative -md:pt-20vh -md:pb-20">
       <div class="_fade-2">
-        <div class="_pattern transform rotate-179.5 absolute w-full h-40 -left-4 md:-left-10 top-20vh -md:-mt-10 md:-top-10 opacity-3 md:opacity-5"/>
+        <div class="_pattern transform rotate-179.5 absolute w-full h-35 -left-4 md:-left-10 top-20vh -md:-mt-10 md:-top-15 opacity-3 md:opacity-5"/>
       </div>
       <div class="_slide">
-        <ClickToBounce v-slot="{ setTrigger }" class="text-6xl md:text-7xl -md:-mt-2 mb-30 font-special" style="--delay: 0">
-          Hey <span :ref="setTrigger" class="_clap">👋</span>
-        </ClickToBounce>
-      </div>
-      <div class="font-special text-3xl sm:text-5xl mb-5 _slide" style="--delay: 200">
-        {{ t("i_am") }}<br>
-        <span class="text-1.1em text-transparent bg-clip-text bg-gradient-to-b from-blue-500 to-blue-900">Moritz Ruth</span>
+        <div class="text-4xl sm:text-5xl -md:-mt-2 mb-10 md:mb-20 font-special" style="--delay: 0">
+          Moritz Ruth
+        </div>
       </div>
       <div class="text-gray-800 text-2xl sm:text-3xl">
         <ul class="asterisk-list">
@@ -27,7 +23,7 @@
         </ul>
       </div>
       <router-link class="mt-10 text-2xl sm:text-3xl block text-blue-900 _slide" style="--delay: 1000" to="/contact">
-        → {{ t("contact_me") }}
+        <span class="mr-2">→</span> {{ t("contact_me") }}
       </router-link>
     </div>
     <BlurredBlobCanvas
@@ -55,7 +51,7 @@
     i_am: ""
     software_developer: Software-Entwickler
     designer: Web– und Print-Designer
-    typography_enthusiast: Typography-Enthusiast
+    typography_enthusiast: Typographie-Enthusiast
     contact_me: Schreib mir!
 </i18n>
 
@@ -63,12 +59,6 @@
   ._pattern {
     background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg \
     fill='%23000000' fill-opacity='1'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-
-  /* created using emojicursor.app */
-  ._clap {
-    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='90' viewport='0 0 100 100' style='fill:black;font-size:50px;'><text y='50%'>✋\
-    </text></svg>") 16 0,auto;
   }
 
   ._fade-1 {
@@ -117,11 +107,10 @@
 <script>
   import { useI18n } from "vue-i18n"
   import BlurredBlobCanvas from "../components/BlurredBlobCanvas.vue"
-  import ClickToBounce from "../components/ClickToBounce.vue"
 
   export default {
     name: "IndexPage",
-    components: { ClickToBounce, BlurredBlobCanvas },
+    components: { BlurredBlobCanvas },
     setup() {
       const { t } = useI18n()
       return { t }
