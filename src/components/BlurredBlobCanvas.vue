@@ -58,7 +58,7 @@
         extraPoints: props.points - 3,
         randomness: props.randomness,
         seed: Math.random(),
-        size: (props.size / 3) * 2
+        size: props.size
       })
 
       const getRandomOpacity = () => props.minimumOpacity + (Math.random() * props.opacityVariation)
