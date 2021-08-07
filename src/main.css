@@ -24,4 +24,16 @@
       @apply not-italic text-lg max-w-240;
     }
   }
+
+  .asterisk-list > li {
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+
+    &::before {
+      @apply text-blue-900;
+      content: "*";
+      margin-right: 5px;
+    }
+  }
 }

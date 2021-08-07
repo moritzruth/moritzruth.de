@@ -1,6 +1,6 @@
 <template>
   <main class="flex -md:flex-col justify-between items-start md:items-center min-h-80vh">
-    <div class="relative -md:pt-20vh -md:pb-20">
+    <div class="relative -md:pt-20vh">
       <div class="_fade-2">
         <div class="_pattern transform rotate-179.5 absolute w-full h-35 -left-4 md:-left-10 top-20vh -md:-mt-10 md:-top-15 opacity-3 md:opacity-5"/>
       </div>
@@ -26,18 +26,20 @@
         <span class="mr-2">→</span> {{ t("contact_me") }}
       </router-link>
     </div>
-    <BlurredBlobCanvas
-      class="_fade-1 self-center"
-      :colors="['#6577fc', '#eb34cf', '#6577fc', '#eb34cf']"
-      :size="350"
-      :blur="30"
-      :minimum-duration="1000"
-      :duration-variation="1500"
-      :minimum-opacity="0.2"
-      :opacity-variation="0.4"
-      :points="10"
-      :randomness="80"
-    />
+    <div class="self-center -md:fixed -bottom-30">
+      <BlurredBlobCanvas
+        class="_fade-1"
+        :colors="['#6577fc', '#eb34cf', '#6577fc', '#eb34cf']"
+        :size="350"
+        :blur="30"
+        :minimum-duration="1000"
+        :duration-variation="1500"
+        :minimum-opacity="0.2"
+        :opacity-variation="0.4"
+        :points="10"
+        :randomness="80"
+      />
+    </div>
   </main>
 </template>
 

@@ -1,9 +1,9 @@
 <template>
   <NavigationMenu/>
-  <div class="bg-white text-black max-w-1200px w-full mx-auto px-6 sm:px-10" style="min-height: calc(100vh - 160px)">
+  <div class="bg-white text-black max-w-1200px w-full mx-auto px-6 sm:px-10 _content">
     <router-view/>
   </div>
-  <div class="w-full h-20 space-x-10 flex items-center justify-center">
+  <div class="w-full h-20 space-x-10 flex items-center justify-center relative z-2">
     <router-link
       v-for="item in items"
       :key="item.to"
@@ -24,15 +24,13 @@
     @apply bg-blue-900 bg-opacity-80 text-white;
   }
 
-  .asterisk-list > li {
-    &:not(:last-child) {
-      margin-bottom: 5px;
-    }
+  ._content {
+    min-height: calc(100vh - 80px);
+  }
 
-    &::before {
-      @apply text-blue-900;
-      content: "*";
-      margin-right: 5px;
+  @screen sm {
+    ._content {
+      min-height: calc(100vh - 160px);
     }
   }
 </style>
