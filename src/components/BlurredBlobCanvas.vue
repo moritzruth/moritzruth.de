@@ -21,27 +21,6 @@
     randomness: 30
   }
 
-  // let lastMouseEvent = null
-  // let currentMouseEvent = null
-  // let mouseSpeed = 0
-  //
-  // window.addEventListener("mousemove", event => {
-  //   currentMouseEvent = event
-  // })
-  //
-  // setInterval(() => {
-  //   if (currentMouseEvent !== null && lastMouseEvent !== null && currentMouseEvent !== lastMouseEvent) {
-  //     const deltaX = currentMouseEvent.screenX - lastMouseEvent.screenX
-  //     const deltaY = currentMouseEvent.screenY - lastMouseEvent.screenY
-  //     mouseSpeed = Math.sqrt((deltaX * deltaX) + (deltaY * deltaY))
-  //   } else {
-  //     mouseSpeed = 0
-  //   }
-  //
-  //   lastMouseEvent = currentMouseEvent
-  //   console.log(mouseSpeed)
-  // }, 100)
-
   export default {
     name: "BlurredBlobCanvas",
     props: {
