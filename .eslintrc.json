@@ -5,7 +5,8 @@
     "vue/no-static-inline-styles": "off",
     "unicorn/prevent-abbreviations": ["warn", {
       "replacements": {
-        "i": false
+        "i": false,
+        "props": false
       }
     }]
   }

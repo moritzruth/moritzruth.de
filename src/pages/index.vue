@@ -11,30 +11,32 @@
       </div>
       <div class="text-gray-800 text-2xl sm:text-3xl">
         <ul class="asterisk-list">
-          <li class="_slide" style="--delay: 400">
+          <li class="_slide" style="--delay: 100">
             {{ t("software_developer") }}
           </li>
-          <li class="_slide" style="--delay: 600">
+          <li class="_slide" style="--delay: 200">
             {{ t("designer") }}
           </li>
-          <li class="_slide" style="--delay: 800">
+          <li class="_slide" style="--delay: 300">
             {{ t("typography_enthusiast") }}
           </li>
         </ul>
       </div>
-      <router-link class="mt-10 text-2xl sm:text-3xl block text-blue-900 _slide" style="--delay: 1000" to="/contact">
+      <router-link class="mt-10 text-2xl sm:text-3xl block text-blue-900 _slide" style="--delay: 500" to="/contact">
         <span class="mr-2">→</span> {{ t("contact_me") }}
       </router-link>
     </div>
     <BlurredBlobCanvas
       class="_fade-1 self-center"
       :colors="['#6577fc', '#eb34cf', '#6577fc', '#eb34cf']"
-      :size="300"
+      :size="350"
       :blur="30"
-      :minimum-duration="2000"
-      :duration-variation="500"
+      :minimum-duration="1000"
+      :duration-variation="1500"
       :minimum-opacity="0.2"
       :opacity-variation="0.4"
+      :points="10"
+      :randomness="80"
     />
   </main>
 </template>

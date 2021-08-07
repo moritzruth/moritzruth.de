@@ -23,7 +23,8 @@
           :minimum-duration="1000"
           :duration-variation="500"
           :blur="10"
-          :size="80"
+          :size="130"
+          :randomness="20"
         />
       </div>
       <router-link class="uppercase font-special relative top-1 -sm:mt-20 transition duration-600 _home-link" to="/" @click="active = false">
@@ -123,7 +124,7 @@
         } else {
           const { x, width, y } = activeItem.value.element.value.$el.getBoundingClientRect()
 
-          blobState.x = x + (width / 2) - 20
+          blobState.x = x + (width / 2) + 10
           blobState.y = y - 30
           blobState.show = true
         }

@@ -1,25 +1,12 @@
 <template>
-  <svg :style="{ width: size + 'px', height: size + 'px', filter: `blur(${blur}px)` }">
-    <path
-      v-for="(blob, index) in blobs"
-      :key="index"
-      :ref="blob"
-      style="transition: 2000ms; transition-property: opacity, transform; transform-origin: center"
-      d=""
-    />
-  </svg>
+  <canvas ref="canvasElement" :style="{ width: size + 'px', height: size + 'px', filter: `blur(${blur}px)` }"/>
 </template>
 
 <script>
-  import * as blobs2 from "blobs/v2"
-  import KUTE from "kute.js"
-  import { ref } from "vue"
-  import { getListOfIndexes } from "../utils/getListOfIndexes.js"
-
-  const BLOB_OPTIONS = {
-    extraPoints: 6,
-    randomness: 30
-  }
+  import { canvasPath as createBlobAnimation } from "blobs/v2/animate/index.module.js"
+  import { ref, watchEffect } from "vue"
+  import { useRafFn } from "@vueuse/core"
+  import { getComponentsOfHexColor } from "../utils/getComponentsOfHexColor.js"
 
   export default {
     name: "BlurredBlobCanvas",
@@ -51,60 +38,83 @@
       opacityVariation: {
         type: Number,
         default: 0
+      },
+      points: {
+        type: Number,
+        default: 4
+      },
+      randomness: {
+        type: Number,
+        default: 40
       }
     },
-    data() {
-      return {
-        // eslint-disable-next-line unicorn/no-new-array
-        blobs: getListOfIndexes(this.colors.length).map(() => ref(null))
-      }
-    },
-    mounted() {
-      const animate = index => {
-        const blob = this.blobs[index]
-        const duration = (Math.random() * this.durationVariation) + this.minimumDuration
+    setup(props) {
+      const canvasElement = ref(null)
 
-        if (blob.value) {
-          KUTE.to(
-            blob.value,
-            {
-              path: blobs2.svgPath(this.getRandomBlobOptions())
-            },
-            {
-              duration,
-              morphPrecision: 5,
-              easing: "easingSinusoidalInOut",
-              onComplete() {
-                animate(index)
-              }
-            }
-          ).start()
+      // { blob, targetOpacity, opacityTransitionStart }
+      let blobs = []
 
-          this.setOpacity(blob.value)
-        }
-      }
+      const getRandomBlobOptions = () => ({
+        extraPoints: props.points - 3,
+        randomness: props.randomness,
+        seed: Math.random(),
+        size: (props.size / 3) * 2
+      })
 
-      requestAnimationFrame(() => {
-        this.blobs.forEach((blob, index) => {
-          blob.value.setAttribute("d", blobs2.svgPath(this.getRandomBlobOptions()))
+      const getRandomOpacity = () => props.minimumOpacity + (Math.random() * props.opacityVariation)
 
-          blob.value.setAttribute("fill", this.colors[index])
-          this.setOpacity(blob.value)
+      watchEffect(onInvalidate => {
+        props.colors.forEach(color => {
+          const animation = createBlobAnimation()
 
-          animate(index)
+          const loop = () => {
+            animation.transition({
+              duration: props.minimumDuration + (Math.random() * props.durationVariation),
+              timingFunction: "ease",
+              blobOptions: getRandomBlobOptions(),
+              callback: loop
+            })
+          }
+
+          animation.transition({
+            duration: 0,
+            blobOptions: getRandomBlobOptions(),
+            callback: loop
+          })
+
+          blobs.push({
+            animation,
+            color: getComponentsOfHexColor(color),
+            opacity: getRandomOpacity()
+          })
+        })
+
+        onInvalidate(() => {
+          blobs.forEach(blob => {
+            blob.animation.pause()
+          })
+
+          blobs = []
         })
       })
-    },
-    methods: {
-      getRandomBlobOptions() {
-        return {
-          ...BLOB_OPTIONS,
-          seed: Math.random(),
-          size: this.size
-        }
-      },
-      setOpacity(element) {
-        element.style.opacity = (Math.random() * this.opacityVariation) + this.minimumOpacity
+
+      useRafFn(() => {
+        const canvas = canvasElement.value
+        if (canvas === null) return
+
+        const context = canvas.getContext("2d")
+
+        context.clearRect(0, 0, canvas.width, canvas.height)
+        blobs.forEach(blob => {
+          const [red, green, blue] = blob.color
+
+          context.fillStyle = `rgba(${red}, ${green}, ${blue}, ${blob.opacity})`
+          context.fill(blob.animation.renderFrame())
+        })
+      })
+
+      return {
+        canvasElement
       }
     }
   }
