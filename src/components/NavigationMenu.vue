@@ -15,7 +15,7 @@
     :class="[scrolled && 'shadow-lg', active ? 'opacity-100' : '-sm:opacity-0 -sm:pointer-events-none']"
   >
     <div class="flex items-center justify-between h-full max-w-1200px mx-auto flex-grow -sm:flex-col px-6 sm:px-10">
-      <div class="fixed transition-all duration-500" :style="{ left: blobState.x + 'px', top: blobState.y + 'px', opacity: blobState.show ? 1 : 0 }">
+      <div class="pointer-events-none fixed transition-all duration-500" :style="{ left: blobState.x + 'px', top: blobState.y + 'px', opacity: blobState.show ? 1 : 0 }">
         <BlurredBlobCanvas
           :colors="['#eb34cf', '#818cff']"
           :opacity-variation="0"
