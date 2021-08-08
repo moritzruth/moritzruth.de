@@ -16,14 +16,6 @@
 </template>
 
 <style>
-  body {
-    font-size: 20px;
-  }
-
-  ::selection {
-    @apply bg-blue-900 bg-opacity-80 text-white;
-  }
-
   ._content {
     min-height: calc(100vh - 80px);
   }
