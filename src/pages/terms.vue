@@ -82,7 +82,7 @@
   import { useI18n } from "vue-i18n"
 
   export default {
-    name: "TermsAndConditionsPage",
+    name: "TermsPage",
     setup() {
       const { t } = useI18n()
 
