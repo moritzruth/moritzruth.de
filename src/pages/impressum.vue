@@ -19,7 +19,7 @@
         hey@deltaa.xyz
       </a>
     </p>
-    <p class="text-sm">
+    <p class="!text-sm">
       {{ t("phone") }}: +49 176 46146329<br>
       {{ t("phone-warning-1") }}<br>
       {{ t("phone-warning-2") }}<br>

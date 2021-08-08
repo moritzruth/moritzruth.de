@@ -1,5 +1,5 @@
-import "./main.css"
 import "virtual:windi.css"
+import "./main.css"
 import routes from "virtual:generated-pages"
 import { createApp } from "vue"
 import { createRouter, createWebHistory } from "vue-router"
