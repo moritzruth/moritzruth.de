@@ -2,7 +2,7 @@
   <div class="prose pt-20">
     <h1>{{ t("heading") }}</h1>
     <p>{{ t("message") }}</p>
-    <p>Stand: 8. August 2021</p>
+<!--    <p>Stand: 8. August 2021</p>-->
     <section>
       <h2>1. Generelles</h2>
       <ol>
