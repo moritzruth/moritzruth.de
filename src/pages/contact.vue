@@ -23,8 +23,8 @@
       {{ t("or_email") }}
     </p>
     <p>
-      <a class="text-blue-900 text-4xl" href="mailto:hey@m0.is">
-        <span class="mr-2 relative bottom-2px">→</span> hey@m0.is
+      <a class="text-blue-900 text-4xl" href="mailto:hey@deltaa.xyz">
+        <span class="mr-2 relative bottom-2px">→</span> hey@deltaa.xyz
       </a>
     </p>
     <p class="mt-10 mb-10">

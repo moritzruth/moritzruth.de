@@ -1,19 +1,19 @@
 @layer base {
   .prose {
-    & > *, & section > * {
-      @apply mt-4;
-    }
-
     :where(h1) {
       @apply font-bold text-3xl sm:text-5xl text-gray-900;
     }
 
     :where(h2) {
-      @apply font-bold text-2xl sm:text-4xl text-gray-700 mt-8;
+      @apply font-bold text-2xl sm:text-4xl text-gray-600 mt-8;
     }
 
     :where(ol) {
       @apply list-decimal list-inside space-y-2;
+
+      ::marker {
+        @apply text-gray-600;
+      }
     }
 
     :where(ul) {
@@ -21,7 +21,7 @@
     }
 
     :where(address, p, ol, ul) {
-      @apply not-italic text-lg max-w-240;
+      @apply not-italic text-lg max-w-240 mt-5;
     }
   }
 

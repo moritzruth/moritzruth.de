@@ -15,8 +15,8 @@
     </address>
     <p>
       {{ t("email") }}:
-      <a class="text-blue-900" href="mailto:hey@m0.is">
-        hey@m0.is
+      <a class="text-blue-900" href="mailto:hey@deltaa.xyz">
+        hey@deltaa.xyz
       </a>
     </p>
     <p class="text-sm">

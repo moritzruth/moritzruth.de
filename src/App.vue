@@ -38,7 +38,7 @@
 <i18n lang="yaml">
   en:
     footer:
-      tac: Terms & Conditions
+      tac: Terms
       legal: Legal Notice
 
   de:
@@ -52,10 +52,10 @@
   import NavigationMenu from "./components/NavigationMenu.vue"
 
   const FOOTER_LINKS = [
-    // {
-    //   labelKey: "footer.tac",
-    //   to: "/terms-and-conditions"
-    // },
+    {
+      labelKey: "footer.tac",
+      to: "/terms"
+    },
     {
       labelKey: "footer.legal",
       to: "/impressum"
