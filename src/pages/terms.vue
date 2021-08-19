@@ -2,7 +2,7 @@
   <div class="prose pt-20">
     <h1>{{ t("heading") }}</h1>
     <p>{{ t("message") }}</p>
-<!--    <p>Stand: 8. August 2021</p>-->
+    <p>Stand: August 2021</p>
     <section>
       <h2>1. Generelles</h2>
       <ol>
@@ -18,7 +18,7 @@
         <li>Handelt es sich um einen Werkvertrag, sind in der Konzeptions- und Entwurfsphase zwei Korrekturschleifen zulässig.</li>
         <li>Die Mehrkosten durch eventuelle, von der Leistungsbeschreibung im Angebot abweichende Änderungswünsche hat der Auftraggeber zu tragen.</li>
         <li>Wurde dem Auftraggeber die Fertigstellung einer Werkleistung in Textform mitgeteilt, hat er 14 Tage Zeit, die Abnahme zu verweigern. Tut er dies nicht, gilt die Leistung als abgenommen.</li>
-        <li>Moritz Ruth ist nicht verpflichtet, Quellcode und offene Dateien herauszugeben. Ist dies dennoch gewünscht, ist es schriftlich zu vereinbaren und gesondert zu vergüten.</li>
+        <li>Moritz Ruth ist nicht verpflichtet, Quellcode und offene Dateien herauszugeben. Ist dies dennoch gewünscht, so muss es schriftlich vereinbart und gesondert vergütet werden.</li>
         <li>Moritz Ruth bestimmt den Tätigkeitsort nach freiem Ermessen.</li>
         <li>Moritz Ruth steht es frei, auch für andere Auftraggeber tätig zu werden.</li>
         <li>Moritz Ruth unterliegt keinem Weisungs- oder Direktionsrecht des Auftraggebers.</li>
@@ -33,7 +33,7 @@
         <li>Der Auftraggeber ist verpflichtet, Moritz Ruth sämtliche zur Erfüllung des Vertrags erforderlichen Daten und Dateien zur Verfügung zu stellen.</li>
         <li>Der Auftraggeber ist zum Ersatz von Schäden, die Moritz Ruth durch Schadprogramme in den vom Auftraggeber bereitgestellten Dateien und Daten entstehen, verpflichtet.</li>
         <li>Das Anfertigen von Sicherungskopien liegt allein in der Verantwortung des Auftraggebers.</li>
-        <li>Ist zur Erfüllung des Auftrags die Mitwirkung des Auftraggebers erforderlich, muss dieser seiner Mitwirkungspflicht innerhalb von 14 Tagen nach Aufforderung durch Moritz Ruth nachzukommen. Andernfalls kann Moritz Ruth den Vertrag kündigen. Sein Entschädigungsanspruch nach § 642 BGB bleibt hiervon unberührt.</li>
+        <li>Ist zur Erfüllung des Auftrags die Mitwirkung des Auftraggebers erforderlich, muss dieser seiner Mitwirkungspflicht innerhalb von 14 Tagen nach Aufforderung durch Moritz Ruth nachkommen. Andernfalls kann Moritz Ruth den Vertrag kündigen. Sein Entschädigungsanspruch nach § 642 BGB bleibt hiervon unberührt.</li>
       </ol>
     </section>
     <section>
