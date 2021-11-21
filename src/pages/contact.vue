@@ -1,15 +1,6 @@
 <template>
   <main class="text-2xl sm:text-3xl pt-26">
     <h1 class="font-bold text-3xl sm:text-5xl text-gray-900 mb-10">{{ t("heading") }}</h1>
-    <p>
-      {{ t("you_want") }}
-    </p>
-    <ul class="asterisk-list mt-5">
-      <li>{{ t("develop_website") }}</li>
-      <li>{{ t("design_print") }}</li>
-      <li>{{ t("program_tool") }}</li>
-      <li>{{ t("else") }}</li>
-    </ul>
     <p class="mt-10 mb-10">
       {{ t("twitter") }}
       <a
@@ -36,22 +27,12 @@
 <i18n lang="yaml">
   en:
     heading: Contact
-    you_want: Want me to …
-    develop_website: develop your website,
-    design_print: design a poster, brochure or business card,
-    program_tool: program a tool or
-    else: do something else which you think I can do?
     twitter: Hit me up on Twitter
     or_email: "or send me an email (en/de):"
     happy_to_hear: I'm looking forward to your message.
 
   de:
     heading: Kontakt
-    you_want: Willst du, dass ich …
-    develop_website: deine Webseite entwickle,
-    design_print: ein Poster, eine Broschüre oder eine Visitenkarte designe,
-    program_tool: ein Tool programmiere oder
-    else: etwas anderes tue, von dem du denkst, dass ich es kann?
     twitter: Schreib mir auf Twitter
     or_email: "oder schicke mir eine Email:"
     happy_to_hear: Ich freue mich auf deine Nachricht.
