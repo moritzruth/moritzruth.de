@@ -1,13 +1,13 @@
 <template>
-  <div class="sm:hidden fixed z-101 bottom-2 right-2 rounded-full backdrop-filter bg-white w-18 h-18 flex justify-center items-center shadow-lg _blur-backdrop-or-hide">
-    <div
-      role="button"
-      aria-label="Toggle navigation menu"
-      class="flex flex-col justify-evenly items-center h-10"
-      @click="active = !active"
-    >
-      <div class="w-10 h-2px bg-black transition duration-200 transform" :style="`transform: ${active ? 'translateY(350%)' : ''} rotate(${active ? 45 : 0}deg)`"/>
-      <div class="w-10 h-2px bg-black transition duration-200 transform" :style="`transform: ${active ? 'translateY(-350%)' : ''} rotate(${active ? -45 : 0}deg)`"/>
+  <div
+    class="sm:hidden fixed z-101 bottom-5 right-5 rounded-full backdrop-filter bg-white w-18 h-18 flex justify-center items-center shadow-lg _blur-backdrop-or-hide"
+    role="button"
+    aria-label="Toggle navigation menu"
+    @click="active = !active"
+  >
+    <div class="flex flex-col justify-evenly items-center h-10">
+      <div class="w-10 h-2px bg-black transition duration-300 transform _easing" :style="`transform: ${active ? 'translateY(350%)' : ''} rotate(${active ? 45 : 0}deg)`"/>
+      <div class="w-10 h-2px bg-black transition duration-300 transform _easing" :style="`transform: ${active ? 'translateY(-350%)' : ''} rotate(${active ? -45 : 0}deg)`"/>
     </div>
   </div>
   <nav
@@ -68,6 +68,11 @@
     }
   }
 
+  ._easing {
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  /*noinspection CssUnusedSymbol*/
   @screen sm {
     ._home-link.router-link-active {
       opacity: 0;
