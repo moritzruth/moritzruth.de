@@ -1,12 +1,19 @@
 <template>
-  <canvas ref="canvasElement" :style="{ width: size + 'px', height: size + 'px', filter: `blur(${blur}px)` }"/>
+  <canvas ref="canvasElement" :style="{ filter: `blur(${blur}px)`, height: size + 'px', width: size + 'px' }"/>
 </template>
 
 <script>
   import { canvasPath as createBlobAnimation } from "blobs/v2/animate/index.module.js"
   import { ref, watchEffect } from "vue"
   import { useRafFn } from "@vueuse/core"
-  import { getComponentsOfHexColor } from "../utils/getComponentsOfHexColor.js"
+
+  function getComponentsOfHexColor(hexColorString) {
+    return [
+      Number.parseInt(hexColorString.slice(1, 3), 16),
+      Number.parseInt(hexColorString.slice(3, 5), 16),
+      Number.parseInt(hexColorString.slice(5, 7), 16)
+    ]
+  }
 
   export default {
     name: "BlurredBlobCanvas",
@@ -101,6 +108,8 @@
       useRafFn(() => {
         const canvas = canvasElement.value
         if (canvas === null) return
+        canvas.width = props.size
+        canvas.height = props.size
 
         const context = canvas.getContext("2d")
 
