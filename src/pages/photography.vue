@@ -33,8 +33,8 @@
 
 <script lang="ts">
   import TopBarLayout from "../components/TopBarLayout.vue"
-  import { photos } from "assets/photos"
-  import XSpacer from "~/components/XSpacer.vue"
+  import { photos } from "../photos"
+  import XSpacer from "../components/XSpacer.vue"
 
   export default {
     name: "PhotographyPage",

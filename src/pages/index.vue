@@ -96,7 +96,7 @@
   import BlurredBlobCanvas from "../components/BlurredBlobCanvas.vue"
   import XSpacer from "../components/XSpacer.vue"
   import LinkCardList from "../components/LinkCardList.vue"
-  import { useMeta } from "#meta"
+  import { useHead } from "@vueuse/head"
 
   const NAVIGATION_LINKS = [
     {
@@ -134,7 +134,7 @@
       BlurredBlobCanvas
     },
     setup() {
-      useMeta({
+      useHead({
         title: "Moritz Ruth — freelance software developer"
       })
 

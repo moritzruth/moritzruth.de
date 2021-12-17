@@ -24,9 +24,9 @@
 
 </style>
 
-<script lang="ts">
+<script>
   import ArrowLeftIcon from "~icons/ph/arrow-left"
-  import { useMeta } from "#meta"
+  import { useHead } from "@vueuse/head"
 
   export default {
     name: "TopBarLayout",
@@ -42,7 +42,7 @@
       }
     },
     setup(props) {
-      useMeta({
+      useHead({
         title: `${props.title} — Moritz Ruth`
       })
     }

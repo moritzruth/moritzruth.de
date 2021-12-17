@@ -29,7 +29,7 @@
 
 </style>
 
-<script lang="ts">
+<script>
   import TopBarLayout from "../components/TopBarLayout.vue"
   import LinkCardList from "../components/LinkCardList.vue"
   import BlurredBlobCanvas from "../components/BlurredBlobCanvas.vue"

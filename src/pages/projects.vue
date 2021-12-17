@@ -10,16 +10,16 @@
 
 </style>
 
-<script lang="ts">
+<script>
   import TopBarLayout from "../components/TopBarLayout.vue"
   import ArrowRightIcon from "~icons/ph/arrow-right"
-  import LinkCardList, { Link } from "../components/LinkCardList.vue"
+  import LinkCardList from "../components/LinkCardList.vue"
 
   export default {
     name: "ProjectsPage",
     components: { LinkCardList, TopBarLayout, ArrowRightIcon },
     setup() {
-      const projects: Link[] = [
+      const projects = [
         {
           label: "JamRSS",
           description: "An RSS reader app for Android, built with Jetpack\u00A0Compose.",

@@ -2,25 +2,30 @@
   "name": "moritzruth.de",
   "private": true,
   "scripts": {
-    "dev": "nuxi dev",
-    "build": "NITRO_PRESET=server nuxi build",
-    "start": "node .output/server/index.mjs",
-    "fi": "pnpm i --shamefully-hoist"
+    "dev": "vite --host",
+    "build": "vite build",
+    "start": "vite preview",
+    "lint": "eslint . --fix"
   },
   "devDependencies": {
+    "@vitejs/plugin-vue": "^2.0.1",
+    "@vue/compiler-sfc": "^3.1.1",
     "eslint": "^7.32.0",
     "eslint-config-awzzm-vue": "^2.0.1",
-    "nuxt-windicss": "^2.1.1",
-    "nuxt3": "latest",
-    "typescript": "^4.5.3",
+    "typescript": "^4.5.4",
+    "vite": "^2.3.7",
+    "vite-plugin-pages": "^0.19.4",
+    "vite-plugin-windicss": "^1.0.4",
     "windicss": "^3.2.1"
   },
   "dependencies": {
     "@fontsource/plus-jakarta-sans": "^4.5.0",
-    "@iconify/json": "^1.1.441",
+    "@iconify/json": "1.1.444",
     "@vueuse/core": "^7.2.2",
+    "@vueuse/head": "^0.7.4",
     "blobs": "^2.2.1-beta.1",
     "unplugin-icons": "^0.12.23",
-    "vue": "^3.2.26"
+    "vue": "^3.2.26",
+    "vue-router": "^4.0.12"
   }
 }

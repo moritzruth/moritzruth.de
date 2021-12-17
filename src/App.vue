@@ -1,6 +1,6 @@
 <template>
   <div class="h-100vh w-100vw text-light-100 overflow-x-hidden">
-    <NuxtPage/>
+    <router-view/>
   </div>
 </template>
 
