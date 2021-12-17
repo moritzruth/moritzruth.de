@@ -79,7 +79,7 @@
             },
             {
               icon: TwitterIcon,
-              href: "https://twitter.com/moritzruth",
+              href: "https://moritzruth.de/twitter",
               label: "Twitter",
               description: "moritzruth"
             }

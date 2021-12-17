@@ -1,56 +1,66 @@
 <template>
-  <div class="h-100vh w-full max-w-1200px mx-auto flex justify-between -lg:flex-col p-5 sm:p-10">
-    <section class="relative pt-20">
-      <div class="absolute top-60 -left-20 lg:-left-10">
-        <BlurredBlobCanvas
-          :blur="30"
-          :size="300"
-          :randomness="80"
-          :minimum-duration="600"
-          :duration-variation="400"
-          :minimum-opacity="0.2"
-          :opacity-variation="0.5"
-          :colors="['#eb34cf', '#6577fc']"
-        />
-      </div>
-      <main class="relative max-w-130 p-2 lg:pl-10">
-        <div class="font-extrabold text-3xl sm:text-4xl">
-          Moritz Ruth
+  <div class="h-100vh w-full flex flex-col items-center justify-between">
+    <div class="w-full max-w-1200px flex justify-between -lg:flex-col p-5 sm:p-10">
+      <div class="relative pt-20">
+        <div class="absolute top-60 -left-20 lg:-left-10">
+          <BlurredBlobCanvas
+            :blur="30"
+            :size="300"
+            :randomness="80"
+            :minimum-duration="600"
+            :duration-variation="400"
+            :minimum-opacity="0.2"
+            :opacity-variation="0.5"
+            :colors="['#eb34cf', '#6577fc']"
+          />
         </div>
-        <div class="text-lg sm:text-xl font-medium leading-8 pt-5">
-          <p>
-            I’m&nbsp;a&nbsp;freelance
-            <router-link to="/projects" :class="$style.link">software&nbsp;developer</router-link>,
-            graphic&nbsp;design&nbsp;enthusiast&nbsp;and
-            <router-link to="/photography" :class="$style.link">hobby&nbsp;photographer</router-link>
-            from&nbsp;Europe.
-          </p>
-          <XSpacer v="5"/>
-          <p>
-            I&nbsp;primarily&nbsp;focus&nbsp;on
-            Web&nbsp;and&nbsp;Android&nbsp;development,
-            but&nbsp;I&nbsp;also&nbsp;do&nbsp;Backend&nbsp;sometimes.
-          </p>
-        </div>
-        <XSpacer v="10"/>
-        <router-link to="/contact" :class="$style.reachOut">Reach out</router-link>
-      </main>
-    </section>
-    <section class="relative lg:pr-20 pt-20 pb-10 mt-0">
-      <div class="absolute w-full pt-20 flex justify-center">
-        <BlurredBlobCanvas
-          :blur="30"
-          :size="300"
-          :randomness="100"
-          :minimum-duration="3000"
-          :duration-variation="1000"
-          :minimum-opacity="0.4"
-          :opacity-variation="0"
-          :colors="['#eb34cf', '#6577fc']"
-        />
+        <main class="relative max-w-130 p-2 lg:pl-10">
+          <div class="font-extrabold text-3xl sm:text-4xl">
+            Moritz Ruth
+          </div>
+          <div class="text-lg sm:text-xl font-medium leading-8 pt-5">
+            <p>
+              I’m&nbsp;a&nbsp;freelance
+              <router-link to="/projects" :class="$style.link">software&nbsp;developer</router-link>,
+              graphic&nbsp;design&nbsp;enthusiast&nbsp;and
+              <router-link to="/photography" :class="$style.link">hobby&nbsp;photographer</router-link>
+              from&nbsp;Europe.
+            </p>
+            <XSpacer v="5"/>
+            <p>
+              I&nbsp;primarily&nbsp;focus&nbsp;on
+              Web&nbsp;and&nbsp;Android&nbsp;development,
+              but&nbsp;I&nbsp;also&nbsp;do&nbsp;Backend&nbsp;sometimes.
+            </p>
+          </div>
+          <XSpacer v="10"/>
+          <router-link to="/contact" :class="$style.reachOut">Reach out</router-link>
+        </main>
       </div>
-      <LinkCardList :links="navigationLinks"/>
-    </section>
+      <div class="relative lg:pr-20 pt-20 pb-8 mt-0">
+        <nav class="absolute w-full pt-20 flex justify-center">
+          <BlurredBlobCanvas
+            :blur="30"
+            :size="300"
+            :randomness="100"
+            :minimum-duration="3000"
+            :duration-variation="1000"
+            :minimum-opacity="0.4"
+            :opacity-variation="0"
+            :colors="['#eb34cf', '#6577fc']"
+          />
+        </nav>
+        <LinkCardList :links="navigationLinks"/>
+      </div>
+    </div>
+    <footer class="flex justify-center opacity-30 hover:opacity-60 transition duration-400 space-x-4 pb-6">
+      <router-link to="/terms">
+        Terms
+      </router-link>
+      <router-link to="/legal-notice">
+        Legal notice
+      </router-link>
+    </footer>
   </div>
 </template>
 
@@ -86,6 +96,7 @@
   import BlurredBlobCanvas from "../components/BlurredBlobCanvas.vue"
   import XSpacer from "../components/XSpacer.vue"
   import LinkCardList from "../components/LinkCardList.vue"
+  import { useMeta } from "#meta"
 
   const NAVIGATION_LINKS = [
     {
@@ -123,6 +134,10 @@
       BlurredBlobCanvas
     },
     setup() {
+      useMeta({
+        title: "Moritz Ruth — freelance software developer"
+      })
+
       return {
         navigationLinks: NAVIGATION_LINKS
       }

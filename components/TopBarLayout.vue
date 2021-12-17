@@ -1,6 +1,6 @@
 <template>
   <div class="w-full max-w-1000px mx-auto">
-    <div class="bg-background bg-opacity-70 backdrop-filter backdrop-blur-sm backdrop-saturate-200 shadow-2xl px-6 py-8 text-light-900 sticky top-0 z-10 flex items-center justify-between">
+    <div class="bg-background bg-opacity-70 backdrop-filter backdrop-blur-sm backdrop-saturate-200 px-6 py-8 text-light-900 sticky top-0 z-10 flex items-center justify-between">
       <div class="w-0">
         <router-link :to="backTarget" class="w-8 flex items-center group relative">
           <ArrowLeftIcon class="text-2xl"/>
@@ -14,7 +14,7 @@
       </div>
       <div/>
     </div>
-    <div class="pt-8 pb-10 px-5">
+    <div class="pt-8 pb-10 px-5" v-bind="$attrs">
       <slot/>
     </div>
   </div>
@@ -24,8 +24,9 @@
 
 </style>
 
-<script>
+<script lang="ts">
   import ArrowLeftIcon from "~icons/ph/arrow-left"
+  import { useMeta } from "#meta"
 
   export default {
     name: "TopBarLayout",
@@ -39,6 +40,11 @@
         type: String,
         required: true
       }
+    },
+    setup(props) {
+      useMeta({
+        title: `${props.title} — Moritz Ruth`
+      })
     }
   }
 </script>

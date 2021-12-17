@@ -4,7 +4,5 @@
 
 TODO:
 - Blog
-- Projects
-  - Libraries
 - Legal Notice
 - Terms

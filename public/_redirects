@@ -1,5 +1,13 @@
+# Old domain
 https://moritz-ruth.de/* https://moritzruth.de/:splat 301!
+
+# External
 /matrix https://matrix.to/#/@moritz:moritzruth.de
+/twitter https://twitter.com/moritzruth
+
+# Internal
 /agb /terms
 /kontakt /contact
+
+# Uses index.html for all paths
 /* /index.html 200

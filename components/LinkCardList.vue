@@ -19,7 +19,7 @@
         <div class="text-lg font-bold">
           {{ link.label }}
         </div>
-        <div class="opacity-60 -sm:text-sm">
+        <div class="text-gray-400 -sm:text-sm">
           {{ link.description }}
         </div>
       </div>
@@ -34,7 +34,7 @@
 <script lang="ts">
   import { Component, ComponentCustomOptions, PropType } from "vue"
 
-  type Link = {
+  export type Link = {
     label: string
     description: string
     iconClasses?: string

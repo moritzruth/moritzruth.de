@@ -12,6 +12,7 @@ export default defineConfig({
       yellow: colors.amber,
       green: colors.green,
       blue: colors.blue,
+      gray: colors.gray,
       dark: colors.dark,
       light: colors.light,
       background: "#070707"

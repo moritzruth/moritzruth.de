@@ -7,18 +7,18 @@
         class="flex -lg:space-y-10 lg:space-x-10 -lg:flex-col -lg:items-center"
       >
         <img
-          :src="photo.file"
+          :src="`/photography/${photo.file}`"
           :alt="photo.title"
           class="w-full lg:max-w-150 max-h-80vh block object-contain"
         >
         <div>
-          <div class="uppercase opacity-70 text-sm pt-1">
+          <div class="text-gray-400 text-sm pt-1">
             {{ photo.date }}
           </div>
-          <div class="font-bold text-2xl opacity-90">
+          <div class="font-bold text-2xl text-light-500">
             {{ photo.title }}
           </div>
-          <div class="opacity-90 max-w-100 space-y-1 pt-4 whitespace-pre-line">
+          <div class="opacity-90 max-w-100 space-y-1 pt-4 whitespace-pre-line text-light-600">
             {{ photo.description }}
           </div>
         </div>
