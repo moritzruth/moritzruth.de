@@ -1,6 +1,7 @@
 import { defineConfig } from "windicss/helpers"
 import colors from "windicss/colors"
-import interactionVariantsPlugin from "@windicss/plugin-interaction-variants"
+import scrollSnapPlugin from "windicss/plugin/scroll-snap"
+import plugin from "windicss/plugin"
 
 export default defineConfig({
   darkMode: "media",
@@ -12,14 +13,19 @@ export default defineConfig({
       green: colors.green,
       blue: colors.blue,
       dark: colors.dark,
-      light: colors.light
+      light: colors.light,
+      background: "#070707"
     },
     fontFamily: {
-      sans: ["Plus Jakarta Sans", "sans-serif"],
-      special: ["SyneVariable", "monospace"]
+      sans: ["Plus Jakarta Sans", "sans-serif"]
     }
   },
   plugins: [
-    interactionVariantsPlugin
+    scrollSnapPlugin,
+    plugin(({ addVariant }) => {
+      addVariant("can-hover", ({ atRule }) => {
+        return atRule("@media(hover: hover)")
+      })
+    })
   ]
 })

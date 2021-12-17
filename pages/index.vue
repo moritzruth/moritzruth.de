@@ -1,5 +1,5 @@
 <template>
-  <div class="h-100vh w-full max-w-[1200px] mx-auto flex justify-between -lg:flex-col p-5 sm:p-10">
+  <div class="h-100vh w-full max-w-1200px mx-auto flex justify-between -lg:flex-col p-5 sm:p-10">
     <section class="relative pt-20">
       <div class="absolute top-60 -left-20 lg:-left-10">
         <BlurredBlobCanvas
@@ -13,7 +13,7 @@
           :colors="['#eb34cf', '#6577fc']"
         />
       </div>
-      <div class="relative max-w-130 p-2 lg:pl-10">
+      <main class="relative max-w-130 p-2 lg:pl-10">
         <div class="font-extrabold text-3xl sm:text-4xl">
           Moritz Ruth
         </div>
@@ -34,7 +34,7 @@
         </div>
         <XSpacer v="10"/>
         <router-link to="/contact" :class="$style.reachOut">Reach out</router-link>
-      </div>
+      </main>
     </section>
     <section class="relative lg:pr-20 pt-20 pb-10 mt-0">
       <div class="absolute w-full pt-20 flex justify-center">
@@ -49,23 +49,7 @@
           :colors="['#eb34cf', '#6577fc']"
         />
       </div>
-      <div class="relative flex flex-col justify-center space-y-4">
-        <router-link
-          v-for="link in navigationLinks"
-          :key="link.to"
-          :to="link.to"
-          class="px-5 sm:px-6 py-4 bg-light-300 bg-opacity-5 rounded-lg backdrop-blur-lg flex
-          hover:bg-opacity-10 focus-visible:bg-opacity-10 transform hover:scale-104 transition duration-200 group"
-        >
-          <div class="flex items-center justify-center text-xl sm:text-2xl relative pr-3 sm:pr-5" :class="link.emojiClasses">
-            {{ link.emoji }}
-          </div>
-          <div class="flex-grow">
-            <div class="text-lg font-bold">{{ link.label }}</div>
-            <div class="opacity-60 -sm:text-sm">{{ link.text }}</div>
-          </div>
-        </router-link>
-      </div>
+      <LinkCardList :links="navigationLinks"/>
     </section>
   </div>
 </template>
@@ -101,38 +85,40 @@
 <script>
   import BlurredBlobCanvas from "../components/BlurredBlobCanvas.vue"
   import XSpacer from "../components/XSpacer.vue"
+  import LinkCardList from "../components/LinkCardList.vue"
 
   const NAVIGATION_LINKS = [
     {
-      emoji: "📝",
+      icon: "📝",
       to: "/blog",
       label: "Blog",
-      text: "My thoughts, mostly on dev things"
+      description: "My thoughts, mostly on dev things"
     },
     {
-      emoji: "✨",
+      icon: "✨",
       to: "/projects",
       label: "Projects",
-      text: "Apps and open-source projects"
+      description: "Apps and open-source projects"
     },
     {
-      emojiClasses: "top-[-0.25rem]",
-      emoji: "📷",
+      iconClasses: "top-[-0.25rem]",
+      icon: "📷",
       to: "/photography",
       label: "Photography",
-      text: "Some photos I’m proud of"
+      description: "Some photos I’m proud of"
     },
     {
-      emoji: "💬",
+      icon: "💬",
       to: "/contact",
       label: "Contact me",
-      text: "Email, Matrix, Twitter"
+      description: "Email, Matrix, Twitter"
     }
   ]
 
   export default {
     name: "IndexPage",
     components: {
+      LinkCardList,
       XSpacer,
       BlurredBlobCanvas
     },

@@ -1,12 +1,12 @@
 <template>
-  <div class="min-h-100vh w-100vw text-light-900 overflow-x-hidden">
+  <div class="h-100vh w-100vw text-light-100 overflow-x-hidden">
     <NuxtPage/>
   </div>
 </template>
 
 <style module>
   html, body {
-    background: #070707;
+    @apply bg-background;
     overflow-x: hidden;
     width: 100vw;
     min-height: 100vh;
