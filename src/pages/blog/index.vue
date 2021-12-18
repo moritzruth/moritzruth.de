@@ -58,7 +58,7 @@
       const posts = await getPosts()
 
       return {
-        posts: [...posts, ...posts, ...posts]
+        posts
       }
     }
   }

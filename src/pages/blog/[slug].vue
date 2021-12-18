@@ -1,5 +1,5 @@
 <template>
-  <TopBarLayout title="Blog" back-target="/">
+  <TopBarLayout title="Blog" back-target="/blog">
     <article>
       <h1 class="font-bold text-3xl sm:text-3xl sm:text-center font-special">
         {{ post.title }}

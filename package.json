@@ -19,9 +19,6 @@
     "windicss": "^3.2.1"
   },
   "dependencies": {
-    "@fontsource/fanwood-text": "^4.5.0",
-    "@fontsource/league-gothic": "^4.5.0",
-    "@fontsource/linden-hill": "^4.5.0",
     "@fontsource/plus-jakarta-sans": "^4.5.0",
     "@fontsource/syne": "^4.5.0",
     "@iconify/json": "1.1.444",
