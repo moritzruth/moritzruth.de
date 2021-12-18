@@ -9,13 +9,14 @@
   </div>
   <div class="bg-background fixed top-0 left-0 right-0 bottom-0 z-100 backdrop-filter" :style="loadingOverlayStyle">
     <div class="font-bold text-light-900 text-2xl h-full w-full flex justify-center items-center overflow-hidden" :style="loadingOverlayContentStyle">
-      <div>
+      <div :class="$style.loadingText">
         Loading...
       </div>
       <div
         v-for="loadingText in loadingTexts"
         :key="loadingText.x + '|' + loadingText.y"
         :style="{ top: loadingText.x + 'px', left: loadingText.y + 'px' }"
+        class="absolute"
         :class="$style.loadingText"
       >
         Loading...
@@ -35,7 +36,6 @@
 
   .loadingText {
     animation: fade-in-out 8s ease both;
-    position: absolute;
   }
 
   @keyframes fade-in-out {
