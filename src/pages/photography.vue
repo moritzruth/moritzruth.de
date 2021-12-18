@@ -6,11 +6,11 @@
         :key="photo.file"
         class="flex -lg:space-y-10 lg:space-x-10 -lg:flex-col -lg:items-center"
       >
-        <img
+        <SuspendingImage
           :src="`/photography/${photo.file}`"
-          :alt="photo.title"
+          :alt="photo.altText"
           class="w-full lg:max-w-150 max-h-80vh block object-contain"
-        >
+        />
         <div>
           <div class="text-gray-400">
             {{ photo.date }}
@@ -35,10 +35,11 @@
   import TopBarLayout from "../components/TopBarLayout.vue"
   import { photos } from "../photos"
   import XSpacer from "../components/XSpacer.vue"
+  import SuspendingImage from "../components/SuspendingImage.vue"
 
   export default {
     name: "PhotographyPage",
-    components: { XSpacer, TopBarLayout },
+    components: { SuspendingImage, XSpacer, TopBarLayout },
     setup() {
 
       return {

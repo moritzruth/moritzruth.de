@@ -137,7 +137,7 @@
             return {
               "--tw-bg-opacity": 0,
               "--tw-backdrop-blur": 0,
-              transition: "background 500ms ease, backdrop-filter 200ms linear",
+              transition: "background 200ms ease, backdrop-filter 200ms linear",
               pointerEvents: "none"
             }
           }
