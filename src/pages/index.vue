@@ -1,5 +1,5 @@
 <template>
-  <div class="h-100vh w-full flex flex-col items-center justify-between">
+  <div class="min-h-100vh w-full flex flex-col items-center justify-between">
     <div class="w-full max-w-1200px flex justify-between -lg:flex-col p-5 sm:p-10">
       <div class="relative pt-20">
         <div class="absolute top-60 -left-20 lg:-left-10">
@@ -37,7 +37,7 @@
           <router-link to="/contact" :class="$style.reachOut">Reach out</router-link>
         </main>
       </div>
-      <div class="relative lg:pr-20 pt-20 pb-8 mt-0">
+      <div class="relative lg:pr-20 pt-20 pb-10 mt-0">
         <nav class="absolute w-full pt-20 flex justify-center">
           <BlurredBlobCanvas
             :blur="30"
