@@ -1,6 +1,12 @@
 <template>
   <NotFoundPage v-if="post === null" object-name="post" back-target="/blog"/>
-  <TopBarLayout v-else title="Blog" back-target="/blog">
+  <TopBarLayout v-else
+    title="Blog"
+    back-target="/blog"
+    no-set-title>
+    <Head>
+      <title>{{ post.title }} — Moritz Ruth</title>
+    </Head>
     <article>
       <h1 class="font-bold text-3xl sm:text-3xl sm:text-center font-special">
         {{ post.title }}
@@ -29,6 +35,7 @@
 
 <script lang="ts">
   import { useRoute } from "vue-router"
+  import { Head } from "@vueuse/head"
   import TopBarLayout from "../../components/TopBarLayout.vue"
   import { getPostBySlug } from "../../posts"
   import Prose from "../../components/Prose.vue"
@@ -37,9 +44,10 @@
 
   export default {
     name: "BlogPostPage",
-    components: { NotFoundPage, XSpacer, Prose, TopBarLayout },
+    components: { NotFoundPage, XSpacer, Prose, TopBarLayout, Head },
     async setup() {
       const route = useRoute()
+
       const post = await getPostBySlug(route.params.slug as string)
 
       return {

@@ -51,10 +51,11 @@
       title: {
         type: String,
         required: true
-      }
+      },
+      noSetTitle: Boolean
     },
     setup(props) {
-      useHead({
+      if (!props.noSetTitle) useHead({
         title: `${props.title} — Moritz Ruth`
       })
     }
