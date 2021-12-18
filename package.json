@@ -23,11 +23,11 @@
     "@fontsource/syne": "^4.5.0",
     "@iconify/json": "1.1.444",
     "@vueuse/core": "^7.2.2",
-    "@vueuse/head": "^0.7.4",
+    "@vueuse/head": "^0.5.1",
     "blobs": "^2.2.1-beta.1",
     "ohmyfetch": "^0.4.11",
     "unplugin-icons": "^0.12.23",
-    "vite-ssg": "^0.17.1",
+    "vite-ssg": "0.16.2",
     "vue": "^3.2.26",
     "vue-router": "^4.0.12"
   }

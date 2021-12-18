@@ -7,7 +7,7 @@ specifiers:
   '@vitejs/plugin-vue': ^2.0.1
   '@vue/compiler-sfc': ^3.1.1
   '@vueuse/core': ^7.2.2
-  '@vueuse/head': ^0.7.4
+  '@vueuse/head': ^0.5.1
   blobs: ^2.2.1-beta.1
   eslint: ^7.32.0
   eslint-config-awzzm-vue: ^2.0.1
@@ -17,7 +17,7 @@ specifiers:
   vite: ^2.3.7
   vite-plugin-pages: ^0.19.4
   vite-plugin-windicss: ^1.0.4
-  vite-ssg: ^0.17.1
+  vite-ssg: 0.16.2
   vue: ^3.2.26
   vue-router: ^4.0.12
   windicss: ^3.2.1
@@ -27,11 +27,11 @@ dependencies:
   '@fontsource/syne': 4.5.0
   '@iconify/json': 1.1.444
   '@vueuse/core': 7.3.0_vue@3.2.26
-  '@vueuse/head': 0.7.4_vue@3.2.26
+  '@vueuse/head': 0.5.1_vue@3.2.26
   blobs: 2.2.1-beta.1
   ohmyfetch: 0.4.11
   unplugin-icons: 0.12.23_fb6292b47fe9c67e26b404bea724bbe1
-  vite-ssg: 0.17.1_844ac51c1b5dd2cea5b7128e65f296c1
+  vite-ssg: 0.16.2_f48a230ae546e5bcb22c6a17141ea5b0
   vue: 3.2.26
   vue-router: 4.0.12_vue@3.2.26
 
@@ -583,8 +583,8 @@ packages:
       vue-demi: 0.12.1_vue@3.2.26
     dev: false
 
-  /@vueuse/head/0.7.4_vue@3.2.26:
-    resolution: {integrity: sha512-cmps+wrdgL77V72vtjU6kaAunkG6GhswaMIQoh7Twc52ql4/p7i1Amd31LqnnvNF/bfuvzcXgYvsH8I7kimZmA==}
+  /@vueuse/head/0.5.1_vue@3.2.26:
+    resolution: {integrity: sha512-xt6qgtItb4z/7vp664opQc0c2+ZoU9itMfvpmg4+h0uJcEnhl7LYxO4V+G8H7EVki7SyXDIFMfoCiCFaJrArmg==}
     peerDependencies:
       vue: '>=3'
     dependencies:
@@ -3183,8 +3183,8 @@ packages:
       - supports-color
     dev: true
 
-  /vite-ssg/0.17.1_844ac51c1b5dd2cea5b7128e65f296c1:
-    resolution: {integrity: sha512-4zaVt2fx0Y1onVg+Zaow7ndjKr1pvgQd6RPVopwzZ2D4aWXNXgIyIEgDfrX7QJKexj+gaT1Fsp1Oh6SOgcnnIQ==}
+  /vite-ssg/0.16.2_f48a230ae546e5bcb22c6a17141ea5b0:
+    resolution: {integrity: sha512-paoBbRdaKBznYf+aTqN2Ltf5dQiBgUKwM2uvwjmPsuPQbVcznzceb13cpoG4WXxlaW2EvPns30NRIM+U6RZU3w==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     peerDependencies:
@@ -3197,7 +3197,7 @@ packages:
       critters:
         optional: true
     dependencies:
-      '@vueuse/head': 0.7.4_vue@3.2.26
+      '@vueuse/head': 0.5.1_vue@3.2.26
       chalk: 4.1.2
       fs-extra: 10.0.0
       html-minifier: 4.0.0
