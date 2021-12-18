@@ -19,11 +19,16 @@
     "windicss": "^3.2.1"
   },
   "dependencies": {
+    "@fontsource/fanwood-text": "^4.5.0",
+    "@fontsource/league-gothic": "^4.5.0",
+    "@fontsource/linden-hill": "^4.5.0",
     "@fontsource/plus-jakarta-sans": "^4.5.0",
+    "@fontsource/syne": "^4.5.0",
     "@iconify/json": "1.1.444",
     "@vueuse/core": "^7.2.2",
     "@vueuse/head": "^0.7.4",
     "blobs": "^2.2.1-beta.1",
+    "ohmyfetch": "^0.4.11",
     "unplugin-icons": "^0.12.23",
     "vue": "^3.2.26",
     "vue-router": "^4.0.12"

@@ -15,7 +15,7 @@
           />
         </div>
         <main class="relative max-w-130 p-2 lg:pl-10">
-          <div class="font-extrabold text-3xl sm:text-4xl">
+          <div class="font-bold font-special text-3xl sm:text-4xl">
             Moritz Ruth
           </div>
           <div class="text-lg sm:text-xl font-medium leading-8 pt-5">
@@ -53,12 +53,12 @@
         <LinkCardList :links="navigationLinks"/>
       </div>
     </div>
-    <footer class="flex justify-center opacity-30 hover:opacity-60 transition duration-400 space-x-4 pb-6">
+    <footer class="flex justify-center opacity-30 hover:opacity-60 transition duration-400 space-x-5 pb-6">
       <router-link to="/terms">
         Terms
       </router-link>
       <router-link to="/legal-notice">
-        Legal notice
+        Legal Notice
       </router-link>
     </footer>
   </div>

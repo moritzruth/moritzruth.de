@@ -12,13 +12,13 @@
           class="w-full lg:max-w-150 max-h-80vh block object-contain"
         >
         <div>
-          <div class="text-gray-400 text-sm pt-1">
+          <div class="text-gray-400">
             {{ photo.date }}
           </div>
-          <div class="font-bold text-2xl text-light-500">
+          <div class="font-bold text-2xl text-light-500 font-special">
             {{ photo.title }}
           </div>
-          <div class="opacity-90 max-w-100 space-y-1 pt-4 whitespace-pre-line text-light-600">
+          <div class="opacity-90 max-w-100 space-y-1 pt-3 whitespace-pre-line text-light-600 text-lg">
             {{ photo.description }}
           </div>
         </div>
@@ -40,6 +40,7 @@
     name: "PhotographyPage",
     components: { XSpacer, TopBarLayout },
     setup() {
+
       return {
         photos
       }

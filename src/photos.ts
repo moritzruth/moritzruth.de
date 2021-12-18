@@ -8,7 +8,7 @@ export const photos = [
   {
     "file": "Martyrdom.webp",
     "title": "Martyrdom",
-    "date": "2020-10-19",
+    "date": "2019",
     "description": "The Sankt-Laurentius church right by the Mosel river in Bremm (Germany)."
   }
 ]

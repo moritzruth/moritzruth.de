@@ -18,7 +18,8 @@ export default defineConfig({
       background: "#070707"
     },
     fontFamily: {
-      sans: ["Plus Jakarta Sans", "sans-serif"]
+      sans: ["Plus Jakarta Sans", "sans-serif"],
+      special: ["Syne", "sans-serif"]
     }
   },
   plugins: [
