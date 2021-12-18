@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build",
+    "build": "vite-ssg build",
     "start": "vite preview",
     "lint": "eslint . --fix"
   },
@@ -27,6 +27,7 @@
     "blobs": "^2.2.1-beta.1",
     "ohmyfetch": "^0.4.11",
     "unplugin-icons": "^0.12.23",
+    "vite-ssg": "^0.17.1",
     "vue": "^3.2.26",
     "vue-router": "^4.0.12"
   }

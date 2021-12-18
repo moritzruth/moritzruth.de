@@ -1,10 +1,10 @@
 import "virtual:windi.css"
 import originalRoutes from "~pages"
-import { createApp, FunctionalComponent } from "vue"
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router"
+import { FunctionalComponent } from "vue"
+import { RouteRecordRaw } from "vue-router"
 import App from "./App.vue"
-import { createHead } from "@vueuse/head"
 import { pageComponentLoading } from "./store"
+import { ViteSSG } from "vite-ssg"
 
 const routes = originalRoutes.map(route => {
   if (typeof route.component !== "function") return route
@@ -23,19 +23,18 @@ const routes = originalRoutes.map(route => {
   }
 }) as RouteRecordRaw[]
 
-const router = createRouter({
-  history: createWebHistory(),
-  routes,
-  scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) return savedPosition
-    if (to.hash) return { el: to.hash }
-    return { top: 0 }
+// noinspection JSUnusedGlobalSymbols
+export const createApp = ViteSSG(
+  App,
+  {
+    routes,
+    scrollBehavior(to, from, savedPosition) {
+      if (savedPosition) return savedPosition
+      if (to.hash) return { el: to.hash }
+      return { top: 0 }
+    }
+  },
+  () => {
+
   }
-})
-
-const head = createHead()
-
-createApp(App)
-  .use(router)
-  .use(head)
-  .mount("#app")
+)

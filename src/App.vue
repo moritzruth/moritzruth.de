@@ -9,7 +9,7 @@
   </div>
   <div class="bg-background fixed top-0 left-0 right-0 bottom-0 z-100 backdrop-filter" :style="loadingOverlayStyle">
     <div class="font-bold text-light-900 text-2xl h-full w-full flex justify-center items-center overflow-hidden" :style="loadingOverlayContentStyle">
-      <div :class="$style.loadingText">
+      <div :class="$style.centerLoadingText">
         Loading...
       </div>
       <div
@@ -34,6 +34,19 @@
     font-size: 17px;
   }
 
+  .centerLoadingText {
+    animation: fade-in 2s ease-out both;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   .loadingText {
     animation: fade-in-out 8s ease both;
   }
@@ -50,7 +63,7 @@
 
 <script lang="ts">
   import { computed, ref } from "vue"
-  import { useWindowSize, whenever } from "@vueuse/core"
+  import { useIntervalFn, useWindowSize, whenever } from "@vueuse/core"
   import { pageComponentLoading } from "./store"
   import { useRouter } from "vue-router"
 
@@ -98,7 +111,7 @@
 
       const { width, height } = useWindowSize()
 
-      setInterval(() => {
+      useIntervalFn(() => {
         const start = loadingStartedTime.value
         if (start === null) return
         if (Date.now() - start > 3000) {

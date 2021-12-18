@@ -3,7 +3,9 @@
 </template>
 
 <script>
-  import { canvasPath as createBlobAnimation } from "blobs/v2/animate/index.module.js"
+  import blobsAnimate from "blobs/v2/animate/index.js"
+  const { canvasPath: createBlobAnimation } = blobsAnimate
+
   import { ref, watchEffect } from "vue"
   import { useRafFn } from "@vueuse/core"
 

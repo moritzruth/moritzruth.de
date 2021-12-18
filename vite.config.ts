@@ -12,5 +12,13 @@ export default defineConfig({
     }),
     windicssPlugin(),
     iconsPlugin()
-  ]
+  ],
+  ssgOptions: {
+    formatting: "minify",
+    includedRoutes(routes) {
+      return routes.filter(route => {
+        return /* Dynamic routes: */ !route.includes(":") && /* Blog post overview: */route !== "/blog"
+      })
+    }
+  }
 })
