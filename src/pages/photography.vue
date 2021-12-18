@@ -33,7 +33,7 @@
 
 <script lang="ts">
   import TopBarLayout from "../components/TopBarLayout.vue"
-  import { photos } from "../photos"
+  import { photos } from "../data"
   import SuspendingImage from "../components/SuspendingImage.vue"
 
   export default {

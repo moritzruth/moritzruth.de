@@ -3,9 +3,11 @@
   <TopBarLayout v-else
     title="Blog"
     back-target="/blog"
-    no-set-title>
+    no-set-title
+  >
     <Head>
       <title>{{ post.title }} — Moritz Ruth</title>
+      <meta name="keywords" :content="getKeywordsWithBase(post.tags).join(', ')">
     </Head>
     <article>
       <h1 class="font-bold text-3xl sm:text-3xl sm:text-center font-special">
@@ -41,6 +43,7 @@
   import Prose from "../../components/Prose.vue"
   import XSpacer from "../../components/XSpacer.vue"
   import NotFoundPage from "../../components/NotFoundPage.vue"
+  import { getKeywordsWithBase } from "../../data"
 
   export default {
     name: "BlogPostPage",
@@ -53,7 +56,8 @@
       return {
         post,
         // Yep, that's awful code
-        html: post?.body_html?.replaceAll("h2>", "h3>")?.replaceAll("h1>", "h2>")
+        html: post?.body_html?.replaceAll("h2>", "h3>")?.replaceAll("h1>", "h2>"),
+        getKeywordsWithBase
       }
     }
   }

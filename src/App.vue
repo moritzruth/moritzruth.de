@@ -64,11 +64,19 @@
   import { computed, ref } from "vue"
   import { useIntervalFn, useWindowSize, whenever } from "@vueuse/core"
   import { useRouter } from "vue-router"
+  import { useHead } from "@vueuse/head"
   import { pageComponentLoading } from "./store"
+  import { getKeywordsTagWithBase } from "./data"
 
   export default {
     name: "App",
     setup() {
+      useHead({
+        meta: [
+          getKeywordsTagWithBase([])
+        ]
+      })
+
       const loadingStartedTime = ref<null | number>(null)
       const isLoadingScreenActive = ref(false)
       const START_TRANSITION_DURATION = 200

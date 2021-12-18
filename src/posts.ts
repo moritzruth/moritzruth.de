@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { $fetch } from "ohmyfetch"
 
 const USERNAME = "moritzruth"
@@ -9,6 +10,7 @@ export interface Post {
   description: string
   published_at: string
   reading_time_minutes: number
+  tags: string[]
 }
 
 export interface FullPost extends Post {

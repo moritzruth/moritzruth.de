@@ -22,3 +22,11 @@ export const photos: Photo[] = [
     description: "The Sankt-Laurentius church right by the Mosel river in Bremm (Germany)."
   }
 ]
+
+const META_KEYWORDS = ["web", "dev", "development", "coding", "moritz", "ruth", "development", "design", "kotlin", "android", "photography", "matrix"]
+
+export const getKeywordsWithBase = (keywords: string[]) => [...new Set([...META_KEYWORDS, ...keywords])]
+export const getKeywordsTagWithBase = (keywords: string[]) => ({
+  name: "keywords",
+  content: getKeywordsWithBase(keywords).join(", ")
+})
