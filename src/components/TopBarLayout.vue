@@ -1,7 +1,7 @@
 <template>
-  <div class="h-100vh flex flex-col justify-between">
+  <div class="min-h-100vh flex flex-col justify-between">
     <div class="w-full max-w-1000px mx-auto">
-      <div class="bg-background bg-opacity-70 backdrop-filter backdrop-blur-sm backdrop-saturate-200 px-6 py-4 sm:py-8 text-light-900 sticky top-0 z-10
+      <div class="bg-background bg-opacity-70 backdrop-filter backdrop-blur-sm backdrop-saturate-200 px-6 py-4 sm:py-8 text-light-900 fixed top-0 left-0 right-0 z-10
                   flex items-center justify-between">
         <div class="w-0">
           <router-link :to="backTarget" class="w-8 flex items-center group relative">
@@ -16,11 +16,11 @@
         </div>
         <div/>
       </div>
-      <div class="pt-8 pb-20 px-5" v-bind="$attrs">
+      <div class="pt-28 pb-20 px-5" v-bind="$attrs">
         <slot/>
       </div>
     </div>
-    <footer class="flex justify-center opacity-30 hover:opacity-60 transition duration-400 space-x-5 pb-6">
+    <footer class="flex justify-center opacity-50 hover:opacity-80 transition duration-400 space-x-5 pb-6">
       <router-link to="/terms">
         Terms
       </router-link>

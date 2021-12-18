@@ -2,8 +2,8 @@
   <TopBarLayout title="Blog" back-target="/">
     <div class="fixed top-0 left-0 bottom-0 right-0 flex justify-center items-center">
       <BlurredBlobCanvas
-        :blur="70"
-        :size="500"
+        :blur="50"
+        :size="400"
         :randomness="400"
         :minimum-duration="3000"
         :duration-variation="1000"

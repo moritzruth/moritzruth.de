@@ -1,5 +1,5 @@
 <template>
-  <div class="h-100vh w-100vw text-light-100 overflow-x-hidden">
+  <div class="w-100vw text-light-100 overflow-x-hidden">
     <router-view v-slot="{ Component }">
       <suspense @pending="startLoading()" @resolve="stopLoading()">
         <!-- The key makes that components are not reused if only params changed -->
