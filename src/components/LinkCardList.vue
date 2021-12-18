@@ -5,7 +5,7 @@
       v-for="link in links"
       :key="link.to || link.href"
       :to="link.to"
-      :href="link.href"
+      :href="link.href || link.to"
       class="px-5 sm:px-6 py-4 bg-light-300 bg-opacity-5 rounded-lg backdrop-blur-lg flex cursor-pointer
              hover:bg-opacity-10 focus-visible:bg-opacity-10 transform hover:scale-104 transition duration-200"
     >
