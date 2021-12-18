@@ -7,7 +7,9 @@ import iconsPlugin from "unplugin-icons/vite"
 export default defineConfig({
   plugins: [
     vuePlugin(),
-    pagesPlugin(),
+    pagesPlugin({
+      syncIndex: false
+    }),
     windicssPlugin(),
     iconsPlugin()
   ]

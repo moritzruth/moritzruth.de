@@ -56,7 +56,7 @@
       @apply not-italic;
     }
 
-    :where(address, p, ol, ul) + :where(address, p, ol, ul) {
+    :where(address, p, ol, ul) + :is(address, p, ol, ul) {
       @apply pt-4;
     }
   }

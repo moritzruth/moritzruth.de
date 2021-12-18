@@ -16,4 +16,4 @@ export interface FullPost extends Post {
 }
 
 export const getPosts = () => $fetch<Post[]>(`https://dev.to/api/articles?username=${USERNAME}&per_page=1000`)
-export const getPostBySlug = (slug: string) => $fetch<FullPost>(`https://dev.to/api/articles/${USERNAME}/${slug}`)
+export const getPostBySlug = (slug: string) => $fetch<FullPost>(`https://dev.to/api/articles/${USERNAME}/${slug}`).catch(() => null)

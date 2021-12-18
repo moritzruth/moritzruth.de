@@ -1,12 +1,11 @@
 <template>
   <div class="h-100vh w-100vw text-light-100 overflow-x-hidden">
-    <suspense @pending="startLoading()" @resolve="stopLoading()">
-      <router-view v-slot="{ Component }">
-        <suspense @pending="startLoading()" @resolve="stopLoading()">
-          <component :is="Component"/>
-        </suspense>
-      </router-view>
-    </suspense>
+    <router-view v-slot="{ Component }">
+      <suspense @pending="startLoading()" @resolve="stopLoading()">
+        <!-- The key makes that components are not reused if only params changed -->
+        <component :is="Component" :key="$route.fullPath"/>
+      </suspense>
+    </router-view>
   </div>
   <div class="bg-background fixed top-0 left-0 right-0 bottom-0 z-100 backdrop-filter" :style="loadingOverlayStyle">
     <div class="font-bold text-light-900 text-2xl h-full w-full flex justify-center items-center overflow-hidden" :style="loadingOverlayContentStyle">
@@ -53,31 +52,21 @@
   import { computed, ref } from "vue"
   import { useWindowSize, whenever } from "@vueuse/core"
   import { pageComponentLoading } from "./store"
+  import { useRouter } from "vue-router"
 
   export default {
     name: "App",
     setup() {
       const loadingStartedTime = ref<null | number>(null)
       const isLoadingScreenActive = ref(false)
-      const START_TRANSITION_DURATION = 300
-      const START_TRANSITION_DELAY = 200
-      let suspenseLoading = false
+      const START_TRANSITION_DURATION = 200
+      const START_TRANSITION_DELAY = 0
 
       const loadingTexts = ref<Array<{ x: number, y: number }>>([])
 
       const stopLoading = () => {
-        if (loadingStartedTime.value === null) return
-
-        const stop = () => {
-          isLoadingScreenActive.value = false
-          loadingStartedTime.value = null
-          suspenseLoading = false
-        }
-
-        const timeSinceStart = Date.now() - loadingStartedTime.value
-
-        if (timeSinceStart > START_TRANSITION_DELAY) setTimeout(stop, START_TRANSITION_DURATION - timeSinceStart)
-        else stop()
+        isLoadingScreenActive.value = false
+        loadingStartedTime.value = null
       }
 
       const startLoading = () => {
@@ -89,9 +78,22 @@
 
       // Suspense @resolve is also called when the component is not async, so we don't need to handle stopping
       whenever(pageComponentLoading, () => {
-        if (loadingStartedTime.value !== null) return
-        loadingStartedTime.value = Date.now()
-        isLoadingScreenActive.value = true
+        // Runs when a page component is imported
+        startLoading()
+      })
+
+      const router = useRouter()
+      let isFirst = true
+
+      router.beforeResolve((to, from, next) => {
+        if (isFirst) {
+          isFirst = false
+          next()
+          return
+        }
+
+        startLoading()
+        setTimeout(next, START_TRANSITION_DURATION)
       })
 
       const { width, height } = useWindowSize()

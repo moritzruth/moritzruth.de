@@ -28,15 +28,15 @@
 </style>
 
 <script lang="ts">
-  import TopBarLayout from "../../components/TopBarLayout.vue"
-  import { getPostBySlug } from "../../posts"
+  import TopBarLayout from "./TopBarLayout.vue"
+  import { getPostBySlug } from "../posts"
   import { useRoute } from "vue-router"
-  import Prose from "../../components/Prose.vue"
-  import XSpacer from "../../components/XSpacer.vue"
-  import NotFoundPage from "../../components/NotFoundPage.vue"
+  import Prose from "./Prose.vue"
+  import XSpacer from "./XSpacer.vue"
+  import NotFoundPage from "./NotFoundPage.vue"
 
   export default {
-    name: "BlogPostPage",
+    name: "BlogPostPageContent",
     components: { NotFoundPage, XSpacer, Prose, TopBarLayout },
     async setup() {
       const route = useRoute()
