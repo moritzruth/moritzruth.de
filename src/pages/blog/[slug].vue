@@ -1,6 +1,6 @@
 <template>
   <NotFoundPage v-if="post === null" object-name="post" back-target="/blog"/>
-  <TopBarLayout title="Blog" back-target="/blog" v-else>
+  <TopBarLayout v-else title="Blog" back-target="/blog">
     <article>
       <h1 class="font-bold text-3xl sm:text-3xl sm:text-center font-special">
         {{ post.title }}
@@ -28,9 +28,9 @@
 </style>
 
 <script lang="ts">
+  import { useRoute } from "vue-router"
   import TopBarLayout from "../../components/TopBarLayout.vue"
   import { getPostBySlug } from "../../posts"
-  import { useRoute } from "vue-router"
   import Prose from "../../components/Prose.vue"
   import XSpacer from "../../components/XSpacer.vue"
   import NotFoundPage from "../../components/NotFoundPage.vue"

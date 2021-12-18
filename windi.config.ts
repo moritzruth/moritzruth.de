@@ -25,9 +25,7 @@ export default defineConfig({
   plugins: [
     scrollSnapPlugin,
     plugin(({ addVariant }) => {
-      addVariant("can-hover", ({ atRule }) => {
-        return atRule("@media(hover: hover)")
-      })
+      addVariant("can-hover", ({ atRule }) => atRule("@media(hover: hover)"))
     })
   ]
 })

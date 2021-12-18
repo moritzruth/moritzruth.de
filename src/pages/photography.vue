@@ -34,14 +34,12 @@
 <script lang="ts">
   import TopBarLayout from "../components/TopBarLayout.vue"
   import { photos } from "../photos"
-  import XSpacer from "../components/XSpacer.vue"
   import SuspendingImage from "../components/SuspendingImage.vue"
 
   export default {
     name: "PhotographyPage",
-    components: { SuspendingImage, XSpacer, TopBarLayout },
+    components: { SuspendingImage, TopBarLayout },
     setup() {
-
       return {
         photos
       }

@@ -93,10 +93,10 @@
 </style>
 
 <script>
+  import { useHead } from "@vueuse/head"
   import BlurredBlobCanvas from "../components/BlurredBlobCanvas.vue"
   import XSpacer from "../components/XSpacer.vue"
   import LinkCardList from "../components/LinkCardList.vue"
-  import { useHead } from "@vueuse/head"
 
   const NAVIGATION_LINKS = [
     {

@@ -1,7 +1,8 @@
 <template>
   <div class="h-100vh flex flex-col justify-between">
     <div class="w-full max-w-1000px mx-auto">
-      <div class="bg-background bg-opacity-70 backdrop-filter backdrop-blur-sm backdrop-saturate-200 px-6 py-4 sm:py-8 text-light-900 sticky top-0 z-10 flex items-center justify-between">
+      <div class="bg-background bg-opacity-70 backdrop-filter backdrop-blur-sm backdrop-saturate-200 px-6 py-4 sm:py-8 text-light-900 sticky top-0 z-10
+                  flex items-center justify-between">
         <div class="w-0">
           <router-link :to="backTarget" class="w-8 flex items-center group relative">
             <ArrowLeftIcon class="text-2xl"/>
@@ -35,12 +36,13 @@
 </style>
 
 <script>
-  import ArrowLeftIcon from "~icons/ph/arrow-left"
   import { useHead } from "@vueuse/head"
+  import ArrowLeftIcon from "~icons/ph/arrow-left"
 
   export default {
     name: "TopBarLayout",
     components: { ArrowLeftIcon },
+    inheritAttrs: false,
     props: {
       backTarget: {
         type: String,

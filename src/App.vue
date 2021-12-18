@@ -31,7 +31,6 @@
     overflow-x: hidden;
     width: 100vw;
     min-height: 100vh;
-    font-size: 17px;
   }
 
   .centerLoadingText {
@@ -64,8 +63,8 @@
 <script lang="ts">
   import { computed, ref } from "vue"
   import { useIntervalFn, useWindowSize, whenever } from "@vueuse/core"
-  import { pageComponentLoading } from "./store"
   import { useRouter } from "vue-router"
+  import { pageComponentLoading } from "./store"
 
   export default {
     name: "App",
@@ -75,7 +74,7 @@
       const START_TRANSITION_DURATION = 200
       const START_TRANSITION_DELAY = 0
 
-      const loadingTexts = ref<Array<{ x: number, y: number }>>([])
+      const loadingTexts = ref<Array<{ x: number; y: number }>>([])
 
       const stopLoading = () => {
         isLoadingScreenActive.value = false
@@ -130,31 +129,29 @@
             return {
               "--tw-bg-opacity": 1,
               "--tw-backdrop-blur": "blur(20px)",
-              transitionDelay: `${START_TRANSITION_DELAY}ms`,
-              transition: `background ${START_TRANSITION_DURATION}ms ease, backdrop-filter 100ms linear`
+              "transitionDelay": `${START_TRANSITION_DELAY}ms`,
+              "transition": `background ${START_TRANSITION_DURATION}ms ease, backdrop-filter 100ms linear`
             }
-          } else {
-            return {
-              "--tw-bg-opacity": 0,
-              "--tw-backdrop-blur": 0,
-              transition: "background 200ms ease, backdrop-filter 200ms linear",
-              pointerEvents: "none"
-            }
+          }
+          return {
+            "--tw-bg-opacity": 0,
+            "--tw-backdrop-blur": 0,
+            "transition": "background 200ms ease, backdrop-filter 200ms linear",
+            "pointerEvents": "none"
           }
         }),
         loadingOverlayContentStyle: computed(() => {
           if (isLoadingScreenActive.value) {
             return {
               opacity: 1,
-              transition: `opacity 2s ease-out`,
+              transition: "opacity 2s ease-out",
               transitionDelay: "1s"
             }
-          } else {
-            return {
-              opacity: 0,
-              transition: `opacity 100ms ease-out`,
-              pointerEvents: "none"
-            }
+          }
+          return {
+            opacity: 0,
+            transition: "opacity 100ms ease-out",
+            pointerEvents: "none"
           }
         })
       }

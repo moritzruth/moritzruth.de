@@ -30,14 +30,14 @@
 </style>
 
 <script>
+  import { computed } from "vue"
+  import { useRoute } from "vue-router"
   import TopBarLayout from "../components/TopBarLayout.vue"
   import LinkCardList from "../components/LinkCardList.vue"
   import BlurredBlobCanvas from "../components/BlurredBlobCanvas.vue"
   import MatrixIcon from "~icons/simple-icons/matrix"
   import TwitterIcon from "~icons/simple-icons/twitter"
   import EmailIcon from "~icons/carbon/email"
-  import { computed } from "vue"
-  import { useRoute } from "vue-router"
 
   export default {
     name: "ContactPage",

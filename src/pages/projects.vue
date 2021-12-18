@@ -12,12 +12,11 @@
 
 <script>
   import TopBarLayout from "../components/TopBarLayout.vue"
-  import ArrowRightIcon from "~icons/ph/arrow-right"
   import LinkCardList from "../components/LinkCardList.vue"
 
   export default {
     name: "ProjectsPage",
-    components: { LinkCardList, TopBarLayout, ArrowRightIcon },
+    components: { LinkCardList, TopBarLayout },
     setup() {
       const projects = [
         {

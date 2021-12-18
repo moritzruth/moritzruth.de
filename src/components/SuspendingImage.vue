@@ -9,11 +9,12 @@
 <script>
   import { $fetch } from "ohmyfetch"
 
+  // eslint-disable-next-line no-promise-executor-return
   const waitForAnimationFrame = () => new Promise(resolve => requestAnimationFrame(resolve))
 
   const asyncSetup = async src => {
     const blob = await $fetch(src)
-    await waitForAnimationFrame()
+    await waitForAnimationFrame() // makes sure the browser is idle
     return {
       objectUrl: URL.createObjectURL(blob)
     }
@@ -36,9 +37,8 @@
         return {
           objectUrl: props.src
         }
-      } else {
-        return asyncSetup(props.src)
       }
+      return asyncSetup(props.src)
     }
   }
 </script>

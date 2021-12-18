@@ -16,9 +16,7 @@ export default defineConfig({
   ssgOptions: {
     formatting: "minify",
     includedRoutes(routes) {
-      return routes.filter(route => {
-        return /* Dynamic routes: */ !route.includes(":") && /* Blog post overview: */route !== "/blog"
-      })
+      return routes.filter(route => !route.includes(":") && route !== "/blog")
     }
   }
 })

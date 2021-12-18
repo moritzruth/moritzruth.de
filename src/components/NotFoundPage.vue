@@ -19,8 +19,8 @@
 </style>
 
 <script>
-  import ArrowLeftIcon from "~icons/ph/arrow-left"
   import XSpacer from "../components/XSpacer.vue"
+  import ArrowLeftIcon from "~icons/ph/arrow-left"
 
   export default {
     name: "NotFoundPage",
