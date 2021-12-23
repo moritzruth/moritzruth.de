@@ -15,6 +15,7 @@ export default defineConfig({
   ],
   ssgOptions: {
     formatting: "minify",
+    format: "cjs",
     includedRoutes(routes) {
       return routes.filter(route => !route.includes(":") && route !== "/blog")
     }
