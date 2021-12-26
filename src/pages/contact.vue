@@ -75,7 +75,7 @@
               icon: MatrixIcon,
               href: "https://moritzruth.de/matrix",
               label: "Matrix",
-              description: "@moritz:moritzruth.de"
+              description: "@moritz:deltaa.xyz"
             },
             {
               icon: TwitterIcon,

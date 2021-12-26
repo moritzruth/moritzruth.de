@@ -22,7 +22,7 @@
           Email address: <a href="mailto:legal@moritzruth.de">legal@moritzruth.de</a>
         </p>
         <p>
-          Matrix: <a href="https://moritzruth.de/matrix">@moritz:moritzruth.de</a>
+          Matrix: <a href="https://moritzruth.de/matrix">@moritz:deltaa.xyz</a>
         </p>
       </section>
     </Prose>
