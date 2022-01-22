@@ -26,7 +26,7 @@
           icon: "🍓"
         },
         {
-          label: "Status Page Finder",
+          label: "Status page finder",
           description: "Enter the name of a service and get a link to its status page.",
           href: "https://statuspages.moritzruth.de",
           icon: "🟢"
