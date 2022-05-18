@@ -2,8 +2,8 @@
   <TopBarLayout back-target="/" title="Contact">
     <div class="text-lg p-5 max-w-130 mx-auto">
       <div class="space-y-4 text-xl">
-        <p>For business inquiries, please use Matrix or Email.</p>
-        <p>Matrix should be used when encryption is desired.</p>
+        <p>For business inquiries, please use <!-- Matrix or --> Email.</p>
+        <!-- <p>Matrix should be used when encryption is desired.</p> -->
       </div>
       <div class="pt-6 relative flex items-center">
         <div class="absolute w-full">
