@@ -71,12 +71,12 @@
           }
 
           l.push(
-            {
-              icon: MatrixIcon,
-              href: "https://moritzruth.de/matrix",
-              label: "Matrix",
-              description: "@moritz:deltaa.xyz"
-            },
+            //{
+            //  icon: MatrixIcon,
+            //  href: "https://moritzruth.de/matrix",
+            //  label: "Matrix",
+            //  description: "@moritz:deltaa.xyz"
+            //},
             {
               icon: TwitterIcon,
               href: "https://moritzruth.de/twitter",
