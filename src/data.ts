@@ -26,7 +26,7 @@ export const photos: Photo[] = [
     title: "Heat",
     altText: "An orange passageway with windows on all walls",
     date: "2022",
-    description: "A passageway Venice."
+    description: "A passageway in Venice."
   }
 ]
 
