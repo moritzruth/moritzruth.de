@@ -1,0 +1,5 @@
+The app (JamRSS) does not collect any user data by itself. For feed sources, please consider their own respective policies.
+
+---
+
+Die App (JamRSS) erhebt selbst keine Daten. Jedoch müssen die Datenschutzbestimmungen der hinzugefügten Feeds berücksichtigt werden.
