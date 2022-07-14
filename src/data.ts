@@ -20,6 +20,13 @@ export const photos: Photo[] = [
     altText: "A church on a vineyard",
     date: "2019",
     description: "The Sankt-Laurentius church right by the Mosel river in Bremm (Germany)."
+  },
+  {
+    file: "Heat.webp",
+    title: "Heat",
+    altText: "An orange passageway with windows on all walls",
+    date: "2022",
+    description: "A passageway Venice."
   }
 ]
 

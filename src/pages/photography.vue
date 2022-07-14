@@ -6,11 +6,13 @@
         :key="photo.file"
         class="flex -lg:space-y-10 lg:space-x-10 -lg:flex-col -lg:items-center"
       >
-        <SuspendingImage
-          :src="`/photography/${photo.file}`"
-          :alt="photo.altText"
-          class="w-full lg:max-w-150 max-h-80vh block object-contain"
-        />
+        <a class="lg:max-w-150 block w-full" :href="`/photography/${photo.file}`">
+          <SuspendingImage
+            :src="`/photography/${photo.file}`"
+            :alt="photo.altText"
+            class="w-full max-h-80vh block object-contain"
+          />
+        </a>
         <div>
           <div class="text-gray-400">
             {{ photo.date }}
