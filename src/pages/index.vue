@@ -1,8 +1,8 @@
 <template>
   <div class="min-h-100vh w-full flex flex-col items-center justify-between">
-    <div class="w-full max-w-1200px flex justify-between -lg:flex-col p-5 sm:p-10">
-      <div class="relative pt-20">
-        <div class="absolute top-60 -left-20 lg:-left-10">
+    <div class="w-full max-w-1200px flex justify-between -lg:flex-col p-5 sm:p-10 lg:pt-25vh">
+      <div class="relative">
+        <div class="absolute top-40 -left-20 lg:-left-10">
           <BlurredBlobCanvas
             :blur="30"
             :size="300"
@@ -14,7 +14,7 @@
             :colors="['#eb34cf', '#6577fc']"
           />
         </div>
-        <main class="relative max-w-130 p-2 lg:pl-10">
+        <main class="relative max-w-130 p-2 -lg:pt-20 lg:pl-10">
           <div class="font-bold font-special text-3xl sm:text-4xl">
             Moritz Ruth
           </div>
@@ -29,15 +29,14 @@
             <XSpacer v="5"/>
             <p>
               I&nbsp;primarily&nbsp;focus&nbsp;on
-              Web&nbsp;and&nbsp;Android&nbsp;development,
-              but&nbsp;I&nbsp;also&nbsp;do&nbsp;Backend&nbsp;sometimes.
+              full-stack Web&nbsp;and&nbsp;Android&nbsp;development.
             </p>
           </div>
           <XSpacer v="10"/>
           <router-link to="/contact" :class="$style.reachOut">Reach out</router-link>
         </main>
       </div>
-      <div class="relative lg:pr-20 pt-20 pb-10 mt-0">
+      <div class="relative lg:pr-20 -lg:pt-20 pb-10 mt-0">
         <nav class="absolute w-full pt-20 flex justify-center">
           <BlurredBlobCanvas
             :blur="30"
