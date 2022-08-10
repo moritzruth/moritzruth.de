@@ -9,10 +9,10 @@
         <ol>
           <li>Die nachfolgenden Bestimmungen gelten für alle zwischen Moritz Ruth und dem Auftraggeber geschlossenen Verträge.</li>
           <li>
-            Abweichende, widersprüchliche oder ergänzende Allgemeine Geschäftsbedingungen des Auftraggebers gelten nur nach ausdrücklicher,
-            schriftlicher Zustimmung von Moritz Ruth.
+            Abweichende, widersprüchliche oder ergänzende Allgemeine Geschäftsbedingungen des Auftraggebers gelten nur nach ausdrücklicher
+            Zustimmung von Moritz Ruth in Textform.
           </li>
-          <li>Änderungen und Ergänzungen des Vertrags bedürfen der Schriftform, um wirksam zu sein.</li>
+          <li>Änderungen und Ergänzungen des Vertrags bedürfen der Textform, um wirksam zu sein.</li>
         </ol>
       </section>
       <section>
@@ -27,7 +27,7 @@
           </li>
           <li>
             Moritz Ruth ist nicht verpflichtet, Quellcode und offene Dateien herauszugeben. Ist dies dennoch gewünscht,
-            so muss es schriftlich vereinbart und gesondert vergütet werden.
+            so muss es textlich vereinbart und gesondert vergütet werden.
           </li>
           <li>Moritz Ruth bestimmt den Tätigkeitsort nach freiem Ermessen.</li>
           <li>Moritz Ruth steht es frei, auch für andere Auftraggeber tätig zu werden.</li>
