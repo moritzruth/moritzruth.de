@@ -38,7 +38,7 @@
   import Prose from "../components/Prose.vue"
 
   export default {
-    name: "TermsPage",
+    name: "LegalNoticePage",
     components: { Prose, TopBarLayout }
   }
 </script>

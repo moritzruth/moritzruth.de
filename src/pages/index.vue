@@ -53,9 +53,6 @@
       </div>
     </div>
     <footer class="flex justify-center opacity-30 hover:opacity-60 transition duration-400 space-x-5 pb-10">
-      <router-link to="/terms">
-        Terms
-      </router-link>
       <router-link to="/legal-notice">
         Legal Notice
       </router-link>
