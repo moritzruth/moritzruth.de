@@ -29,65 +29,25 @@
 
 </style>
 
-<script>
-  import { computed } from "vue"
-  import { useRoute } from "vue-router"
+<script setup>
   import TopBarLayout from "../components/TopBarLayout.vue"
   import LinkCardList from "../components/LinkCardList.vue"
   import BlurredBlobCanvas from "../components/BlurredBlobCanvas.vue"
   import MatrixIcon from "~icons/simple-icons/matrix"
-  import TwitterIcon from "~icons/simple-icons/twitter"
   import EmailIcon from "~icons/carbon/email"
-
-  export default {
-    name: "ContactPage",
-    components: { BlurredBlobCanvas, LinkCardList, TopBarLayout },
-    setup() {
-      const route = useRoute()
-
-      return {
-        links: computed(() => {
-          const l = []
-
-          if (route.query.ref === "jamrss") {
-            l.push({
-              icon: EmailIcon,
-              href: "mailto:apps@moritzruth.de",
-              label: "Email (regarding apps)",
-              description: "apps@moritzruth.de"
-            }, {
-              icon: EmailIcon,
-              href: "mailto:hey@deltaa.xyz",
-              label: "Email (everything else)",
-              description: "hey@deltaa.xyz"
-            })
-          } else {
-            l.push({
-              icon: EmailIcon,
-              href: "mailto:hey@deltaa.xyz",
-              label: "Email",
-              description: "hey@deltaa.xyz"
-            })
-          }
-
-          l.push(
-            {
-              icon: MatrixIcon,
-              href: "https://moritzruth.de/matrix",
-              label: "Matrix",
-              description: "@moritz:deltaa.xyz"
-            },
-            {
-              icon: TwitterIcon,
-              href: "https://moritzruth.de/twitter",
-              label: "Twitter",
-              description: "moritzruth"
-            }
-          )
-
-          return l
-        })
-      }
+  
+  const links = [
+    {
+      icon: MatrixIcon,
+      href: "https://moritzruth.de/matrix",
+      label: "Matrix",
+      description: "@moritz:deltaa.xyz"
+    },
+    {
+      icon: EmailIcon,
+      href: "mailto:hey@deltaa.xyz",
+      label: "Email",
+      description: "hey@deltaa.xyz"
     }
-  }
+  ]
 </script>
