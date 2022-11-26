@@ -102,12 +102,6 @@
       description: "My thoughts, mostly on dev things"
     },
     {
-      icon: "✨",
-      to: "/projects",
-      label: "Projects",
-      description: "Apps and open-source projects"
-    },
-    {
       iconClasses: "top-[-0.25rem]",
       icon: "📷",
       to: "/photography",
@@ -118,7 +112,7 @@
       icon: "💬",
       to: "/contact",
       label: "Contact me",
-      description: "Email, Matrix, Twitter"
+      description: "Email, Matrix"
     }
   ]
 
