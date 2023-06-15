@@ -26,11 +26,6 @@
               <router-link to="/photography" :class="$style.link">hobby&nbsp;photographer</router-link>
               from&nbsp;Europe.
             </p>
-            <XSpacer v="5"/>
-            <p>
-              I&nbsp;primarily&nbsp;focus&nbsp;on
-              full-stack Web&nbsp;and&nbsp;Android&nbsp;development.
-            </p>
           </div>
           <XSpacer v="10"/>
           <router-link to="/contact" :class="$style.reachOut">Reach out</router-link>
@@ -95,12 +90,12 @@
   import LinkCardList from "../components/LinkCardList.vue"
 
   const NAVIGATION_LINKS = [
-    {
-      icon: "📝",
-      to: "/blog",
-      label: "Blog",
-      description: "My thoughts, mostly on dev things"
-    },
+    // {
+    //   icon: "📝",
+    //   to: "/blog",
+    //   label: "Blog",
+    //   description: "My thoughts, mostly on dev things"
+    // },
     {
       iconClasses: "top-[-0.25rem]",
       icon: "📷",
