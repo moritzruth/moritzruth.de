@@ -21,7 +21,7 @@
           <div class="text-lg sm:text-xl font-medium leading-8 pt-5">
             <p>
               I’m&nbsp;a&nbsp;freelance
-              <router-link to="/projects" :class="$style.link">software&nbsp;developer</router-link>,
+              software&nbsp;developer,
               graphic&nbsp;design&nbsp;enthusiast&nbsp;and
               <router-link to="/photography" :class="$style.link">hobby&nbsp;photographer</router-link>
               from&nbsp;Europe.
